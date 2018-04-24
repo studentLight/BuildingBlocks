@@ -1,1 +1,6 @@
 /* CSS declarations go here */
+
+
+.navbar-gradient{
+  background: linear-gradient(to right, #18ffff  , #bf360c );
+}
