@@ -1,6 +1,14 @@
 /* CSS declarations go here */
 
 
-.navbar-gradient{
+.cyan-red-gradient{
   background: linear-gradient(to right, #0097a7   , #bf360c );
+}
+
+.black-grey-gradient{
+  background: linear-gradient(to right, #000000   , #212121);
+}
+
+.navButton-grid{
+
 }
