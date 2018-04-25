@@ -1,4 +1,4 @@
 
 
 import '../components/navbar.js';
-import './home.html';
+import './homePage.html';
