@@ -1,29 +1,16 @@
 /* CSS declarations go here */
 
-html, body {
-    height: 100%;
-}
-
-#dimScreen
-{
-    width: 100%;
-    height: 100%;
-    background:rgba(0,0,0,0.5);
-}
-
-
-
 
 .pop:hover{
   transform: scale(1.10);
 }
 
-.cyan-red-gradient{
-  background: linear-gradient(to right, #0097a7   , #bf360c );
+.blue-gradient{
+  background: linear-gradient(to right, #1976d2    , #0d47a1  );
 }
 
-.black-grey-gradient{
-  background: linear-gradient(to right, #000000   , #212121);
+.yellow-gradient{
+  background: linear-gradient(to right, #f9a825   , #ffeb3b  );
 }
 
 .navButton-grid{
@@ -42,13 +29,20 @@ html, body {
   color: white;
 }
 
-.padding-2p{
+.padding-2p {
   padding-top: 2%;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 #coverPageDiv {
 
-    position:relative;
+    position: relative;
     padding:0px;
     margin:0px;
 
@@ -57,5 +51,5 @@ html, body {
 
     width: 100%;
     height: 100%;
-    min-height: 900px;
+    min-height: 755px;
 }
