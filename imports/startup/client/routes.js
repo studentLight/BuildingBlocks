@@ -4,6 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/pages/home.js';
 import '../../ui/pages/mapPage.js';
 import '../../ui/pages/codePage.js';
+import '../../ui/pages/parkPage.js';
 
 FlowRouter.route('/', {
     name: 'home', //Reference name
@@ -23,5 +24,12 @@ FlowRouter.route('/codePage', {
     name: 'codePage', //Reference name
     action() {  //What actually happens.
         BlazeLayout.render('codePage'); //Render our HomeLayout as soon as we route to /home
+    }
+});
+
+FlowRouter.route('/parkPage', {
+    name: 'parkPage', //Reference name
+    action() {  //What actually happens.
+        BlazeLayout.render('parkPage'); //Render our HomeLayout as soon as we route to /home
     }
 });
