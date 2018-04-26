@@ -40,3 +40,10 @@ FlowRouter.route('/challengesPage', {
         BlazeLayout.render('challengesPage'); //Render our HomeLayout as soon as we route to /home
       }
   });
+
+  FlowRouter.route('/challengesDisplayPage', {
+      name: 'challengesDisplayPage', //Reference name
+      action() {  //What actually happens.
+          BlazeLayout.render('challengesDisplayPage'); //Render our HomeLayout as soon as we route to /home
+        }
+    });
