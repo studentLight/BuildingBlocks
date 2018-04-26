@@ -5,6 +5,7 @@ import '../../ui/pages/homePage.js';
 import '../../ui/pages/mapPage.js';
 import '../../ui/pages/codePage.js';
 import '../../ui/pages/parkPage.js';
+import '../../ui/pages/challengesPage.js';
 
 FlowRouter.route('/', {
     name: 'homePage', //Reference name
@@ -33,3 +34,9 @@ FlowRouter.route('/parkPage', {
         BlazeLayout.render('parkPage'); //Render our HomeLayout as soon as we route to /home
     }
 });
+FlowRouter.route('/challengesPage', {
+    name: 'challengesPage', //Reference name
+    action() {  //What actually happens.
+        BlazeLayout.render('challengesPage'); //Render our HomeLayout as soon as we route to /home
+      }
+  });
