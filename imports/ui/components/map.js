@@ -11,13 +11,15 @@ Meteor.startup(function() {
     mapOptions: function() {
       if (GoogleMaps.loaded()) {
         return {
-          center: new google.maps.LatLng(-37.8136, 144.9631),
-          zoom: 8
+            //koordinaterna som visas när kartan laddas
+          center: new google.maps.LatLng(59.338292, 18.054504),
+          zoom: 17
         };
       }
     }
   });
 
+  //testkod för att se att kartan skapats i consolen
   Template.map.onCreated(function() {  
     GoogleMaps.ready('map', function(map) {
        console.log("I'm ready!");
