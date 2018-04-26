@@ -11,6 +11,7 @@
 
 .yellow-gradient{
   background: linear-gradient(to right, #f9a825   , #ffeb3b  );
+  text-align:center;
 }
 
 .navButton-grid{
