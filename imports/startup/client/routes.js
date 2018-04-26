@@ -6,6 +6,8 @@ import '../../ui/pages/mapPage.js';
 import '../../ui/pages/codePage.js';
 import '../../ui/pages/parkPage.js';
 import '../../ui/pages/challengesPage.js';
+import '../../ui/pages/challengesDisplayPage.js';
+
 
 FlowRouter.route('/', {
     name: 'homePage', //Reference name
@@ -39,11 +41,11 @@ FlowRouter.route('/challengesPage', {
     action() {  //What actually happens.
         BlazeLayout.render('challengesPage'); //Render our HomeLayout as soon as we route to /home
       }
-  });
+});
 
   FlowRouter.route('/challengesDisplayPage', {
       name: 'challengesDisplayPage', //Reference name
       action() {  //What actually happens.
           BlazeLayout.render('challengesDisplayPage'); //Render our HomeLayout as soon as we route to /home
         }
-    });
+});
