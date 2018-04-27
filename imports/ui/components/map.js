@@ -12,8 +12,8 @@ Meteor.startup(function() {
       if (GoogleMaps.loaded()) {
         return {
             //koordinaterna som visas när kartan laddas
-          center: new google.maps.LatLng(59.338292, 18.054504),
-          zoom: 17
+          center: new google.maps.LatLng(59.33, 18.07),
+          zoom: 11
         };
       }
     }
@@ -22,7 +22,13 @@ Meteor.startup(function() {
   //testkod för att se att kartan skapats i consolen
   Template.map.onCreated(function() {  
     GoogleMaps.ready('map', function(map) {
-       console.log("I'm ready!");
+      console.log('Map is ready')
+  
+      // The code shown below goes here
+     
+
     });
   });
   
+  Markers = new Mongo.Collection('markers');
+
