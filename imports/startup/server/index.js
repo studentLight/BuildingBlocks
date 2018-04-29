@@ -1,1 +1,2 @@
-// import '../imports/api/challenges.js';
+
+import './fixtures.js';
