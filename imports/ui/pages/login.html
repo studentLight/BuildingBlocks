@@ -1,0 +1,38 @@
+<template name="login">
+
+  <style>
+
+    a {
+      color: #ff9900;
+    }
+
+    a:hover {
+      color: #ff8800;
+      opacity: 0.6;
+      text-decoration: none;
+    }
+
+    p {
+      font-size: 20px!important;
+    }
+
+  </style>
+
+
+  {{>header}}
+
+    <div id="coverPageDiv" class="row blue-gradient">
+
+        <!-- Front Login Page -->
+        <div style="margin-top: 100px;" class="row col s12 white-text">
+
+            <div class="col s1 l1"></div> <!-- DUMMY -->
+            <div class="col s10 l10">
+              {{> atForm}}
+            </div>
+            <div class="col s1 l1"></div> <!-- DUMMY -->
+
+        </div>
+    </div>
+
+  </template>

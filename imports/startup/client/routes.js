@@ -7,12 +7,20 @@ import '../../ui/pages/codePage.js';
 import '../../ui/pages/parkPage.js';
 import '../../ui/pages/challengesPage.js';
 import '../../ui/pages/challengesDisplayPage.js';
+import '../../ui/pages/login.js';
 
 
 FlowRouter.route('/', {
     name: 'homePage', //Reference name
     action() {  //What actually happens.
         BlazeLayout.render('homePage'); //Render our HomeLayout as soon as we route to /home
+    }
+});
+
+FlowRouter.route('/login', {
+    name: 'login', //Reference name
+    action() {  //What actually happens.
+        BlazeLayout.render('login'); //Render
     }
 });
 
