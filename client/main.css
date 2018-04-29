@@ -1,25 +1,33 @@
 /* CSS declarations go here */
+template, body {
+  height: 100%;
+}
 
+.halfHeight {
+  height: 50%;
+  overflow-y:auto;
+}
 
-.pop:hover{
-  transform: scale(1.10);
+.grey-gradient {
+  background: radial-gradient(#424242  , #212121 );
+}
+.noPadding{
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.backgroundMain{
+  background: #332347;
 }
 
 .blue-gradient{
-  background: linear-gradient(to right, #1976d2    , #0d47a1  );
+  background: linear-gradient(to right, #1976d2, #0d47a1  );
 }
-.purple-white-gradient {
-  background: linear-gradient(#212121   , #4a148c);
-}
-
-.yellow-gradient{
-  background: linear-gradient(to right, #f9a825   , #ffeb3b  );
-  text-align:center;
+.navbar-gradient {
+  background: linear-gradient(#22172f , #1b1225);
 }
 
-.navButton-grid{
-
-}
 
 .cyan-background {
   background-color: #00b8d4 ;
@@ -46,16 +54,16 @@
 
 #coverPageDiv {
 
-    position: relative;
-    padding:0px;
-    margin:0px;
+  position:relative;
+  padding:0px;
+  margin:0px;
 
-    top:0px;
-    left:0px;
+  top:0px;
+  left:0px;
 
-    width: 100%;
-    height: 100%;
-    min-height: 755px;
+  width: 100%;
+  height: 100%;
+  min-height: 850px;
 }
 .map-container {
   width: 100%;
