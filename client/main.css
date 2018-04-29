@@ -8,6 +8,9 @@
 .blue-gradient{
   background: linear-gradient(to right, #1976d2    , #0d47a1  );
 }
+.purple-white-gradient {
+  background: linear-gradient(#212121   , #4a148c);
+}
 
 .yellow-gradient{
   background: linear-gradient(to right, #f9a825   , #ffeb3b  );
