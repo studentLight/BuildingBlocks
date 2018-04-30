@@ -11,23 +11,31 @@ template, body {
 .grey-gradient {
   background: radial-gradient(#424242  , #212121 );
 }
+
 .noPadding{
   padding-right: 0px;
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.backgroundMain{
-  background: #332347;
+
+.backgroundMain {
+  /* background: #332347; */
+  background: #292233;
+}
+
+.backGroundMainIMG {
+  background-image: url("../imports/ui/components/pictures/blackBlocks.jpg");
 }
 
 .blue-gradient{
   background: linear-gradient(to right, #1976d2, #0d47a1  );
 }
-.navbar-gradient {
-  background: linear-gradient(#22172f , #1b1225);
-}
 
+.navbar-gradient {
+  background: linear-gradient(to right, #512da8   , #311b92 );
+  /* background: linear-gradient(to right, #303f9f  , #1a237e ); */
+}
 
 .cyan-background {
   background-color: #00b8d4 ;
