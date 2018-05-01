@@ -14,18 +14,24 @@
     <ul>
       {{#each challengehelper}}
         <div class ="listItem">
+        <li>
         {{> challange}}
+        </li>
         </div>
       {{/each}}
+
     </ul>
+
+    <!-- Modal Trigger -->
+    <a href="#modal1" id="modal1" class="btn btn-primary">Modal</a>
+    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+    {{> modal}}
   </div>
-
   </body>
+  </template>
 
-</template>
+
 
 <template name="challange">
-
   <li class="text">{{text}}</li>
-
 </template>

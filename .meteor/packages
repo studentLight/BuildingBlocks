@@ -30,3 +30,5 @@ accounts-password
 accounts-facebook
 accounts-google
 useraccounts:materialize
+twbs:bootstrap
+peppelg:bootstrap-3-modal
