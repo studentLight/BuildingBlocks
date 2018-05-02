@@ -23,8 +23,10 @@
     </ul>
 
     <!-- Modal Trigger -->
-    <a href="#modal1" id="modal1" class="btn btn-primary">Modal</a>
-    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+      <!-- <a class="modal-trigger" href="#modal1">Modal</a> -->
+      <button id="modal1" class="modal-trigger">Modal</button>
+       <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
     {{> modal}}
   </div>
   </body>
@@ -34,4 +36,17 @@
 
 <template name="challange">
   <li class="text">{{text}}</li>
+</template>
+
+<template name="modal">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 </template>
