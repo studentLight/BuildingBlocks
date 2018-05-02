@@ -2,7 +2,8 @@ import './parkPage.html';
 
 import '../components/navbar.js';
 import '../components/codeViewSelector.js';
-import {pageInitialize} from '../../api/pageInit.js'
+import {pageInitialize} from '../../api/pageInit.js';
+
 
 function pageInit() {
 
@@ -19,6 +20,7 @@ function pageInit() {
     "border-bottom": "solid #1a237e 3px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
+
 
 
 }
