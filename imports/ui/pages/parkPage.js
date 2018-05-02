@@ -22,12 +22,19 @@ function pageInit() {
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
-  var x = document.getElementById("workPlz").parentNode.parentElement.height;
+  var parentHeight = $('#workPlz').height();
+  var pos = $("#imgDiv").position();
+  var trueHeight = (parentHeight - pos.top) - 10;
+  console.log("Test" + trueHeight);
 
   $("#imgDiv").css({
-    "max-height": "20px",
+    "max-height": trueHeight,
+    "height": trueHeight,
     "max-width": "100%",
     "margin": "10px",
+    "overflow-x": "auto",
+
+
   });
 
 
