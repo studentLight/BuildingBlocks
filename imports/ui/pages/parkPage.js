@@ -17,7 +17,7 @@ function pageInit() {
   });
 
   $("#parkPageMainBody").css({
-    "background": "linear-gradient(yellow, blue)",
+    "background": "linear-gradient(gray, black)",
     "margin": "0",
 
   });
