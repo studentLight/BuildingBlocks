@@ -13,3 +13,10 @@ function pageInit() {
 Template.navbar.rendered = function(){
     pageInit();
 };
+
+Template.navbar.events({
+  'click .logout':  function(){
+    AccountsTemplates.logout();
+    //Meteor.logout();
+  },
+});
