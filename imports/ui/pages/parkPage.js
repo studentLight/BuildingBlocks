@@ -2,6 +2,7 @@ import './parkPage.html';
 
 import '../components/navbar.js';
 import '../components/codeViewSelector.js';
+import {pageInitialize} from '../../api/pageInit.js'
 
 function pageInit() {
 
@@ -15,11 +16,8 @@ function pageInit() {
     "background": "linear-gradient(#4caf50, #1b5e20)",
   });
 
-  var height = window.innerHeight;
-
   $("#parkPageMainBody").css({
-    "background": "linear-gradient(yellow, red)",
-    "height": height,
+    "background": "linear-gradient(yellow, blue)",
     "margin": "0",
 
   });
@@ -27,5 +25,6 @@ function pageInit() {
 }
 
 Template.parkPage.rendered = function(){
+    pageInitialize();
     pageInit();
 };
