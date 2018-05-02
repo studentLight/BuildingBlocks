@@ -8,12 +8,16 @@ function pageInit() {
 
 
 
-  $('#parkButton').fadeTo("slow", 0.80);
+  $('#codeButton').fadeTo("slow", 0.80);
+
+  $('#codeButton').css({
+    "background": "linear-gradient(#1976d2, #0d47a1)",
+  });
 
   $("#parkButton").css({
     "font-size": "120%",
-    "border-bottom": "solid yellow 3px",
-    "background": "linear-gradient(#4caf50, #1b5e20)",
+    "border-bottom": "solid #1a237e 3px",
+    "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
 
