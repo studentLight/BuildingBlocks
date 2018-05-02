@@ -16,15 +16,10 @@ function pageInit() {
     "background": "linear-gradient(#4caf50, #1b5e20)",
   });
 
-  $("#parkPageMainBody").css({
-    "background": "linear-gradient(gray, black)",
-    "margin": "0",
-
-  });
 
 }
 
 Template.parkPage.rendered = function(){
-    pageInitialize();
-    pageInit();
+  pageInitialize();
+  pageInit();
 };

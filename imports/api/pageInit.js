@@ -5,5 +5,5 @@ export function pageInitialize (){
   $("body").css({
     "height": height,
   });
-  
+
 }
