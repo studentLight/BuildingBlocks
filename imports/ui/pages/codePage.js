@@ -8,6 +8,8 @@ function pageInit() {
   $('#codeButton').animate({
     opacity: '0.5',
   });
+
+  
 }
 
 Template.codePage.rendered = function(){

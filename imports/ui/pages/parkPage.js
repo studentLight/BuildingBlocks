@@ -5,7 +5,7 @@ import '../components/codeViewSelector.js';
 
 function pageInit() {
 
-  var height = window.innerHeight;
+
 
   $('#parkButton').fadeTo("slow", 0.80);
 
@@ -14,6 +14,8 @@ function pageInit() {
     "border-bottom": "solid yellow 3px",
     "background": "linear-gradient(#4caf50, #1b5e20)",
   });
+
+  var height = window.innerHeight;
 
   $("#parkPageMainBody").css({
     "background": "linear-gradient(yellow, red)",
