@@ -1,10 +1,31 @@
 <template name="challengesDisplayPage">
   <body>
-    {{> navbar}}
+    {{> header}}
 
+    <div class="container">
 
-    <h1 class="center-align">stuff goes here</h1>
+    <header>
+      <h1 class="center-align">Display Utmaningar</h1>
+      <!-- <form class="new-challange">
+        <input type="text" name="text" placeholder="Type to add new challange" />
+      </form> -->
+    </header>
+
+    <ul>
+      {{#each challengehelper}}
+        <div class ="listItem">
+        {{> challange}}
+        </div>
+      {{/each}}
+    </ul>
+  </div>
 
   </body>
+
+</template>
+
+<template name="challange">
+
+  <li class="text">{{text}}</li>
 
 </template>
