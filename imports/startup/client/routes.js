@@ -33,7 +33,6 @@ FlowRouter.route('/login', {
     name: 'login', //Reference name
     action() {  //What actually happens.
         BlazeLayout.render('login'); //Render
-        checkLoggedIn();
     }
 });
 

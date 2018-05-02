@@ -8,6 +8,9 @@ AccountsTemplates.configure({
             // login successful, route to index
             FlowRouter.go('homePage');
         }
+        if ( !error && state === 'signUp'){
+          FlowRouter.go('homePage');
+        }
     },
     onLogoutHook: ( error, state ) => {
         FlowRouter.go('login');
