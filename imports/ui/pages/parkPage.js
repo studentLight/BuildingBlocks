@@ -5,6 +5,7 @@ import '../components/codeViewSelector.js';
 import {pageInitialize} from '../../api/pageInit.js';
 
 
+
 function pageInit() {
 
 
@@ -21,6 +22,13 @@ function pageInit() {
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
+  var x = document.getElementById("workPlz").parentNode.parentElement.height;
+
+  $("#imgDiv").css({
+    "max-height": "20px",
+    "max-width": "100%",
+    "margin": "10px",
+  });
 
 
 }
