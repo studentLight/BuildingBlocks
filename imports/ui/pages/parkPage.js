@@ -6,7 +6,7 @@ import {pageInitialize} from '../../api/pageInit.js';
 
 
 
-function pageInit() {
+function parkPageInit() {
 
 
 
@@ -24,17 +24,18 @@ function pageInit() {
 
   var parentHeight = $('#workPlz').height();
   var pos = $("#imgDiv").position();
-  var trueHeight = (parentHeight - pos.top) - 10;
-  console.log("Test" + trueHeight);
+  var trueHeight = (parentHeight - pos.top)-10;
 
   $("#imgDiv").css({
     "max-height": trueHeight,
-    "height": trueHeight,
+    //"height": trueHeight,
     "max-width": "100%",
     "margin": "10px",
     "overflow-x": "auto",
+  });
 
-
+  $("#imgHolder").css({
+    "content": "url(images/tegner.JPG)",
   });
 
 
@@ -42,5 +43,5 @@ function pageInit() {
 
 Template.parkPage.rendered = function(){
   pageInitialize();
-  pageInit();
+  parkPageInit();
 };
