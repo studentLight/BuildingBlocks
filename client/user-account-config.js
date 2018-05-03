@@ -107,7 +107,7 @@ AccountsTemplates.configure({
       signUpLink_link: "Skapa ett konto",
       signUpLink_suff: "",
       socialAdd: "Koppla",
-      socialConfigure: "Lägg till sociala medier för bästa möjliga användarupplevelse.",
+      socialConfigure: "",
       socialSignUp: "",
 
       socialSignUp: "Registrera",
