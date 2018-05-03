@@ -1,6 +1,6 @@
 import './login.html';
 import '../components/header.js';
-
+import '../components/overrides/overrides.js';
 
 // AccountsTemplates.configure({
 //     onSubmitHook: ( error, state ) => {
