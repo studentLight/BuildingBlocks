@@ -76,6 +76,6 @@ template, body {
   border: 1px solid #bbb;
   margin: auto;
   width: auto;
-  background: #eee;
-
+  background: #512da8;
+  /* text-align: center; */
 }

@@ -14,14 +14,25 @@ Template.challengesDisplayPage.helpers({
 
 Template.challengesDisplayPage.events({
   "click .openContact": function(event){
-    // $('#contact').leanModal();
-    // $("#contact").modal("open");
-    // $("#contact").showModal();
      $('#contact').openModal();
+   },
+
+  "click .openContact": function(event){
+    $('#close').closeModal();
   },
+
+  "click .listItem": function(event){
+     $('#contact').openModal();
+   },
+
+   "click .openContact": function(event){
+     $('#close').closeModal();
+   },
+
+
 });
+
  function tempPageInit(){
-   // $('.modal').modal();
      $('.openContact').leanModal();
  }
 Template.challengesDisplayPage.onRendered(function(){

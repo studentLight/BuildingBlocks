@@ -5,7 +5,7 @@
     <div class="container">
 
     <header>
-      <h1 class="center-align">Display Utmaningar</h1>
+      <h1 class="center-align">Utmaningar</h1>
       <!-- <form class="new-challange">
         <input type="text" name="text" placeholder="Type to add new challange" />
       </form> -->
@@ -17,7 +17,7 @@
       {{#each challengehelper}}
         <div class ="listItem">
         <li>
-        {{> challange}}
+          <a class="waves-effect waves-light btn deep-purple darken-2 openContact" href="#contact">{{> challange}}</a>
         </li>
         </div>
       {{/each}}
@@ -25,10 +25,7 @@
     </ul>
 
     <!-- Modal Trigger -->
-      <!-- <a class="modal-trigger" href="#modal1">Modal</a> -->
-      <!-- <button id="modal1" class="modal-trigger">Modal</button> -->
-      <a class="waves-effect waves-light btn openContact" href="#contact">Modal</a>
-       <!-- <a class="waves-effect waves-light btn modal-trigger" href="#contact">Modal</a> -->
+      <!-- <a class="waves-effect waves-light btn openContact" href="#contact">Modal</a> -->
 
     {{> contactModal}}
   </div>
