@@ -288,17 +288,16 @@ Template.map.helpers({
   }
 });
 
-var marker, i;
 //checks if map is ready and creates markers
 Template.map.onCreated(function () {
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-    /*
+    
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(59.338408, 18.054466),
           map: map.instance
       })
-  */
+  
 
     var playdisabled = '../images/light-bulb-dark.png';
     var playenabled = '../images/light-bulb-color.png';
@@ -318,11 +317,12 @@ Template.map.onCreated(function () {
       }
     };
     var parks = [
-      {//tegnerlunden
+      /*{//tegnerlunden
         position: new google.maps.LatLng(59.338374, 18.054490),
         type: 'playOn',
         parkname: 'Tegnérlunden',
-      }, {//obslunden parklek
+      }*/
+      , {//obslunden parklek
         position: new google.maps.LatLng(59.341571, 18.056179),
         type: 'playOn',
         parkname: 'Observatorielunden Parklek'
@@ -344,6 +344,7 @@ Template.map.onCreated(function () {
         parkname: 'Kungsholms Strand'
       }
     ];
+
     // Create markers.
     parks.forEach(function (park) {
       var marker = new google.maps.Marker({
@@ -363,7 +364,7 @@ Template.map.onCreated(function () {
       '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
       '</div>';
 
-    park.addListener(map.instance, 'click', function(event) {
+    marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
 
