@@ -34,9 +34,6 @@ accounts-password
 accounts-facebook
 accounts-google
 useraccounts:materialize
-<<<<<<< HEAD
 meteorstuff:materialize-modal
-=======
 raix:handlebar-helpers
 aldeed:template-extension
->>>>>>> LoginConfig
