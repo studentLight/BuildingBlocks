@@ -1,0 +1,42 @@
+<template name="override-atForm">
+  {{#unless hide}}
+    <div class="at-form">
+      {{#if showTitle}}
+        {{> atTitle}}
+      {{/if}}
+      <br>
+      {{#if showError}}
+        {{> atError}}
+      {{/if}}
+      {{#if showResult}}
+        {{> atResult}}
+      {{/if}}
+      {{#if showMessage}}
+        {{> atMessage}}
+      {{/if}}
+      {{#if showPwdForm}}
+        {{> atPwdForm}}
+      {{/if}}
+      <br><br>
+      {{#if showServicesSeparator}}
+        {{> atSep}}
+      {{/if}}
+      {{#if showOauthServices}}
+        {{> atOauth}}
+      {{/if}}
+      <br><br>
+      {{#if showSignUpLink}}
+        {{> atSignupLink}}
+      {{/if}}
+      {{#if showSignInLink}}
+        {{> atSigninLink}}
+      {{/if}}
+      {{#if showTermsLink}}
+        {{> atTermsLink}}
+      {{/if}}
+      {{#if showResendVerificationEmailLink}}
+        {{> atResendVerificationEmailLink}}
+      {{/if}}
+    </div>
+  {{/unless}}
+</template>
