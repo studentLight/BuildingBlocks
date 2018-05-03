@@ -1,5 +1,5 @@
 import './challengesDisplayPage.html';
-// import '../components/modals/modal.js';
+import '../components/modals/contactModal.js';
 import '../components/navbar.js';
 
 import { Challenges } from '../../api/collections/challenges.js';
@@ -13,33 +13,17 @@ Template.challengesDisplayPage.helpers({
 
 
 Template.challengesDisplayPage.events({
-  // 'click #modal1': function(e) {
-  //     e.preventDefault();
-  //
-  //     $('#modal1').modal('show');
-  //     // BlazeLayout.render('#modal');
-  //   }
-  'click  #modal1': function() {
-           $('#modal1').leanModal();
-           // var instance = M.Modal.getInstance(elem);
-           // instace.open();
-        //  BlazeLayout.render('modal');
-          // console.log("button was clicked");
-      }
+  "click .openContact": function(event){
+    // $('#contact').leanModal();
+    // $("#contact").modal("open");
+    // $("#contact").showModal();
+     $('#contact').openModal();
+  },
 });
-//
-// Template.challengesDisplayPage.onRendered({
-// //   $(document).ready(function() {
-// //   $('#modal1').leanModal();
-// // });
-//
-// });
-function pageInit() {
- $('.modal-trigger').leanModal();
- console.log("button was clicked");
-}
-
-Template.challengesDisplayPage.rendered = function(){
-    pageInit();
-
-};
+ function tempPageInit(){
+   // $('.modal').modal();
+     $('.openContact').leanModal();
+ }
+Template.challengesDisplayPage.onRendered(function(){
+  tempPageInit();
+});
