@@ -17,6 +17,5 @@ Template.navbar.rendered = function(){
 Template.navbar.events({
   'click .logout':  function(){
     AccountsTemplates.logout();
-    //Meteor.logout();
   },
 });
