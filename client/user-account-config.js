@@ -71,12 +71,69 @@ AccountsTemplates.configure({
 
     // Texts
     texts: {
+
       button: {
-          signUp: "Gå med!"
+        signUp: "Skapa konto!",
+        signIn: "Logga in!",
       },
+
+      errors: {
+        cannotRemoveService: "Du kan inte inaktivera din enda aktiva tjänst!",
+        captchaVerification: "Captcha verifering misslyckades",
+        loginForbidden: "Vi hittade inget konto med de givna detaljerna!",
+        mustBeLoggedIn: "Du måste vara inloggad!",
+        pwdMismatch: "Dina lösenord matchade inte!",
+        validationErrors: "Ett fel skedde i valideringen.",
+        verifyEmailFirst: "Var god verifiera din email först. Kolla din mail!",
+      },
+
+      /**
+      *   Advanced Texts Settings:
+      **/
+      navSignIn: "Logga in",
+      navSignOut: "Logga ut",
+      optionalField: "valfritt",
+      pwdLink_pre: "",
+      pwdLink_link: "Har du glömt ditt lösenord?",
+      pwdLink_suff: "",
+      resendVerificationEmailLink_pre: "Fick du inget verifieringsmail?",
+      resendVerificationEmailLink_link: "Skicka igen",
+      resendVerificationEmailLink_suff: "",
+      sep: "", //Eller logga in med: removed during alpha
+      signInLink_pre: "Har du redan ett konto?",
+      signInLink_link: "Logga in",
+      signInLink_suff: "",
+      signUpLink_pre: "Har du inget konto?",
+      signUpLink_link: "Skapa ett konto",
+      signUpLink_suff: "",
+      socialAdd: "Koppla",
+      socialConfigure: "Lägg till sociala medier för bästa möjliga användarupplevelse.",
+      socialSignUp: "",
+
       socialSignUp: "Registrera",
       socialIcons: {
-          "meteor-developer": "fa fa-rocket"
+          facebook: "fab fa-facebook-f",
+          google: "fab fa-google",
       },
-    },
+    }
 });
+
+AccountsTemplates.removeField('password');
+AccountsTemplates.removeField('email');
+AccountsTemplates.addFields([
+  {
+      _id: 'email',
+      type: 'email',
+      required: true,
+      displayName: "email",
+      re: /.+@(.+){2,}\.(.+){2,}/,
+      errStr: 'Felaktig Email!',
+  },
+  {
+      _id: "password",
+      type: "password",
+      displayName: "Lösenord",
+      required: true,
+      minLength: 3,
+  },
+]);
