@@ -56,6 +56,7 @@ meteor@1.8.6
 meteor-base@1.3.0
 meteorhacks:kadira@2.30.4
 meteorhacks:meteorx@1.4.1
+meteorstuff:materialize-modal@1.0.6
 meteortoys:allthings@4.0.0
 meteortoys:authenticate@4.0.0
 meteortoys:autopub@4.0.0
