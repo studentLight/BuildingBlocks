@@ -1,17 +1,17 @@
 import './parkPage.html';
 
-import '../components/navbar.js';
+import '../components/header.js';
 import '../components/codeViewSelector.js';
+
 import {pageInitialize} from '../../api/pageInit.js';
 
-import { LightPosts } from '../../api/collections/lightPosts.js';
+//import { LightPosts } from '../../api/collections/lightPosts.js';
 
 //import { withTracker } from 'meteor/react-meteor-data';
 
+function parkInit() {
 
-function parkPageInit() {
-
-
+  console.log("testar");
 
   $('#codeButton').fadeTo("slow", 0.80);
 
@@ -20,11 +20,12 @@ function parkPageInit() {
   });
 
   $("#parkButton").css({
-    "font-size": "120%",
+    "font-size": "220%",
     "border-bottom": "solid #1a237e 3px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
+/*
   var parentHeight = $('#workPlz').height();
   var pos = $("#imgDiv").position();
   var trueHeight = (parentHeight - pos.top)-10;
@@ -41,7 +42,9 @@ function parkPageInit() {
     "content": "url(images/tegner.JPG)",
   });
 
-  
+  */
+
+/*
   LightPosts.insert({title: '1', posX:10, posY:10, light:1, touch:0, sound:0, red:1, green:0, blue:0});
   LightPosts.insert({title: '2', posX:30, posY:30, light:1, touch:0, sound:0, red:1, green:0, blue:0});
   LightPosts.insert({title: '3', posX:50, posY:50, light:1, touch:0, sound:0, red:1, green:0, blue:0});
@@ -52,19 +55,22 @@ function parkPageInit() {
 
   console.log(LightPosts.find({}));
 
+*/
 
 
 }
 
 Template.parkPage.rendered = function(){
+  console.log("hej");
   pageInitialize();
-  parkPageInit();
+  parkInit();
 };
 
 
-
+/*
 Template.parkPage.helpers({
   parkPagehelper() {
     return LightPosts.find({});
   },
 });
+*/

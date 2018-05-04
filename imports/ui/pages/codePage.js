@@ -1,11 +1,13 @@
 import './codePage.html';
 
-import '../components/navbar.js';
+import '../components/header.js';
 import '../components/codeViewSelector.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
 
 function pageInit() {
+
+  console.log("test");
 
   $('#parkButton').fadeTo("slow", 0.80);
 
