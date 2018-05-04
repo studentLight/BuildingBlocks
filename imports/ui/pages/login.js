@@ -4,6 +4,6 @@ import '../components/overrides/overrides.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
 
-Template.parkPage.rendered = function(){
+Template.login.onRendered(function(){
   pageInitialize();
-};
+});
