@@ -53,10 +53,13 @@ function parkInit() {
 
   console.log("hej");
 
+<<<<<<< HEAD
   console.log(LightPosts.find({}));
 
 */
 
+=======
+>>>>>>> codeView
 
 }
 
