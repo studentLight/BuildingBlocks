@@ -1,5 +1,5 @@
 import '../components/map.html';
-
+/*
 <<<<<<< HEAD
 Meteor.startup(function() {
     GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry,places' });
@@ -24,7 +24,7 @@ Meteor.startup(function () {
 });
 
 
-//let LatLng = new google.maps.LatLng(59.33, 18.07) 
+//let LatLng = new google.maps.LatLng(59.33, 18.07)
 
 Template.map.helpers({
   mapOptions: function () {
@@ -339,12 +339,12 @@ Template.map.helpers({
 Template.map.onCreated(function () {
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-    
+
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(59.338408, 18.054466),
           map: map.instance
       })
-  
+
 
     var playdisabled = '../images/light-bulb-dark.png';
     var playenabled = '../images/light-bulb-color.png';
@@ -370,6 +370,8 @@ Template.map.onCreated(function () {
         type: 'playOn',
         parkname: 'Tegnérlunden',
       }*/
+
+      /*
       , {//obslunden parklek
         position: new google.maps.LatLng(59.341571, 18.056179),
         type: 'playOn',
@@ -432,6 +434,7 @@ Template.map.onCreated(function () {
       })
     })
 */
+/*
   });
 <<<<<<< HEAD
 /*
@@ -443,21 +446,21 @@ const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9
           console.log('Data: ', data);
   }).catch(err => console.error(err));
 
-  */
+  *//*
 =======
 });
 
 /*
   //url to fetch all parks in stockholms stad
   const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
-   
+
   var myList = document.querySelector('ul');
 
   //stockholms stad fetch api parks
   fetch(sthlmapi)
         .then(res => res.json())
         .then((out) => {
-            
+
             for (var i = 0; i < out.length; i++) {
                 var listItem = document.createElement('li');
                 listItem.innerHTML = out[i].Name;
@@ -466,5 +469,6 @@ const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9
 
     }).catch(err => console.error(err));
 
-*/
+*//*
 >>>>>>> d2ce076364150d223c6dd58a22753a4c640058fd
+*/

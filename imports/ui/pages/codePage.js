@@ -20,7 +20,6 @@ function pageInit() {
   $("#codeButton").css({
     "font-size": "120%",
     "border-bottom": "solid #1a237e 3px",
-
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
