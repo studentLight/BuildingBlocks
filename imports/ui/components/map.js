@@ -359,7 +359,7 @@ Template.map.onCreated(function () {
       '</div>' +
       '<h4 id="firstHeading" class="firstHeading">Tegnerlunden</h1>' +
       '<div id="bodyContent">' +
-      '<p><b>Tegnérlunden</b> är en park i centrala Stockholm, på gränsen mellan stadsdelarna Norrmalm och Vasastaden' +
+      '<p>Lekplatsen ligger i utkanten av parken Tegnérlunden vid Upplandsgatan. Lekplatsen har ett lekhus med rutsch, gungor (för små och stora barn) och sandlåda.</p>' +
       '</div>' +
       '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
       '</div>';
