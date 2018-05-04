@@ -50,8 +50,6 @@ function parkPageInit() {
 
   console.log("hej");
 
-  console.log(LightPosts.find({}));
-
 
 }
 
