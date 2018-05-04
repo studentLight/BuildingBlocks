@@ -53,7 +53,6 @@ function parkPageInit() {
   console.log(LightPosts.find({}));
 
 
-
 }
 
 Template.parkPage.rendered = function(){
