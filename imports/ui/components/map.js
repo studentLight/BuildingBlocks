@@ -1,30 +1,12 @@
 import '../components/map.html';
-/*
-<<<<<<< HEAD
-Meteor.startup(function() {
-    GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry,places' });
-  });
 
-
-  //let LatLng = new google.maps.LatLng(59.33, 18.07)
-
-  Template.map.helpers({
-    mapOptions: function() {
-      if (GoogleMaps.loaded()) {
-        return {
-            //koordinaterna som visas när kartan laddas
-
-          center: new google.maps.LatLng(59.33, 18.07),
-          zoom: 11
-        };
-      }
-=======
+//konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
 
 
-//let LatLng = new google.maps.LatLng(59.33, 18.07)
+//let LatLng = new google.maps.LatLng(59.33, 18.07) 
 
 Template.map.helpers({
   mapOptions: function () {
@@ -308,48 +290,23 @@ Template.map.helpers({
           }
         ]
       };
->>>>>>> d2ce076364150d223c6dd58a22753a4c640058fd
     }
   }
 });
 
-<<<<<<< HEAD
-  //testkod för att se att kartan skapats i consolen
-  Template.map.onRendered(function() {
-    GoogleMaps.ready('map', function(map) {
-      console.log('Map is ready')
-
-      // The code shown below goes here
-      let marker = new google.maps.Marker({
-        position: new google.maps.LatLng(59.338408, 18.054466),
-
-       map: map.instance
-    })
-
-    let contentstring = '<div id="content" style="text-align: center">'+
-    '<div id="siteNotice">'+
-    '</div>'+
-    '<h4 id="firstHeading" class="firstHeading">Tegnerlunden</h1>'+
-    '<div id="bodyContent">'+
-    '<p><b>Tegnérlunden</b> är en park i centrala Stockholm, på gränsen mellan stadsdelarna Norrmalm och Vasastaden' +
-    '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>'
-    '</div>'+
-    '</div>';
-=======
 //checks if map is ready and creates markers
 Template.map.onCreated(function () {
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-
+    
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(59.338408, 18.054466),
           map: map.instance
       })
-
+  
 
     var playdisabled = '../images/light-bulb-dark.png';
     var playenabled = '../images/light-bulb-color.png';
->>>>>>> d2ce076364150d223c6dd58a22753a4c640058fd
 
     var icons = {
       playOn: {
@@ -371,8 +328,6 @@ Template.map.onCreated(function () {
         type: 'playOn',
         parkname: 'Tegnérlunden',
       }*/
-
-      /*
       , {//obslunden parklek
         position: new google.maps.LatLng(59.341571, 18.056179),
         type: 'playOn',
@@ -435,33 +390,20 @@ Template.map.onCreated(function () {
       })
     })
 */
-/*
   });
-<<<<<<< HEAD
-/*
-const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
-
-  fetch(sthlmapi)
-      .then(res => res.json())
-      .then((data) => {
-          console.log('Data: ', data);
-  }).catch(err => console.error(err));
-
-  *//*
-=======
 });
 
 /*
   //url to fetch all parks in stockholms stad
   const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
-
+   
   var myList = document.querySelector('ul');
 
   //stockholms stad fetch api parks
   fetch(sthlmapi)
         .then(res => res.json())
         .then((out) => {
-
+            
             for (var i = 0; i < out.length; i++) {
                 var listItem = document.createElement('li');
                 listItem.innerHTML = out[i].Name;
@@ -470,6 +412,4 @@ const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9
 
     }).catch(err => console.error(err));
 
-*//*
->>>>>>> d2ce076364150d223c6dd58a22753a4c640058fd
 */
