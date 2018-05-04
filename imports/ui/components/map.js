@@ -13,6 +13,10 @@ Template.map.helpers({
       return {
         center: new google.maps.LatLng(59.33, 18.07),
         zoom: 12,
+        streetViewControl: false,
+        zoomControl: false,
+        fullscreenControl: false,
+        mapTypeControl: false,
         styles: [
           {
             "elementType": "geometry",
