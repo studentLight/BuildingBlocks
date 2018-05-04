@@ -31,7 +31,7 @@ Template.challengesDisplayPage.events({
 
 
 });
-
+// move this to global pageinit()
  function tempPageInit(){
      $('.openContact').leanModal();
  }
