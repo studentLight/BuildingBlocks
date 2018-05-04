@@ -32,6 +32,7 @@ Template.map.helpers({
       return {
         center: new google.maps.LatLng(59.33, 18.07),
         zoom: 12,
+        minZoom: 5,
         streetViewControl: false,
         zoomControl: false,
         fullscreenControl: false,
