@@ -1,5 +1,5 @@
 import './challengesDisplayPage.html';
-import '../components/modals/contactModal.js';
+import '../components/modals/challengeModal.js';
 import '../components/navbar.js';
 import '../components/challenge.js';
 
@@ -15,6 +15,14 @@ Template.challengesDisplayPage.helpers({
 
 
 Template.challengesDisplayPage.events({
+
+  "click .challengeItem": function(event){
+    console.log(this._id);
+  },
+
+
+
+
   "click .openContact": function(event){
      $('#contact').openModal();
    },
