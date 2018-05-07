@@ -11,8 +11,6 @@ import {pageInitialize} from '../../api/pageInit.js';
 
 function parkInit() {
 
-  console.log("testar");
-
   $('#codeButton').fadeTo("slow", 0.80);
 
   $('#codeButton').css({
@@ -20,12 +18,12 @@ function parkInit() {
   });
 
   $("#parkButton").css({
-    "font-size": "220%",
+    "font-size": "120%",
     "border-bottom": "solid #1a237e 3px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
-/*
+
   var parentHeight = $('#workPlz').height();
   var pos = $("#imgDiv").position();
   var trueHeight = (parentHeight - pos.top)-10;
@@ -42,7 +40,7 @@ function parkInit() {
     "content": "url(images/tegner.JPG)",
   });
 
-  */
+
 
 /*
   LightPosts.insert({title: '1', posX:10, posY:10, light:1, touch:0, sound:0, red:1, green:0, blue:0});
@@ -61,7 +59,6 @@ function parkInit() {
 }
 
 Template.parkPage.rendered = function(){
-  console.log("hej");
   pageInitialize();
   parkInit();
 };

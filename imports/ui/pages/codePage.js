@@ -7,8 +7,6 @@ import {pageInitialize} from '../../api/pageInit.js'
 
 function pageInit() {
 
-  console.log("test");
-
   $('#parkButton').fadeTo("slow", 0.80);
 
   $('#parkButton').css({
