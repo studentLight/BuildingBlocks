@@ -5,6 +5,8 @@ import '../components/challenge.js';
 
 import { Challenges } from '../../api/collections/challenges.js';
 
+
+
 Template.challengesDisplayPage.helpers({
 
   challengehelper() {
@@ -13,11 +15,16 @@ Template.challengesDisplayPage.helpers({
 
 });
 
-
 Template.challengesDisplayPage.events({
 
   "click .challengeItem": function(event){
-    console.log(this._id);
+    var id = this._id;
+    var text = this.text;
+    var content = this.content;
+    var values = [id, text, content];
+
+    Session.set('values', values);
+
   },
 
 
@@ -25,6 +32,7 @@ Template.challengesDisplayPage.events({
 
   "click .openContact": function(event){
      $('#contact').openModal();
+
    },
 
   "click .closeContact": function(event){
