@@ -5,6 +5,7 @@ import '../components/navbar.js';
 import { Challenges } from '../../api/collections/challenges.js';
 
 Template.challengesDisplayPage.helpers({
+
   challengehelper() {
     return Challenges.find({});
   },
@@ -17,7 +18,7 @@ Template.challengesDisplayPage.events({
      $('#contact').openModal();
    },
 
-  "click .openContact": function(event){
+  "click .closeContact": function(event){
     $('#close').closeModal();
   },
 
@@ -28,12 +29,11 @@ Template.challengesDisplayPage.events({
    "click .openContact": function(event){
      $('#close').closeModal();
    },
-
-
 });
 // move this to global pageinit()
  function tempPageInit(){
      $('.openContact').leanModal();
+
  }
 Template.challengesDisplayPage.onRendered(function(){
   tempPageInit();
