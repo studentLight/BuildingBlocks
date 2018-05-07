@@ -5,12 +5,16 @@ import '../components/challenge.js';
 
 import { Challenges } from '../../api/collections/challenges.js';
 
+function difficultySelected() {
 
+  return Session.get('difficulty');
+
+}
 
 Template.challengesDisplayPage.helpers({
 
   challengehelper() {
-    return Challenges.find({});
+    return Challenges.find({difficulty: difficultySelected()});
   },
 
 });
@@ -26,9 +30,6 @@ Template.challengesDisplayPage.events({
     Session.set('values', values);
 
   },
-
-
-
 
   "click .openContact": function(event){
      $('#contact').openModal();
