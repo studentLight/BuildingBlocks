@@ -3,7 +3,6 @@ import '../components/parkMap.html';
 var lat = 0;
 var long = 0;
 
-
 //konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
@@ -15,11 +14,11 @@ Template.parkMap.helpers({
       return {
         center: new google.maps.LatLng(lat, long),
         zoom: 17,
-        minZoom: 4,
+        minZoom: 16,
         streetViewControl: false,
         zoomControl: false,
         fullscreenControl: false,
-        mapTypeControl: true,
+        mapTypeControl: false,
         styles: [
           {
             "elementType": "geometry",
@@ -176,30 +175,13 @@ Template.parkMap.helpers({
               }
             ]
           },
+
           {
             "featureType": "road.highway",
-            "elementType": "geometry",
+            "elementType": "labels",
             "stylers": [
               {
-                "color": "#746855"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              {
-                "color": "#1f2835"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#f3d19c"
+                "visibility": "off"
               }
             ]
           },
@@ -233,7 +215,7 @@ Template.parkMap.helpers({
             "featureType": "transit.station",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -258,7 +240,7 @@ Template.parkMap.helpers({
             "featureType": "transit.station.rail",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -288,6 +270,42 @@ Template.parkMap.helpers({
                 "color": "#17263c"
               }
             ]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
           }
         ]
       };
@@ -304,25 +322,95 @@ Template.parkMap.onCreated(function () {
       parkMap: parkMap.instance
     });
 
+
+
+    var icons = {
+      playOn: {
+        icon: {
+          scaledSize: new google.maps.Size(10, 10)
+        }
+      },
+      playOff: {
+        icon: {
+          scaledSize: new google.maps.Size(10, 10)
+        }
+      }
+    };
+    var parks = [
+      /*{//tegnerlunden
+        position: new google.maps.LatLng(59.338374, 18.054490),
+        type: 'playOn',
+        parkname: 'Tegnérlunden',
+      }*/
+      {//obslunden parklek
+        position: new google.maps.LatLng(59.341571, 18.056179),
+        type: 'playOn',
+        parkname: 'Observatorielunden Parklek'
+      }, {//obslunden övre
+        position: new google.maps.LatLng(59.342324, 18.054718),
+        type: 'playOff',
+        parkname: 'Obslunden Övre'
+      }, {//sabbatsparken
+        position: new google.maps.LatLng(59.338160, 18.043147),
+        type: 'playOn',
+        parkname: 'Sabbatsparken'
+      }, {//vasaparken
+        position: new google.maps.LatLng(59.340098, 18.042035),
+        type: 'playOff',
+        parkname: 'Vasaparken'
+      }, {//kungsholms strand
+        position: new google.maps.LatLng(59.335399, 18.042602),
+        type: 'playOn',
+        parkname: 'Kungsholms Strand'
+      }
+    ];
+
+    // Create markers.
+    parks.forEach(function (park) {
+      var marker = new google.maps.Marker({
+        position: park.position,
+        //icon: icons[park.type].icon,
+        parkMap: parkMap.instance
+      });
+    });
+
+    let contentstring = '<div id="content" style="text-align: center">' +
+      '<div id="siteNotice">' +
+      '</div>' +
+      '<h4 id="firstHeading" class="firstHeading">Tegnerlunden</h1>' +
+      '<div id="bodyContent">' +
+      '<p>Lekplatsen ligger i utkanten av parken Tegnérlunden vid Upplandsgatan. Lekplatsen har ett lekhus med rutsch, gungor (för små och stora barn) och sandlåda.</p>' +
+      '</div>' +
+      '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
+      '</div>';
+
+    marker.addListener('click', function() {
+      infowindow.open(parkMap, marker);
+    });
+
+    let infowindow = new google.maps.InfoWindow({
+      content: contentstring,
+      maxWidth: 250,
+    });
+
+
   });
 });
-
 
 
 export function setparkMapValues(la, lo){
   lat = la;
   long = lo;
-  console.log(GoogleMaps.loaded());
 
   if (GoogleMaps.loaded()) {
     return {
       center: new google.maps.LatLng(lat, long),
       zoom: 17,
-      minZoom: 4,
+      minZoom: 16,
       streetViewControl: false,
       zoomControl: false,
       fullscreenControl: false,
-      mapTypeControl: true,
+      mapTypeControl: false,
     }
   }
 }

@@ -9,7 +9,7 @@ import {setparkMapValues} from '../components/parkMap.js';
 
 import '../components/parkMap.js'
 
-//import { LightPosts } from '../../api/collections/lightPosts.js';
+import { LightPosts } from '../../api/collections/lightPosts.js';
 
 //import { withTracker } from 'meteor/react-meteor-data';
 
@@ -59,13 +59,11 @@ function parkInit() {
   LightPosts.insert({title: '4', lat:59.337980, long:18.055028, light:1, touch:0, sound:0, red:1, green:0, blue:0});
   LightPosts.insert({title: '5', lat:59.338196, long:18.055433, light:1, touch:0, sound:0, red:1, green:0, blue:0});
   LightPosts.insert({title: '6', lat:59.338251, long:18.054494, light:1, touch:0, sound:0, red:1, green:0, blue:0});
-
-
-  console.log("hej");
-
-  console.log(LightPosts.find({}));
-
 */
+
+  //console.log(LightPosts.find({}{lat:1}));
+
+
 
 
 }
