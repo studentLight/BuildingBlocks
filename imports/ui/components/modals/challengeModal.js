@@ -18,4 +18,9 @@ Template.challengeModal.helpers({
     return arr[2];
   }
 
+
 });
+
+// Template.challengeModal.events({
+//
+// });
