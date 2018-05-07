@@ -5,11 +5,19 @@ import '../components/codeViewSelector.js';
 
 import {pageInitialize} from '../../api/pageInit.js';
 
+import {setparkMapValues} from '../components/parkMap.js';
+
+import '../components/parkMap.js'
+
 //import { LightPosts } from '../../api/collections/lightPosts.js';
 
 //import { withTracker } from 'meteor/react-meteor-data';
 
+var long = 0;
+var lat = 0;
+
 function parkInit() {
+
 
   $('#codeButton').fadeTo("slow", 0.80);
 
@@ -24,10 +32,12 @@ function parkInit() {
   });
 
 
-  var parentHeight = $('#workPlz').height();
+/*
+  var parentHeight = $('#parkPageBody').height();
   var pos = $("#imgDiv").position();
   var trueHeight = (parentHeight - pos.top)-10;
-
+*/
+/*
   $("#imgDiv").css({
     "max-height": trueHeight,
     //"height": trueHeight,
@@ -40,13 +50,15 @@ function parkInit() {
     "content": "url(images/tegner.JPG)",
   });
 
-
+*/
 
 /*
-  LightPosts.insert({title: '1', posX:10, posY:10, light:1, touch:0, sound:0, red:1, green:0, blue:0});
-  LightPosts.insert({title: '2', posX:30, posY:30, light:1, touch:0, sound:0, red:1, green:0, blue:0});
-  LightPosts.insert({title: '3', posX:50, posY:50, light:1, touch:0, sound:0, red:1, green:0, blue:0});
-  LightPosts.insert({title: '4', posX:70, posY:70, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '1', lat:59.338209, long:18.053968, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '2', lat:59.337923, long:18.053810, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '3', lat:59.337876, long:18.054372, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '4', lat:59.337980, long:18.055028, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '5', lat:59.338196, long:18.055433, light:1, touch:0, sound:0, red:1, green:0, blue:0});
+  LightPosts.insert({title: '6', lat:59.338251, long:18.054494, light:1, touch:0, sound:0, red:1, green:0, blue:0});
 
 
   console.log("hej");
@@ -61,7 +73,10 @@ function parkInit() {
 Template.parkPage.rendered = function(){
   pageInitialize();
   parkInit();
+  setparkMapValues(59.338408, 18.054466);
 };
+
+
 
 
 /*
