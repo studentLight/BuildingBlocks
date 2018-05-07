@@ -1,6 +1,7 @@
 import './challengesDisplayPage.html';
 import '../components/modals/contactModal.js';
 import '../components/navbar.js';
+import '../components/challenge.js';
 
 import { Challenges } from '../../api/collections/challenges.js';
 
