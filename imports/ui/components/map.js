@@ -294,7 +294,7 @@ Template.map.helpers({
 Template.map.onCreated(function () {
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
- 
+
 
     var parks = [
       ['Tegnérlunden', 59.338374, 18.0544490],
@@ -303,7 +303,7 @@ Template.map.onCreated(function () {
       ['Vasaparken', 59.340098, 18.042035],
       ['Kungsholms Strand', 59.335399, 18.042602]
     ];
-      
+
     parks_objects = [];
 
     for (i = 0; i < parks.length; i++) {
@@ -322,7 +322,7 @@ Template.map.onCreated(function () {
         infowindow.open(map, marker);
         }
       })(marker));
-    
+
 
     parks_objects.push(marker);
     }
