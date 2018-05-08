@@ -323,7 +323,6 @@ Template.map.onCreated(function () {
         }
       })(marker));
     
-
     parks_objects.push(marker);
     }
 
