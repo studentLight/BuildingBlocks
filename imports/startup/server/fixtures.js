@@ -1,8 +1,10 @@
 import { Mongo } from 'meteor/mongo';
 
-
-import '../../api/collections/lightPosts.js';
+//import { LightPosts } from '../../api/lightPosts/parks.js';
 import { Challenges } from '../../api/collections/challenges.js';
+import { Parks } from '../../api/collections/parks.js';
+
+
 
 Meteor.startup(() => {
   Challenges.remove({});
@@ -18,5 +20,6 @@ Meteor.startup(() => {
   Challenges.insert({ text: "Utmaning 10", content: "fill in content for 10", difficulty: "Hard",createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 11", content: "fill in content for 11", difficulty: "Hard",createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 12", content: "fill in content for 12", difficulty: "Hard",createdAt: new Date()} );
+
 
 });

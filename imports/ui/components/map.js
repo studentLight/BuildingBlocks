@@ -322,12 +322,6 @@ Template.map.onCreated(function () {
         infowindow.open(map, marker);
         }
       })(marker));
-<<<<<<< HEAD
-    
-=======
-
-
->>>>>>> e059c9b0abad5b0f8d13629315da2692e4eb1d09
     parks_objects.push(marker);
     }
 
