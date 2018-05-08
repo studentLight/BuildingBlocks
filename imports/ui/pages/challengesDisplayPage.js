@@ -36,14 +36,12 @@ Template.challengesDisplayPage.events({
     var text = this.text;
     var content = this.content;
     var values = [id, text, content];
-
     Session.set('values', values);
-
   },
+  
    //the one that is really needed
   "click .openContact": function(event){
      $('#modal1').openModal();
-
    },
 
 });
