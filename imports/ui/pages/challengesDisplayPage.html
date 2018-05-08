@@ -5,19 +5,15 @@
     <div class="container">
 
     <header>
-      <h1 class="center-align">Utmaningar</h1>
-      <!-- <form class="new-challange">
-        <input type="text" name="text" placeholder="Type to add new challange" />
-      </form> -->
-
-
+      <h1 class="center-align">{{difficultyHeader}}</h1>
     </header>
 
     <ul>
       {{#each challengehelper}}
         <div class ="listItem">
         <li>
-          <a class="waves-effect waves-light btn deep-purple darken-2 openContact" href="#contact">{{> challange}}</a>
+          <!-- make a template for this -->
+          <a class="challengeItem waves-effect waves-light deep-purple darken-2 openContact white-text" href="">{{text}}</a>
         </li>
         </div>
       {{/each}}
@@ -27,13 +23,7 @@
     <!-- Modal Trigger -->
       <!-- <a class="waves-effect waves-light btn openContact" href="#contact">Modal</a> -->
 
-    {{> contactModal}}
+    {{> challengeModal}}
   </div>
   </body>
   </template>
-
-
-
-<template name="challange">
-  <li class="text">{{text}}</li>
-</template>
