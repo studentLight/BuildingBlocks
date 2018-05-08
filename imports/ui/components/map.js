@@ -1,12 +1,8 @@
 import '../components/map.html';
 
-//konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
-
-
-//let LatLng = new google.maps.LatLng(59.33, 18.07) 
 
 Template.map.helpers({
   mapOptions: function () {
@@ -298,15 +294,9 @@ Template.map.helpers({
 Template.map.onCreated(function () {
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-    /*
-        let marker = new google.maps.Marker({
-          position: new google.maps.LatLng(59.338408, 18.054466),
-          map: map.instance
-      })
-  */
+ 
 
     var parks = [
-      //tegnerlunden
       ['Tegnérlunden', 59.338374, 18.0544490],
       ['Obslunden Övre', 59.342324, 18.054718],
       ['Sabbatsparken', 59.338160, 18.043147],
@@ -348,17 +338,5 @@ Template.map.onCreated(function () {
       '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
       '</div>';
 
-/*
-    parks.forEach(function (park) {
-      marker.addListener(map.instance, 'click', function (park) {
-        infowindow.setContent(park.parkname);
-        infowindow.open(map.instance, marker);
-      })
-      let infowindow = new google.maps.InfoWindow({
-        content: park.parkname,
-        maxWidth: 250,
-      })
-    })
-*/
   });
 });
