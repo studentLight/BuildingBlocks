@@ -1,11 +1,12 @@
 import { Mongo } from 'meteor/mongo';
 
-<<<<<<< HEAD
+
 import '../../api/collections/challenges.js';
 
 import '../../api/collections/lightPosts.js';
 import { Challenges } from '../../api/collections/challenges.js';
 import { Parks } from '../../api/collections/parks.js';
+import { LightPosts } from '../../api/collections/lightPosts.js';
 
 
 
@@ -28,5 +29,15 @@ Meteor.startup(() => {
   Challenges.insert({ text: "Utmaning 11", content: "fill in content for 11", difficulty: "Hard",createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 12", content: "fill in content for 12", difficulty: "Hard",createdAt: new Date()} );
 
+  //lat:59.338209, long:18.053968, light:0, touch:0, sound:0, red:0, green:0, blue:0
+  var lmp1 = [59.338209, 18.053968, 0, 0, 0, 0, 0, 0];
+  var lmp2 = [59.337923, 18.053810, 0, 0, 0, 0, 0, 0];
+  var lmp = [lmp1,lmp2];
+
+  LightPosts.remove({});
+
+  LightPosts.insert(
+    { parkName:"Tegnerlunden", parkLat:59.338408, parkLong:18.054466, lamps:lmp }
+  );
+
 });
->>>>>>> 46e64d0b3b40b0f8634147e908f15b3b32ce0602
