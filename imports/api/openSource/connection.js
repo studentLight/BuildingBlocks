@@ -1,25 +1,31 @@
 
-
+import { Parks } from '../collections/parks.js';
 
 function extractParks(parks){
 
   for(var i = 0; i < parks.length; i++) {
     var obj = parks[i];
 
+    Parks.insert({obj});
 
-    console.log("Obj logging", obj);
   }
+  console.log("extPark ",Parks.find().count());
 }
 
 export function getSthlmParks(){
 
-  const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
+  var dbCount = Parks.find().count();
+  console.log(dbCount);
 
-  fetch(sthlmapi).then(response => response.json()).then((parks) => {
+  if( 311 > dbCount ){
+    const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
 
-    extractParks(parks);
+    fetch(sthlmapi).then(response => response.json()).then((parks) => {
 
-  }).catch(err => console.error(err));
+      extractParks(parks);
 
 
+    }).catch(err => console.error(err));
+
+  }
 }
