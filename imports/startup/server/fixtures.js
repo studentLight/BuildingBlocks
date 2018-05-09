@@ -8,9 +8,9 @@ import { Parks } from '../../api/collections/parks.js';
 
 Meteor.startup(() => {
   Challenges.remove({});
-  
 
-  console.log(Parks.find().fetch());
+
+  //console.log(Parks.find().fetch());
 
   Challenges.insert({ text: "Utmaning 1", content: "Få lampa 1 att lysa grönt om dess ljudsensor är aktiverad", difficulty: "Easy", createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 2", content: "Få lampa 1 att lysa rött om dess ljussensor är aktiverad och få lampa 2 att lysa blått om dess trycksensor är aktiverad", difficulty: "Easy",createdAt: new Date()} );
