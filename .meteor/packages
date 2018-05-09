@@ -37,3 +37,4 @@ useraccounts:materialize
 meteorstuff:materialize-modal
 raix:handlebar-helpers
 aldeed:template-extension
+session

@@ -71,11 +71,21 @@ template, body {
 }
 
 .listItem {
-  padding: 5px;
+  padding: 0px;
   height: auto;
-  border: 1px solid #bbb;
-  margin: auto;
+  border: 2px solid #bbb;
+  margin: 0px;
+  line-height: 40px;
   width: auto;
   background: #512da8;
-  /* text-align: center; */
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 3px 2px black;
+
+}
+.challengeItem{
+  height: 50px;
+  width: 100%;
+
 }

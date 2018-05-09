@@ -1,20 +1,20 @@
-import '../components/map.html';
+import '../components/parkMap.html';
+
+var lat = 0;
+var long = 0;
 
 //konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
 
-
-//let LatLng = new google.maps.LatLng(59.33, 18.07)
-
-Template.map.helpers({
-  mapOptions: function () {
+Template.parkMap.helpers({
+  parkMapOptions: function () {
     if (GoogleMaps.loaded()) {
       return {
-        center: new google.maps.LatLng(59.33, 18.07),
-        zoom: 12,
-        minZoom: 5,
+        center: new google.maps.LatLng(lat, long),
+        zoom: 17,
+        minZoom: 16,
         streetViewControl: false,
         zoomControl: false,
         fullscreenControl: false,
@@ -175,30 +175,13 @@ Template.map.helpers({
               }
             ]
           },
+
           {
             "featureType": "road.highway",
-            "elementType": "geometry",
+            "elementType": "labels",
             "stylers": [
               {
-                "color": "#746855"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              {
-                "color": "#1f2835"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#f3d19c"
+                "visibility": "off"
               }
             ]
           },
@@ -232,7 +215,7 @@ Template.map.helpers({
             "featureType": "transit.station",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -257,7 +240,7 @@ Template.map.helpers({
             "featureType": "transit.station.rail",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -287,6 +270,42 @@ Template.map.helpers({
                 "color": "#17263c"
               }
             ]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
           }
         ]
       };
@@ -295,29 +314,24 @@ Template.map.helpers({
 });
 
 //checks if map is ready and creates markers
-Template.map.onCreated(function () {
-  GoogleMaps.ready('map', function (map) {
-    console.log('Map is ready')
+Template.parkMap.onCreated(function () {
+  GoogleMaps.ready('parkMap', function (parkMap) {
 
-        let marker = new google.maps.Marker({
-          position: new google.maps.LatLng(59.338408, 18.054466),
-          map: map.instance
-      })
+    let marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, long),
+      parkMap: parkMap.instance
+    });
 
 
-    var playdisabled = '../images/light-bulb-dark.png';
-    var playenabled = '../images/light-bulb-color.png';
 
     var icons = {
       playOn: {
         icon: {
-          playenabled,
           scaledSize: new google.maps.Size(10, 10)
         }
       },
       playOff: {
         icon: {
-          playdisabled,
           scaledSize: new google.maps.Size(10, 10)
         }
       }
@@ -328,7 +342,7 @@ Template.map.onCreated(function () {
         type: 'playOn',
         parkname: 'Tegnérlunden',
       }*/
-      , {//obslunden parklek
+      {//obslunden parklek
         position: new google.maps.LatLng(59.341571, 18.056179),
         type: 'playOn',
         parkname: 'Observatorielunden Parklek'
@@ -356,7 +370,7 @@ Template.map.onCreated(function () {
       var marker = new google.maps.Marker({
         position: park.position,
         //icon: icons[park.type].icon,
-        map: map.instance
+        parkMap: parkMap.instance
       });
     });
 
@@ -371,45 +385,32 @@ Template.map.onCreated(function () {
       '</div>';
 
     marker.addListener('click', function() {
-      infowindow.open(map, marker);
+      infowindow.open(parkMap, marker);
     });
 
     let infowindow = new google.maps.InfoWindow({
       content: contentstring,
       maxWidth: 250,
     });
-/*
-    parks.forEach(function (park) {
-      marker.addListener(map.instance, 'click', function (park) {
-        infowindow.setContent(park.parkname);
-        infowindow.open(map.instance, marker);
-      })
-      let infowindow = new google.maps.InfoWindow({
-        content: park.parkname,
-        maxWidth: 250,
-      })
-    })
-*/
+
+
   });
 });
 
-/*
-  //url to fetch all parks in stockholms stad
-  const sthlmapi = 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825';
 
-  var myList = document.querySelector('ul');
+export function setparkMapValues(la, lo){
+  lat = la;
+  long = lo;
 
-  //stockholms stad fetch api parks
-  fetch(sthlmapi)
-        .then(res => res.json())
-        .then((out) => {
-
-            for (var i = 0; i < out.length; i++) {
-                var listItem = document.createElement('li');
-                listItem.innerHTML = out[i].Name;
-                myList.appendChild(listItem);
-            }
-
-    }).catch(err => console.error(err));
-
-*/
+  if (GoogleMaps.loaded()) {
+    return {
+      center: new google.maps.LatLng(lat, long),
+      zoom: 17,
+      minZoom: 16,
+      streetViewControl: false,
+      zoomControl: false,
+      fullscreenControl: false,
+      mapTypeControl: false,
+    }
+  }
+}
