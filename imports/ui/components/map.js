@@ -1,10 +1,17 @@
+
+import { Parks } from '../../api/collections/parks.js';
+
+
 import '../components/map.html';
 
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
 
+
 Template.map.helpers({
+
+
   mapOptions: function () {
     if (GoogleMaps.loaded()) {
       return {

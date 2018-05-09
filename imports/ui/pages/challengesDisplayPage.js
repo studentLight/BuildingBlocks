@@ -11,6 +11,8 @@ function difficultySelected() {
 
 Template.challengesDisplayPage.helpers({
 
+
+
   challengehelper() {
     return Challenges.find({difficulty: difficultySelected()});
   },
