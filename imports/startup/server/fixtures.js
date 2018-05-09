@@ -4,13 +4,17 @@ import { Mongo } from 'meteor/mongo';
 import '../../api/collections/challenges.js';
 
 import '../../api/collections/lightPosts.js';
-=======
-
-import '../../api/collections/lightPosts.js';
 import { Challenges } from '../../api/collections/challenges.js';
+import { Parks } from '../../api/collections/parks.js';
+
+
 
 Meteor.startup(() => {
   Challenges.remove({});
+
+
+  console.log(Parks.find().fetch());
+
   Challenges.insert({ text: "Utmaning 1", content: "Få lampa 1 att lysa grönt om dess ljudsensor är aktiverad", difficulty: "Easy", createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 2", content: "Få lampa 1 att lysa rött om dess ljussensor är aktiverad och få lampa 2 att lysa blått om dess trycksensor är aktiverad", difficulty: "Easy",createdAt: new Date()} );
   Challenges.insert({ text: "Utmaning 3", content: "fill in content for 3", difficulty: "Easy",createdAt: new Date()} );
