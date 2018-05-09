@@ -1,5 +1,7 @@
 import '../components/parkMap.html';
 
+import { LightPosts } from '../../api/collections/lightPosts.js';
+
 //konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
@@ -346,13 +348,13 @@ Template.parkMap.onCreated(function () {
       ['2', 59.337923, 18.053810]
     ];
 
+    //var lps = LightPosts.find( {}, {lamps:1} );
+
+    //console.log("funkar detta ", lps);
 
     lights_objects = [];
 
     for (i = 0; i < lights.length; i++) {
-      console.log("Name ", lights[i][0]);
-      console.log("lat ", lights[i][1]);
-      console.log("long ", lights[i][2]);
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(lights[i][1], lights[i][2]),
         map: parkMap.instance,

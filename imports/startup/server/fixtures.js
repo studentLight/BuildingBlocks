@@ -32,7 +32,11 @@ Meteor.startup(() => {
   //lat:59.338209, long:18.053968, light:0, touch:0, sound:0, red:0, green:0, blue:0
   var lmp1 = [59.338209, 18.053968, 0, 0, 0, 0, 0, 0];
   var lmp2 = [59.337923, 18.053810, 0, 0, 0, 0, 0, 0];
-  var lmp = [lmp1,lmp2];
+  var lmp3 = [59.337876, 18.054372, 0, 0, 0, 0, 0, 0];
+  var lmp4 = [59.337980, 18.055028, 0, 0, 0, 0, 0, 0];
+  var lmp5 = [59.338196, 18.055433, 0, 0, 0, 0, 0, 0];
+  var lmp6 = [59.338251, 18.054494, 0, 0, 0, 0, 0, 0];
+  var lmp = [lmp1,lmp2,lmp3,lmp4,lmp5,lmp6];
 
   LightPosts.remove({});
 
