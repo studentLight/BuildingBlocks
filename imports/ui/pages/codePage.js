@@ -3,6 +3,7 @@ import './codePage.html';
 import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
+import '../components/board.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
 
