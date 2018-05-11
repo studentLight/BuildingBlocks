@@ -116,31 +116,37 @@ template, body {
   width: 100%;
 }
 #startButton {
+  border: 1px solid #0D521F;
   float:left;
   width: 50%;
 }
 
 #stopButton {
+  border: 1px solid #6C0F0F;
   float:left;
   width: 50%;
 }
 
 #ifButton {
+  border: 1px solid #00796b;
   float:left;
   width: 50%;
 }
 
 #thenButton {
+  border: 1px solid #074B4A;
   float:left;
   width: 50%;
 }
 
 #parkButton {
+  border: 1px solid #1a237e;
   float:left;
   width: 50%;
 }
 
 #codeButton {
+  border: 1px solid #1a237e;
   float:left;
   width: 50%;
 }

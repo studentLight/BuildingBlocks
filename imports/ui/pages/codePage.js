@@ -1,5 +1,5 @@
 import './codePage.html';
-
+import '../components/blocks/startButton.js';
 import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
@@ -11,7 +11,7 @@ function pageInit() {
 
   // console.log("test");
 
-  $('#parkButton').fadeTo("slow", 0.80);
+  // $('#parkButton').fadeTo("slow", 0.80);
 
   $('#parkButton').css({
     "background": "linear-gradient(#1976d2, #0d47a1)",
@@ -22,7 +22,10 @@ function pageInit() {
   $("#codeButton").css({
     "font-size": "150%",
     "border-bottom": "solid #1a237e 3px",
+    // "border": "solid #0288d1 2px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
+    "text-decoration": "underline",
+
   });
 
 
