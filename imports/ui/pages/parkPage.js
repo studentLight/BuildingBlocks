@@ -11,7 +11,7 @@ import {pageInitialize} from '../../api/pageInit.js';
 
 function parkInit() {
 
-  console.log("testar");
+  // console.log("testar");
 
   $('#codeButton').fadeTo("slow", 0.80);
 
@@ -20,7 +20,7 @@ function parkInit() {
   });
 
   $("#parkButton").css({
-    "font-size": "220%",
+    "font-size": "150%",
     "border-bottom": "solid #1a237e 3px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
@@ -61,7 +61,7 @@ function parkInit() {
 }
 
 Template.parkPage.rendered = function(){
-  console.log("hej");
+  // console.log("hej");
   pageInitialize();
   parkInit();
 };

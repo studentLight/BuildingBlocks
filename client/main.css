@@ -89,3 +89,14 @@ template, body {
   width: 100%;
 
 }
+
+.board{
+  margin: auto;
+  position: absolute;
+  left:0;
+  right: 0;
+  top: 93px;
+  bottom: 0;
+  width: 68%;
+  background: #808080;
+}
