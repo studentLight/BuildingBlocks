@@ -17,6 +17,7 @@ template, body {
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+
 }
 
 .backgroundMain {
@@ -81,22 +82,65 @@ template, body {
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 3px 2px black;
-
 }
+
 .challengeItem{
   height: 50px;
   width: 100%;
-
 }
 
 .board{
   margin: auto;
-  position: absolute;
+  position: inherit;
   left:0;
   right: 0;
-  top: 93px;
+  top: 20%;
   bottom: 0;
   width: 68%;
   background: #808080;
+  height: 200%;
+}
+
+.codeSelectorButtons{
+  position: relative;
+  width: 100%;
+}
+
+.buttonSelection{
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+.top{
+  position: fixed;
+  width: 100%;
+}
+#startButton {
+  float:left;
+  width: 50%;
+}
+
+#stopButton {
+  float:left;
+  width: 50%;
+}
+
+#ifButton {
+  float:left;
+  width: 50%;
+}
+
+#thenButton {
+  float:left;
+  width: 50%;
+}
+
+#parkButton {
+  float:left;
+  width: 50%;
+}
+
+#codeButton {
+  float:left;
+  width: 50%;
 }
