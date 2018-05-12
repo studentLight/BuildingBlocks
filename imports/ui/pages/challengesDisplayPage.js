@@ -11,6 +11,8 @@ import { Challenges } from '../../api/collections/challenges.js';
 
 Template.challengesDisplayPage.helpers({
 
+
+
   challengehelper() {
     return Challenges.find({difficulty: difficultySelected()});
   },
@@ -45,29 +47,3 @@ Template.challengesDisplayPage.events({
    },
 
 });
-
-//  function tempPageInit(){
-//    //this whole thing fucked up everything
-//
-//  //     $('.openContact').leanModal({
-//  //    // dismissible: true,
-//  //    // opacity: 0.5,
-//  //    // in_duration: 300,
-//  //    // out_duration: 200,
-//  //    // ready: function() {
-//  //    //     if($(".lean-overlay").length > 1) {
-//  //    //         $(".lean-overlay:not(:first)").each(function() {
-//  //    //             $(this).remove();
-//  //    //         });
-//  //    //     }
-//  //    // },
-//  //    // complete: function() {
-//  //    //     $(".lean-overlay").each(function() {
-//  //    //         $(this).remove();
-//  //    //     });
-//  //    // }
-//  //  });
-// }
-// Template.challengesDisplayPage.onRendered(function(){
-//   // tempPageInit();
-// });

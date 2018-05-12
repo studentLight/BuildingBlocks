@@ -1,11 +1,43 @@
 import { Mongo } from 'meteor/mongo';
+import { Meteor } from 'meteor/meteor';
+import { HTTP } from 'meteor/http'
 
-
-import '../../api/collections/lightPosts.js';
+//import { LightPosts } from '../../api/lightPosts/parks.js';
 import { Challenges } from '../../api/collections/challenges.js';
+import { Parks } from '../../api/collections/parks.js';
 
-Meteor.startup(() => {
-  Challenges.remove({});
+
+function checkIfParksAlreadyAreLoaded(){
+  var amountOfParks = Parks.find().count();
+  if(amountOfParks != 311){
+    Parks.remove({});
+    connectToStockholmsAPI();
+  }
+}
+
+function insertParks(response){
+  var parks = response.data;
+  for(var i = 0; i < parks.length; i++) {
+    var obj = parks[i];
+    Parks.insert({obj});
+  }
+}
+
+function connectToStockholmsAPI(){
+  var parks = HTTP.call( 'GET', 'http://api.stockholm.se/ServiceGuideService/ServiceUnitTypes/9da341e4-bdc6-4b51-9563-e65ddc2f7434/ServiceUnits/json?apikey=83cc8184e26f48369d22259c7c016825', {
+  // params: {
+  //
+  // }
+  }, function( error, response ) {
+    if ( error ) {
+      console.log( error );
+    } else {
+      insertParks(response)
+    }
+  });
+}
+
+function insertChallenges(){
   Challenges.insert({ text: "Utmaning 1",
   content: "Få lyktstolpe <b>1</b> att lysa grönt om dess ljudsensor är aktiverad.",
   difficulty: "Easy", createdAt: new Date()} );
@@ -53,5 +85,12 @@ Meteor.startup(() => {
   Challenges.insert({ text: "Utmaning 12",
   content: "Få lyktstolpe <b>6</b> att lysa grönt om dess ljussensor är aktiverad.<br><br> Få lyktstolpe <b>3</b> att lysa rött om ljussensor för lyktstolpe <b>4</b> är inaktiverad.<br><br> Få lyktstolpe <b>4</b> att lysa blått om dess ljudsensor är inaktiverad.<br><br> Få lyktstolpe <b>2</b> att lysa grönt om trycksensor för lyktstolpe <b>2</b> är aktiverad.<br><br> Få lyktstolpe <b>5</b> att lysa rött om dess trycksensor är aktiverad.<br><br> Få lyktstolpe <b>1</b> att lysa rött om dess ljudsensor är aktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
+}
+
+Meteor.startup(() => {
+
+  checkIfParksAlreadyAreLoaded();
+  Challenges.remove({});
+  insertChallenges();
 
 });
