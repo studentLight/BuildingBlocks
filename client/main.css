@@ -22,6 +22,7 @@ template, body {
 
 .backgroundMain {
   background: #292233;
+  /* height: 100%; */
 }
 
 .blue-gradient{
@@ -92,13 +93,24 @@ template, body {
 .boardDiv{
   margin: auto;
   position: inherit;
-  left:0;
-  right: 0;
-  top: 20%;
-  bottom: 0;
-  width: 68%;
   background: #494251;
-  height: 200%;
+  height: 100%;
+  /* margin-top: 40%; */
+  /* width: 80%; */
+
+}
+
+.middle{
+  margin: auto;
+  position: relative;
+  margin-top: 43.5%;
+  width: 80%;
+  /* top: 40%; */
+  /* bottom: 10%; */
+  /* width: 68%; */
+  height: 100%;
+  color: white;
+  font-size: 30px;
 }
 
 .codeSelectorButtons{
@@ -107,13 +119,14 @@ template, body {
 }
 
 .buttonSelection{
-  margin: auto;
   position: relative;
   width: 100%;
+  z-index:10;
 }
 .top{
   position: fixed;
   width: 100%;
+  z-index:10;
 }
 #startButton {
   border: 1px solid #0D521F;
