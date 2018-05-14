@@ -343,35 +343,56 @@ Template.parkMap.onCreated(function () {
     }
 
 
-    var lights = [
-      ['1', 59.338209, 18.053968],
-      ['2', 59.337923, 18.053810]
-    ];
-
-    //var lps = LightPosts.find( {}, {lamps:1} );
-
-    //console.log("funkar detta ", lps);
-
     lights_objects = [];
 
-    for (i = 0; i < lights.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lights[i][1], lights[i][2]),
-        map: parkMap.instance,
-        title: lights[i][0]
-      });
-      lights_objects.push(marker);
+    var lights = LightPosts.find().fetch();
+
+    lights = lights[0].lamps;
+    for (var i = 0; i < lights.length;i++){
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lights[i][1], lights[i][2]),
+      map: parkMap.instance,
+      title:""+lights[i][0]
+    });
+
+    let infowindow = new google.maps.InfoWindow({
+      maxWidth: 250,
+    });
+
+
+    google.maps.event.addListener(marker, 'click', (function(marker) {
+      return function(evt) {
+
+
+        let contentstring = '<div id="content" style="text-align: center">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h4 id="firstHeading" class="firstHeading">' + "LampID: " + lights[(this.title -1)][0] + '</h1>' +
+            '<div id="bodyContent">' +
+            '<p id="light">' + "Ljussensor: " + lights[(this.title -1)][3] + '</p>'+
+            '<p id="touch">' + "Trycksensor: " + lights[(this.title -1)][4] + ' </p>'+
+            '<p id="sound">' + "Ljudsenspr: " + lights[(this.title -1)][5] + ' </p>'+
+            '<p id="red">' + "Röd: " + lights[(this.title -1)][6] + ' </p>'+
+            '<p id="green">' + "Grön: " + lights[(this.title -1)][7] + ' </p>'+
+            '<p id="blue">' + "Blå: " + lights[(this.title -1)][8] + ' </p>'+
+            '</div>' +
+            '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
+            '</div>';
+      let content =  contentstring;
+
+      infowindow.setContent(content);
+      infowindow.open(parkMap, marker);
+      }
+    })(marker));
+    lights_objects.push(marker);
     }
 
-    let contentstring = '<div id="content" style="text-align: center">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<h4 id="firstHeading" class="firstHeading">Tegnerlunden</h1>' +
-        '<div id="bodyContent">' +
-        '<p>Lekplatsen ligger i utkanten av parken Tegnérlunden vid Upplandsgatan. Lekplatsen har ett lekhus med rutsch, gungor (för små och stora barn) och sandlåda.</p>' +
-        '</div>' +
-        '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
-        '</div>';
 
+
+
+
+    });
   });
-});
+
+
+    //console.log("funkar detta ", lps);

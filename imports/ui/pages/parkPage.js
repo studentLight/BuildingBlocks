@@ -14,6 +14,7 @@ Meteor.startup(function () {
   Session.set('parkCoordinates', latAndLong);
 });
 
+
 function parkInit() {
 
   $('#codeButton').fadeTo("slow", 0.80);
