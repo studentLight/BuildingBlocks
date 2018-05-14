@@ -16,19 +16,19 @@ Template.challengesDisplayPage.helpers({
   },
 
   isEasy(){
-    console.log("Easy ",difficultySelected());
+    // console.log("Easy ",difficultySelected());
     return "Easy" == difficultySelected();
 
   },
 
   isMedium(){
-    console.log("Medium ",difficultySelected());
+    // console.log("Medium ",difficultySelected());
     return "Medium" == difficultySelected();
 
   },
 
   isHard(){
-    console.log("Hard ",difficultySelected());
+    // console.log("Hard ",difficultySelected());
     return "Hard" == difficultySelected();
 
   },

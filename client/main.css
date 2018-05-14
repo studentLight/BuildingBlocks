@@ -97,8 +97,8 @@ template, body {
   top: 20%;
   bottom: 0;
   width: 68%;
-  background: #808080;
-  height: 100%;
+  background: #494251;
+  height: 200%;
 }
 
 .codeSelectorButtons{
@@ -128,13 +128,13 @@ template, body {
 }
 
 #ifButton {
-  border: 1px solid #00796b;
+  border: 1px solid #616161;
   float:left;
   width: 50%;
 }
 
 #thenButton {
-  border: 1px solid #074B4A;
+  border: 1px solid #424242;
   float:left;
   width: 50%;
 }
