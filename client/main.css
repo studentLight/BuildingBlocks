@@ -92,26 +92,25 @@ template, body {
 
 .boardDiv{
   margin: auto;
-  /* margin-top: 40%; */
-  position: static;
-  /* width: 80%; */
+  position: inherit;
   background: #494251;
   height: 100%;
+  /* margin-top: 40%; */
+  /* width: 80%; */
 
 }
 
 .middle{
   margin: auto;
-  /* position: inherit; */
-  position: static;
-  margin-top: 43%;
+  position: relative;
+  margin-top: 43.5%;
   width: 80%;
   /* top: 40%; */
   /* bottom: 10%; */
   /* width: 68%; */
   height: 100%;
-  color: red;
-  font-size: 60px;
+  color: white;
+  font-size: 30px;
 }
 
 .codeSelectorButtons{
@@ -120,13 +119,14 @@ template, body {
 }
 
 .buttonSelection{
-  /* margin: auto; */
   position: relative;
   width: 100%;
+  z-index:10;
 }
 .top{
   position: fixed;
   width: 100%;
+  z-index:10;
 }
 #startButton {
   border: 1px solid #0D521F;
