@@ -30,7 +30,7 @@ function insertParks(response){
 
     
     obj.GeographicalPosition = pos;
-    console.log(obj.GeographicalPosition);
+    //console.log(obj.GeographicalPosition);
 
     Parks.insert({obj});
   }
