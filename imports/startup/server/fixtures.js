@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http'
-
+import { CoordinateHandler } from '../../api/coordinateHandler.js';
 //import { LightPosts } from '../../api/lightPosts/parks.js';
 import { Challenges } from '../../api/collections/challenges.js';
 import { Parks } from '../../api/collections/parks.js';
@@ -19,6 +19,17 @@ function insertParks(response){
   var parks = response.data;
   for(var i = 0; i < parks.length; i++) {
     var obj = parks[i];
+
+    var x = obj.GeographicalPosition.X;
+    var y = obj.GeographicalPosition.Y;
+
+    var ch = new CoordinateHandler();
+    var pos = ch.gridToGeodetic(x, y);
+
+    
+    obj.GeographicalPosition = pos;
+    console.log(obj.GeographicalPosition);
+
     Parks.insert({obj});
   }
 }
