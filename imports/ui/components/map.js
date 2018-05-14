@@ -4,14 +4,20 @@ import { Parks } from '../../api/collections/parks.js';
 
 import '../components/map.html';
 
+var arrayOfParks = [];
+
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
 
 
+
 Template.map.helpers({
-
-
+ 
+  loadMarkers(){
+    var parks = Parks.find().fetch();
+    arrayOfParks = parks;
+  },
   mapOptions: function () {
     if (GoogleMaps.loaded()) {
       return {
@@ -293,16 +299,14 @@ Template.map.helpers({
           }
         ]
       };
-    }
-  }
-});
-
-//checks if map is ready and creates markers
-Template.map.onCreated(function () {
+    } 
+  },
+  temp() {
+    
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-
-
+    
+/*
     var parks = [
       ['Tegnérlunden', 59.338374, 18.0544490],
       ['Obslunden Övre', 59.342324, 18.054718],
@@ -310,14 +314,18 @@ Template.map.onCreated(function () {
       ['Vasaparken', 59.340098, 18.042035],
       ['Kungsholms Strand', 59.335399, 18.042602]
     ];
-
+*/
     parks_objects = [];
 
-    for (i = 0; i < parks.length; i++) {
+    console.log('Array of parks: ', arrayOfParks);
+
+    for (i = 0; i < arrayOfParks.length; i++) {
+      //console.log(arrayOfParks[0].GeographicalPosition);
       marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parks[i][1], parks[i][2]),
+      //position: new google.maps.LatLng(parks[i][1], parks[i][2]),
+      position: new google.maps.LatLng(arrayOfParks[i].obj.GeographicalPosition.lat, arrayOfParks[i].obj.GeographicalPosition.lon),
       map: map.instance,
-      title: parks[i][0]
+      title: arrayOfParks[i].obj.Name
       });
       let infowindow = new google.maps.InfoWindow({
         maxWidth: 250,
@@ -344,4 +352,11 @@ Template.map.onCreated(function () {
       '</div>';
 
   });
+  }
+});
+
+
+//checks if map is ready and creates markers
+Template.map.onCreated(function () {
+  
 });

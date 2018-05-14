@@ -15,6 +15,8 @@ function checkIfParksAlreadyAreLoaded(){
   }
 }
 
+
+//kommentera bort all console skit
 function insertParks(response){
   var parks = response.data;
   for(var i = 0; i < parks.length; i++) {
