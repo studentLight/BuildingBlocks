@@ -313,14 +313,13 @@ Template.map.helpers({
     var name;
     for (i = 0; i < arrayOfParks.length; i++) {
       
-      name = arrayOfParks[i].obj.Name;
 
       marker = new google.maps.Marker({
       position: new google.maps.LatLng(
         arrayOfParks[i].obj.GeographicalPosition.lat, 
         arrayOfParks[i].obj.GeographicalPosition.lon),
       map: map.instance,
-      title: arrayOfParks[i].obj.Name
+      name: arrayOfParks[i].obj.Name,
       });
 
       let infowindow = new google.maps.InfoWindow({
@@ -330,10 +329,12 @@ Template.map.helpers({
       google.maps.event.addListener(marker, 'click', (function(marker) {
         return function(evt) {
 
-        let content = marker.getTitle() + contentstring;
-        let contentstring = '<div>'
-        '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
-        '</div>';
+          Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
+          console.log([this.position.lat(), this.position.lng()]);
+          var content =
+          '<p>Name: ' + this.name + '</p>' +
+          '<p>Position: ' + this.position + '</p>' +
+          '<button onclick="setGeoPosition()">Click me</button>';
 
         infowindow.setContent(content);
         infowindow.open(map, marker);
