@@ -1,12 +1,15 @@
 <template name="codePage">
-  <body class="backgroundMain">
+  <body>
+    <div class="backgroundMain">
     {{> header}}
     <div class="top">
     {{> codeViewSelector}}
     {{> gameButtons}}
     </div>
+    <div class="middle">
     {{> board}}
-    
-
+    <!-- {{> startButton}} -->
+    </div>
+    </div>
   </body>
 </template>
