@@ -1,12 +1,12 @@
 import './startButton.html';
-import '../dropdown.js';
 
 
-// skriva händelsefunktion för startButton
-// ska generera en start-block bild på gameboard
-// Template.startButton.events({
-//
-//
+// skriva händelsefunktion för ifButton
+// ska generera ett ifBlock-block bild på gameboard
+// med textuell beskrivning och dropdowns 
+
+// Template.ifButton.events({
+
 //   "click .dropdown": function(event){
 //      $('#dropdown').dropdown({
 //        inDuration: 300,
