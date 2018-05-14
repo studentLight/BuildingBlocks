@@ -1,10 +1,24 @@
+
+import { Parks } from '../../api/collections/parks.js';
+
+
 import '../components/map.html';
+
+var arrayOfParks = [];
+
 
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
 });
 
+
+
 Template.map.helpers({
+ 
+  loadMarkers(){
+    var parks = Parks.find().fetch();
+    arrayOfParks = parks;
+  },
   mapOptions: function () {
     if (GoogleMaps.loaded()) {
       return {
@@ -286,55 +300,57 @@ Template.map.helpers({
           }
         ]
       };
+    } 
+  },
+  addMarkers() {
+    
+  GoogleMaps.ready('map', function (map) {
+    console.log('Map is ready')
+    
+    parks_objects = [];
+
+    console.log('Array of parks: ', arrayOfParks);
+    var name;
+    for (i = 0; i < arrayOfParks.length; i++) {
+      
+
+      marker = new google.maps.Marker({
+      position: new google.maps.LatLng(
+        arrayOfParks[i].obj.GeographicalPosition.lat, 
+        arrayOfParks[i].obj.GeographicalPosition.lon),
+      map: map.instance,
+      name: arrayOfParks[i].obj.Name,
+      });
+
+      let infowindow = new google.maps.InfoWindow({
+        maxWidth: 250
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker) {
+        return function(evt) {
+
+          Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
+          console.log([this.position.lat(), this.position.lng()]);
+          var content =
+          '<p>Name: ' + this.name + '</p>' +
+          '<p>Position: ' + this.position + '</p>' +
+          '<button onclick="setGeoPosition()">Click me</button>';
+
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+        console.log(this.title);
+        }
+      })(marker));
+      
+    parks_objects.push(marker);
     }
+  
+  });
   }
 });
 
+
 //checks if map is ready and creates markers
 Template.map.onCreated(function () {
-  GoogleMaps.ready('map', function (map) {
-    console.log('Map is ready')
-
-
-    var parks = [
-      ['Tegnérlunden', 59.338374, 18.0544490],
-      ['Obslunden Övre', 59.342324, 18.054718],
-      ['Sabbatsparken', 59.338160, 18.043147],
-      ['Vasaparken', 59.340098, 18.042035],
-      ['Kungsholms Strand', 59.335399, 18.042602]
-    ];
-
-    parks_objects = [];
-
-    for (i = 0; i < parks.length; i++) {
-      marker = new google.maps.Marker({
-      position: new google.maps.LatLng(parks[i][1], parks[i][2]),
-      map: map.instance,
-      title: parks[i][0]
-      });
-      let infowindow = new google.maps.InfoWindow({
-        maxWidth: 250,
-      });
-      google.maps.event.addListener(marker, 'click', (function(marker) {
-        return function(evt) {
-        let content = marker.getTitle() + contentstring;
-        infowindow.setContent(content);
-        infowindow.open(map, marker);
-        }
-      })(marker));
-    parks_objects.push(marker);
-    }
-
-
-  let contentstring = '<div id="content" style="text-align: center">' +
-      '<div id="siteNotice">' +
-      '</div>' +
-      '<h4 id="firstHeading" class="firstHeading">Tegnerlunden</h1>' +
-      '<div id="bodyContent">' +
-      '<p>Lekplatsen ligger i utkanten av parken Tegnérlunden vid Upplandsgatan. Lekplatsen har ett lekhus med rutsch, gungor (för små och stora barn) och sandlåda.</p>' +
-      '</div>' +
-      '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
-      '</div>';
-
-  });
+  
 });

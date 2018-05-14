@@ -5,7 +5,15 @@
     <div class="container">
 
     <header>
-      <h1 class="center-align">{{difficultyHeader}}</h1>
+      {{#if isEasy}}
+         <h2 class="center-align">Lätta utmaningar</h2>
+      {{/if}}
+      {{#if isMedium}}
+         <h2 class="center-align">Mellansvåra utmaningar</h2>
+      {{/if}}
+      {{#if isHard}}
+         <h2 class="center-align">Svåra utmaningar</h2>
+      {{/if}}
     </header>
 
     <ul>

@@ -1,7 +1,9 @@
 import { Session } from 'meteor/session';
-import { getSthlmParks } from "../../api/openSource/connection.js";
+
+
+<<<<<<< HEAD
+//getSthlmParks();
+=======
 
 import './routes.js';
-import '../../api/openSource/connection.js';
-
-//getSthlmParks();
+>>>>>>> addParks
