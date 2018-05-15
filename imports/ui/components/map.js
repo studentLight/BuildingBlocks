@@ -5,7 +5,7 @@ import { Parks } from '../../api/collections/parks.js';
 import '../components/map.html';
 
 var arrayOfParks = [];
-
+var activeInfoWindow;
 
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
@@ -14,7 +14,7 @@ Meteor.startup(function () {
 
 
 Template.map.helpers({
- 
+
   loadMarkers(){
     var parks = Parks.find().fetch();
     arrayOfParks = parks;
@@ -300,23 +300,23 @@ Template.map.helpers({
           }
         ]
       };
-    } 
+    }
   },
   addMarkers() {
-    
+
   GoogleMaps.ready('map', function (map) {
     console.log('Map is ready')
-    
+
     parks_objects = [];
 
     console.log('Array of parks: ', arrayOfParks);
     var name;
     for (i = 0; i < arrayOfParks.length; i++) {
-      
+
 
       marker = new google.maps.Marker({
       position: new google.maps.LatLng(
-        arrayOfParks[i].obj.GeographicalPosition.lat, 
+        arrayOfParks[i].obj.GeographicalPosition.lat,
         arrayOfParks[i].obj.GeographicalPosition.lon),
       map: map.instance,
       name: arrayOfParks[i].obj.Name,
@@ -327,24 +327,33 @@ Template.map.helpers({
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker) {
+
+
         return function(evt) {
+
+          if(activeInfoWindow != undefined){
+            activeInfoWindow.close();
+          }
 
           Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
           console.log([this.position.lat(), this.position.lng()]);
           var content =
-          '<p>Name: ' + this.name + '</p>' +
+          '<h5>Name: ' + this.name + '</h5>' +
           '<p>Position: ' + this.position + '</p>' +
           '<button onclick="setGeoPosition()">Click me</button>';
 
         infowindow.setContent(content);
         infowindow.open(map, marker);
         console.log(this.title);
+
+        activeInfoWindow = infowindow;
+        
         }
       })(marker));
-      
+
     parks_objects.push(marker);
     }
-  
+
   });
   }
 });
@@ -352,5 +361,5 @@ Template.map.helpers({
 
 //checks if map is ready and creates markers
 Template.map.onCreated(function () {
-  
+
 });
