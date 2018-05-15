@@ -9,15 +9,29 @@ export function changeColor(lampID, r, g, b){
     return;
   }
 
-  console.log("Good input");
+  console.log("Good input ");
 
-  var lights = LightPosts.find().fetch();
+  var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
+
+  var tmpID = lights[0]._id;
+
   lights = lights[0].lamps;
+  //{parkName: "Tegnerlunden"}
 
-  console.log("LampID ", lights[0][0]);
+  lights[lampID][6] = r;
+  lights[lampID][7] = g;
+  lights[lampID][8] = b;
 
+  LightPosts.update()
 
+  LightPosts.update(
+    {_id: tmpID},
+    { $set: {lamps: lights} }
+  )
+
+  console.log("BUT DOES IT WORK? ",LightPosts.find({parkName: "Tegnerlunden"}).fetch());
 }
+
 
 function isInt(value) {
   var x;
