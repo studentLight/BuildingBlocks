@@ -328,11 +328,10 @@ Template.parkMap.helpers({
 //checks if map is ready and creates markers
 
 
+var activeInfoWindow;
+
 Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
-
-    console.log("onCreated");
-
 
     var coords = Session.get('parkCoordinates');
 
@@ -361,6 +360,12 @@ Template.parkMap.onCreated(function () {
     google.maps.event.addListener(marker, 'click', (function(marker) {
       return function(evt) {
 
+        console.log(activeInfoWindow != undefined);
+        console.log(activeInfoWindow);
+        if(activeInfoWindow != undefined){
+          activeInfoWindow.close();
+        }
+
 
         let contentstring = '<div id="content" style="text-align: center">' +
             '<div id="siteNotice">' +
@@ -380,6 +385,9 @@ Template.parkMap.onCreated(function () {
 
       infowindow.setContent(content);
       infowindow.open(parkMap, marker);
+
+      activeInfoWindow = infowindow;
+
       }
     })(marker));
     lights_objects.push(marker);
