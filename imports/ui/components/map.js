@@ -1,8 +1,11 @@
-
+import { Meteor } from 'meteor/meteor';
 import { Parks } from '../../api/collections/parks.js';
 
 
 import '../components/map.html';
+
+
+
 
 var arrayOfParks = [];
 var activeInfoWindow;
@@ -302,59 +305,59 @@ Template.map.helpers({
       };
     }
   },
+
   addMarkers() {
-
-  GoogleMaps.ready('map', function (map) {
-    console.log('Map is ready')
-
-    parks_objects = [];
-
-    console.log('Array of parks: ', arrayOfParks);
-    var name;
-    for (i = 0; i < arrayOfParks.length; i++) {
+      GoogleMaps.ready('map', function (map) {
 
 
-      marker = new google.maps.Marker({
-      position: new google.maps.LatLng(
-        arrayOfParks[i].obj.GeographicalPosition.lat,
-        arrayOfParks[i].obj.GeographicalPosition.lon),
-      map: map.instance,
-      name: arrayOfParks[i].obj.Name,
-      });
 
-      let infowindow = new google.maps.InfoWindow({
-        maxWidth: 250
-      });
+        parks_objects = [];
 
-      google.maps.event.addListener(marker, 'click', (function(marker) {
+        console.log('Array of parks: ', arrayOfParks);
+        var name;
+        for (i = 0; i < arrayOfParks.length; i++) {
 
 
-        return function(evt) {
+          marker = new google.maps.Marker({
+          position: new google.maps.LatLng(
+            arrayOfParks[i].obj.GeographicalPosition.lat,
+            arrayOfParks[i].obj.GeographicalPosition.lon),
+          map: map.instance,
+          name: arrayOfParks[i].obj.Name,
+          });
 
-          if(activeInfoWindow != undefined){
-            activeInfoWindow.close();
-          }
+          let infowindow = new google.maps.InfoWindow({
+            maxWidth: 250
+          });
 
-          Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
-          console.log([this.position.lat(), this.position.lng()]);
-          var content =
-          '<h5>Name: ' + this.name + '</h5>' +
-          '<p>Position: ' + this.position + '</p>' +
-          '<a class="waves-effect waves-light btn" href="parkPage" onclick="setGeoPosition()">Programmera</a>';
+          google.maps.event.addListener(marker, 'click', (function(marker) {
 
-        infowindow.setContent(content);
-        infowindow.open(map, marker);
-        console.log(this.title);
 
-        activeInfoWindow = infowindow;
+            return function(evt) {
 
+              if(activeInfoWindow != undefined){
+                activeInfoWindow.close();
+              }
+
+              Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
+              console.log([this.position.lat(), this.position.lng()]);
+              var content =
+              '<h5>Name: ' + this.name + '</h5>' +
+              '<p>Position: ' + this.position + '</p>' +
+              '<a class="waves-effect waves-light btn" href="parkPage">Programmera</a>';
+
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+            console.log(this.title);
+
+            activeInfoWindow = infowindow;
+
+            }
+          })(marker));
+
+        parks_objects.push(marker);
         }
-      })(marker));
-
-    parks_objects.push(marker);
-    }
-
-  });
+      });
   }
 });
 
