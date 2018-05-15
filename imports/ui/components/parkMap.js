@@ -11,7 +11,6 @@ Template.parkMap.helpers({
 
   parkMapOptions: function () {
 
-    console.log("helpers");
 
     var coords = Session.get('parkCoordinates');
 
@@ -325,7 +324,7 @@ Template.parkMap.helpers({
   }
 });
 
-//checks if map is ready and creates markers
+
 
 
 var activeInfoWindow;
@@ -360,27 +359,25 @@ Template.parkMap.onCreated(function () {
     google.maps.event.addListener(marker, 'click', (function(marker) {
       return function(evt) {
 
-        console.log(activeInfoWindow != undefined);
-        console.log(activeInfoWindow);
         if(activeInfoWindow != undefined){
           activeInfoWindow.close();
         }
 
-
-        let contentstring = '<div id="content" style="text-align: center">' +
-            '<div id="siteNotice">' +
-            '</div>' +
-            '<h4 id="firstHeading" class="firstHeading">' + "LampID: " + lights[(this.title -1)][0] + '</h1>' +
-            '<div id="bodyContent">' +
+        let contentstring =
+        '<div id="content" style="text-align: center">' +
+          '<div id="siteNotice">' +
+          '</div>' +
+          '<h4 id="firstHeading" class="firstHeading">' + "LampID: " + lights[(this.title -1)][0] + '</h4>' +
+          '<div id="bodyContent">' +
             '<p id="light">' + "Ljussensor: " + lights[(this.title -1)][3] + '</p>'+
             '<p id="touch">' + "Trycksensor: " + lights[(this.title -1)][4] + ' </p>'+
             '<p id="sound">' + "Ljudsenspr: " + lights[(this.title -1)][5] + ' </p>'+
             '<p id="red">' + "Röd: " + lights[(this.title -1)][6] + ' </p>'+
             '<p id="green">' + "Grön: " + lights[(this.title -1)][7] + ' </p>'+
             '<p id="blue">' + "Blå: " + lights[(this.title -1)][8] + ' </p>'+
-            '</div>' +
-            '<a href="parkPage" class="waves-effect waves-light btn">Börja koda</a>' +
-            '</div>';
+          '</div>' +
+        '</div>';
+
       let content =  contentstring;
 
       infowindow.setContent(content);
@@ -394,11 +391,5 @@ Template.parkMap.onCreated(function () {
     }
 
 
-
-
-
-    });
   });
-
-
-    //console.log("funkar detta ", lps);
+});
