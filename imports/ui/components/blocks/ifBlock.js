@@ -1,7 +1,10 @@
 import './ifBlock.html';
-import '../dropdown.js'; 
+import '../dropdown.js';
 
 
+// skriva händelsefunktion för ifButton
+// ska generera ett ifBlock-block bild på gameboard
+// med textuell beskrivning och dropdowns 
 
 // Template.startButton.events({
 //
