@@ -7,11 +7,12 @@ import '../components/blocks/thenBlock.html';
 
 
 /* skriva händelsefunktion för varje enskild button
-   onclick? events? lyssna efter event?
    använda ID't för att skriva lyssnar-funktioner
    ska generera respektive block bild på gameboard
    med textuell beskrivning dropdowns, etc
-   funtkioner för start, if, then, end */
+   inkludera färgsättning, seesion & responsiv block
+   placering
+   */
 window.onload = function() {
 
   var startbtn = document.getElementById("startButton");
@@ -19,7 +20,7 @@ window.onload = function() {
   var ifbtn = document.getElementById("ifButton");
   var thenbtn = document.getElementById("thenButton");
 
-//startbutton för block
+  //startbutton för block
   var intitiateStartBlock = function() {
     startbtn.textContent = "success!"
     displayBlock();
@@ -29,23 +30,19 @@ window.onload = function() {
 
   startbtn.addEventListener('click', intitiateStartBlock, false);
 
-}
-
-function displayBlock(src, width, height, alt) {
+  /* visa bild på gameboard */
+  function displayBlock(src, width, height, alt) {
     var img = document.createElement("img");
+    img.setAttribute("src", "images/StartBlock.png");
     img.src = src;
     img.width = width;
     img.height = height;
     img.alt = alt;
-    document.body.appendChild(img);
+    document.getElementById("placeBlock").appendChild(img);
+  }
+
 }
-
-// $("#startButton")({
-//   //innehåll
-//
-// });
-
-  // console.log("hej");
+  // console.log("TEST123");
 
   // $('#startButton').on('click', function () {
   //  startButton.textContent = "something"
