@@ -322,8 +322,6 @@ Template.parkMap.helpers({
       };
     }
 
-    console.log("Nu ska vi skriva ut datan för samtliga lampor");
-
   }
 });
 
