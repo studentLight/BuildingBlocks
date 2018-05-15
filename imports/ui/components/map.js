@@ -340,14 +340,14 @@ Template.map.helpers({
           var content =
           '<h5>Name: ' + this.name + '</h5>' +
           '<p>Position: ' + this.position + '</p>' +
-          '<button onclick="setGeoPosition()">Click me</button>';
+          '<a class="waves-effect waves-light btn" href="parkPage" onclick="setGeoPosition()">Programmera</a>';
 
         infowindow.setContent(content);
         infowindow.open(map, marker);
         console.log(this.title);
 
         activeInfoWindow = infowindow;
-        
+
         }
       })(marker));
 
