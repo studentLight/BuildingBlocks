@@ -1,4 +1,5 @@
 import './board.html';
-import './blocks/startButton.js';
-import './blocks/startBlock.js';
-// import './blocks/startBlock.js';
+import '../components/blocks/startBlock.js';
+import '../components/blocks/endBlock.js';
+import '../components/blocks/ifBlock.js';
+import '../components/blocks/thenBlock.js';

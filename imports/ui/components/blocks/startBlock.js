@@ -9,8 +9,8 @@ import './startBlock.html';
 
 // Template.startButton.events({
 
-//lyssnarefunktion på startbutton onklick som ska generera bilden på
-//gameboards
+// lyssnarefunktion på startblock onklick som
+// ska köra koden-blocken ?
 
 //   startButton.onclick function(event){
 //      $('#dropdown').dropdown({
