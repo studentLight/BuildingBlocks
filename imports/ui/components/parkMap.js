@@ -355,7 +355,6 @@ Template.parkMap.onCreated(function () {
       maxWidth: 250,
     });
 
-
     google.maps.event.addListener(marker, 'click', (function(marker) {
       return function(evt) {
 
