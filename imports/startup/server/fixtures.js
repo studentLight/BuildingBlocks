@@ -29,7 +29,7 @@ function insertParks(response){
     var ch = new CoordinateHandler();
     var pos = ch.gridToGeodetic(x, y);
 
-    
+
     obj.GeographicalPosition = pos;
     //console.log(obj.GeographicalPosition);
 
@@ -101,13 +101,7 @@ function insertChallenges(){
   difficulty: "Hard",createdAt: new Date()} );
 }
 
-Meteor.startup(() => {
-
-  checkIfParksAlreadyAreLoaded();
-  Challenges.remove({});
-  insertChallenges();
-
-  //lat:59.338209, long:18.053968, light:0, touch:0, sound:0, red:0, green:0, blue:0
+function insertLightpoasts(){
   var lmp1 = [1, 59.338209, 18.053968, 0, 0, 0, 0, 0, 0];
   var lmp2 = [2, 59.337923, 18.053810, 0, 0, 0, 0, 0, 0];
   var lmp3 = [3, 59.337876, 18.054372, 0, 0, 0, 0, 0, 0];
@@ -119,9 +113,14 @@ Meteor.startup(() => {
   LightPosts.remove({});
 
   LightPosts.insert(
-    { parkName:"Tegnerlunden", parkLat:59.338408, parkLong:18.054466, lamps:lmp }
-  );
-  LightPosts.insert(
-    { parkName:"Kungstradgarden", parkLat:58.338408, parkLong:17.054466, lamps:lmp });
+    { parkName:"Tegnerlunden", parkLat:59.338408, parkLong:18.054466, lamps:lmp });
+}
+
+Meteor.startup(() => {
+
+  checkIfParksAlreadyAreLoaded();
+  Challenges.remove({});
+  insertChallenges();
+  insertLightpoasts
 
 });
