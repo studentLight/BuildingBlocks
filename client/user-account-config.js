@@ -58,8 +58,7 @@ AccountsTemplates.configure({
     showValidating: true,
 
     // Privacy Policy and Terms of Use
-    // privacyUrl: 'privacy',
-    // termsUrl: 'terms-of-use',
+    privacyUrl: 'https://termsfeed.com/privacy-policy/787b1e822bc6526dbbdfd637222ead54',
 
     // Redirects
     homeRoutePath: 'homePage',
