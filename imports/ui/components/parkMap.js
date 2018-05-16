@@ -347,7 +347,7 @@ Template.parkMap.onCreated(function () {
     var lights = LightPosts.find().fetch();
 
     lights = lights[0].lamps;
-    for (var i = 0; i < lights.length;i++){
+    for (var i = 0; i < lights.length ;i++){
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(lights[i][1], lights[i][2]),
       map: parkMap.instance,

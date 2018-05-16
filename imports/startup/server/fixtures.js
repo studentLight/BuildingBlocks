@@ -101,7 +101,7 @@ function insertChallenges(){
   difficulty: "Hard",createdAt: new Date()} );
 }
 
-function insertLightpoasts(){
+function insertLightposts(){
   var lmp1 = [1, 59.338209, 18.053968, 0, 0, 0, 0, 0, 0];
   var lmp2 = [2, 59.337923, 18.053810, 0, 0, 0, 0, 0, 0];
   var lmp3 = [3, 59.337876, 18.054372, 0, 0, 0, 0, 0, 0];
@@ -112,8 +112,8 @@ function insertLightpoasts(){
 
   LightPosts.remove({});
 
-  LightPosts.insert(
-    { parkName:"Tegnerlunden", parkLat:59.338408, parkLong:18.054466, lamps:lmp });
+  LightPosts.insert( { parkName:"Tegnerlunden", parkLat:59.338408, parkLong:18.054466, lamps:lmp });
+  LightPosts.insert( { parkName:"Kungsan", parkLat:59.338408, parkLong:18.054466, lamps:lmp });
 }
 
 Meteor.startup(() => {
@@ -121,6 +121,6 @@ Meteor.startup(() => {
   checkIfParksAlreadyAreLoaded();
   Challenges.remove({});
   insertChallenges();
-  insertLightpoasts
+  insertLightposts();
 
 });
