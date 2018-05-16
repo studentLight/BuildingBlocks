@@ -18,11 +18,11 @@ export function changeColor(lampID, r, g, b){
   lights = lights[0].lamps;
   //{parkName: "Tegnerlunden"}
 
-  lights[lampID][6] = r;
-  lights[lampID][7] = g;
-  lights[lampID][8] = b;
+  lights[(lampID-1)][6] = r;
+  lights[(lampID-1)][7] = g;
+  lights[(lampID-1)][8] = b;
 
-  LightPosts.update()
+  //LightPosts.update()
 
   LightPosts.update(
     {_id: tmpID},
@@ -46,7 +46,7 @@ function controlInput(lampID, r, g, b){
   if( !(isInt(r) && isInt(g) && isInt(b)) ){
     return false;
   }else{
-    if(!isInt(lampID) || lampID < 0 || lampID > 6 ){
+    if(!isInt(lampID) || lampID < 1 || lampID > 6 ){
       return false;
     }
   }
