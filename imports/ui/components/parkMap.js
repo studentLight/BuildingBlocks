@@ -1,10 +1,13 @@
 import '../components/parkMap.html';
 
 import { LightPosts } from '../../api/collections/lightPosts.js';
+import { changeColor } from '../../api/collections/lightPosts.js';
+
 
 //konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
+
 });
 
 Template.parkMap.helpers({
@@ -325,12 +328,12 @@ Template.parkMap.helpers({
 });
 
 
-
-
 var activeInfoWindow;
 
 Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
+
+    changeColor(3, 1, 1, 1);
 
     var coords = Session.get('parkCoordinates');
 
@@ -344,7 +347,7 @@ Template.parkMap.onCreated(function () {
     var lights = LightPosts.find().fetch();
 
     lights = lights[0].lamps;
-    for (var i = 0; i < lights.length;i++){
+    for (var i = 0; i < lights.length ;i++){
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(lights[i][1], lights[i][2]),
       map: parkMap.instance,
