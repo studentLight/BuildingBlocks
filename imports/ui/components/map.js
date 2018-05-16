@@ -309,8 +309,6 @@ Template.map.helpers({
   addMarkers() {
       GoogleMaps.ready('map', function (map) {
 
-
-
         parks_objects = [];
 
         console.log('Array of parks: ', arrayOfParks);
