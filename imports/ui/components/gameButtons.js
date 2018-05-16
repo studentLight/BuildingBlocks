@@ -1,49 +1,48 @@
-import './board.html';
 import '../components/gameButtons.html';
-import '../components/blocks/startBlock.html';
-import '../components/blocks/endBlock.html';
-import '../components/blocks/ifBlock.html';
-import '../components/blocks/thenBlock.html';
 
+import './board.js';
 
-/* skriva händelsefunktion för varje enskild button
-   använda ID't för att skriva lyssnar-funktioner
-   ska generera respektive block bild på gameboard
-   med textuell beskrivning dropdowns, etc
-   inkludera färgsättning, seesion & responsiv block
-   placering
-   */
-window.onload = function() {
+var blocks;
+var i = 0;
 
-  var startbtn = document.getElementById("startButton");
-  var endbtn = document.getElementById("endButton");
-  var ifbtn = document.getElementById("ifButton");
-  var thenbtn = document.getElementById("thenButton");
+Template.gameButtons.events({
 
-  //startbutton för block
-  var intitiateStartBlock = function() {
-    startbtn.textContent = "success!"
-    displayBlock();
-    // ska skapa block bild i gameboard template div
-    // med textuell beskrivning dropdowns, etc
-  };
+  "click #startButton": function(event){
+      console.log("in startButton klick");
+      var div = createBuildningBlock("images/StartBlock.png");
+      document.getElementById("placeBlock").appendChild(div);
+  },
 
-  startbtn.addEventListener('click', intitiateStartBlock, false);
+  "click #endButton": function(event){
+      console.log("in endButton klick");
+      var div = createBuildningBlock("images/SlutBlock.png");
+      document.getElementById("placeBlock").appendChild(div);
+  },
 
-  /* visa bild på gameboard */
-  function displayBlock(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.setAttribute("src", "images/StartBlock.png");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
-    document.getElementById("placeBlock").appendChild(img);
+  "click #ifButton": function(event){
+      console.log("in endButton klick");
+      var div = createBuildningBlock("images/OmBlock.png");
+      document.getElementById("placeBlock").appendChild(div);
+  },
+  "click #thenButton": function(event){
+      console.log("in endButton klick");
+      var div = createBuildningBlock("images/SåBlock.png");
+      document.getElementById("placeBlock").appendChild(div);
   }
 
-}
-  // console.log("TEST123");
+});
 
-  // $('#startButton').on('click', function () {
-  //  startButton.textContent = "something"
-  // });
+function createBuildningBlock(src){
+  var div = document.createElement("div");
+  div.className ="container";
+  div.style.position = "relative";
+  div.style.width = "100%";
+  div.style.padding = "10px";
+
+  var img = document.createElement("img");
+  img.setAttribute("src", src);
+  img.style.width = "100%";
+
+  div.appendChild(img);
+  return div;
+}
