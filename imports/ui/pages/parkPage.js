@@ -11,16 +11,20 @@ import { LightPosts } from '../../api/collections/lightPosts.js';
 
 function parkInit() {
 
-  $('#codeButton').fadeTo("slow", 0.80);
+  // console.log("testar");
+
+  // $('#codeButton').fadeTo("slow", 0.80);
 
   $('#codeButton').css({
     "background": "linear-gradient(#1976d2, #0d47a1)",
   });
 
   $("#parkButton").css({
-    "font-size": "120%",
+    "font-size": "150%",
+    // "border": "solid #0288d1 2px",
     "border-bottom": "solid #1a237e 3px",
     "background": "linear-gradient(#1976d2, #0d47a1)",
+    "text-decoration": "underline",
   });
 
 

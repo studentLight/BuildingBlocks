@@ -18,15 +18,21 @@ Template.challengesDisplayPage.helpers({
   },
 
   isEasy(){
+    // console.log("Easy ",difficultySelected());
     return "Easy" == difficultySelected();
+
   },
 
   isMedium(){
+    // console.log("Medium ",difficultySelected());
     return "Medium" == difficultySelected();
+
   },
 
   isHard(){
+    // console.log("Hard ",difficultySelected());
     return "Hard" == difficultySelected();
+
   },
 
 });
@@ -40,7 +46,7 @@ Template.challengesDisplayPage.events({
     var values = [id, text, content];
     Session.set('values', values);
   },
-  
+
    //the one that is really needed
   "click .openContact": function(event){
      $('#modal1').openModal();

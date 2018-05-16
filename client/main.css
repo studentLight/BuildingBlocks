@@ -17,10 +17,12 @@ template, body {
   padding-left: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+
 }
 
 .backgroundMain {
   background: #292233;
+  height: 100%;
 }
 
 .blue-gradient{
@@ -81,10 +83,84 @@ template, body {
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
-
 }
+
 .challengeItem{
   height: 50px;
   width: 100%;
+}
 
+.boardDiv{
+  /* margin: auto;
+  position: static; */
+  /* background: #FFFFFF; */
+  /* height: 100%; */
+  /* margin-top: 43.5%; */
+  /* background: #494251;
+  width: 80%; */
+
+}
+
+.middle{
+  margin: auto;
+  /* position: static; */
+  /* width: 80%; */
+  /* top: 40%; */
+  /* bottom: 10%; */
+  width: 68%;
+  height: 100%;
+  /* color: white; */
+  /* font-size: 40px; */
+  background: #494251;
+}
+
+.codeSelectorButtons{
+  position: relative;
+  width: 100%;
+}
+
+.buttonSelection{
+  position: relative;
+  width: 100%;
+  /* z-index:10; */
+}
+.top{
+  position: fixed;
+  width: 100%;
+  /* z-index:10; */
+}
+#startButton {
+  border: 1px solid #0D521F;
+  float:left;
+  width: 50%;
+}
+
+#stopButton {
+  border: 1px solid #6C0F0F;
+  float:left;
+  width: 50%;
+}
+
+#ifButton {
+  border: 1px solid #616161;
+  float:left;
+  width: 50%;
+}
+
+#thenButton {
+  border: 1px solid #424242;
+  float:left;
+  width: 50%;
+}
+
+#parkButton {
+  border: 1px solid #1a237e;
+  float:left;
+  width: 50%;
+}
+
+#codeButton {
+  border: 1px solid #1a237e;
+  float:left;
+  width: 50%;
 }
