@@ -129,6 +129,19 @@ template, body {
   width: 100%;
   /* z-index:10; */
 }
+.modal-header{
+  position: relative;
+  width: 100%;
+}
+
+.modalTitle{
+  display:inline-block;
+  float:left;
+}
+#starButton {
+  /* right: 0px; */
+}
+
 #startButton {
   border: 1px solid #0D521F;
   float:left;
