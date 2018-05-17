@@ -1,6 +1,7 @@
 import './challengesDisplayPage.html';
 import '../components/modals/challengeModal.js';
 import '../components/modals/startBlockModal.js';
+import '../components/modals/ifBlockModal.js';
 import '../components/navbar.js';
 import '../components/challenge.js';
 
@@ -56,5 +57,9 @@ Template.challengesDisplayPage.events({
    "click .sBM": function(event){
       $('#sBModal').openModal();
     },
+
+    "click .iBM": function(event){
+       $('#iBModal').openModal();
+     },
 
 });
