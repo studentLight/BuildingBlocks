@@ -2,7 +2,7 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
-var blocks;
+var blocks = [];
 var i = 0;
 
 Template.gameButtons.events({
@@ -13,6 +13,19 @@ Template.gameButtons.events({
       var textDiv = createTextDiv("start-block");
       div.appendChild(textDiv);
       document.getElementById("placeBlock").appendChild(div);
+      div.id = ""+i;
+      div.name = "start";
+      blocks.push(div);
+      i++;
+
+
+      console.log(blocks);
+      console.log(blocks[(blocks.length-1)].name);
+
+      if(blocks[(blocks.length-1)].name == "start"){
+        console.log("true");
+      }
+      
   },
 
   "click #endButton": function(event){
@@ -21,6 +34,11 @@ Template.gameButtons.events({
       var textDiv = createTextDiv("Stopp-block");
       div.appendChild(textDiv);
       document.getElementById("placeBlock").appendChild(div);
+
+      div.id = ""+i;
+      div.name = "end";
+      blocks.push(div);
+      i++;
   },
 
   "click #ifButton": function(event){
@@ -29,6 +47,11 @@ Template.gameButtons.events({
       var textDiv = createTextDiv("Om-block");
       div.appendChild(textDiv);
       document.getElementById("placeBlock").appendChild(div);
+
+      div.id = ""+i;
+      div.name = "if";
+      blocks.push(div);
+      i++;
   },
   "click #thenButton": function(event){
       console.log("in thenButton klick");
@@ -36,6 +59,11 @@ Template.gameButtons.events({
       var textDiv = createTextDiv("Så-block");
       div.appendChild(textDiv);
       document.getElementById("placeBlock").appendChild(div);
+
+      div.id = ""+i;
+      div.name = "then";
+      blocks.push(div);
+      i++;
   }
 
 });
