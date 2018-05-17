@@ -1,5 +1,6 @@
 import './challengesDisplayPage.html';
 import '../components/modals/challengeModal.js';
+import '../components/modals/startBlockModal.js';
 import '../components/navbar.js';
 import '../components/challenge.js';
 
@@ -51,5 +52,9 @@ Template.challengesDisplayPage.events({
   "click .openContact": function(event){
      $('#modal1').openModal();
    },
+
+   "click .sBM": function(event){
+      $('#sBModal').openModal();
+    },
 
 });
