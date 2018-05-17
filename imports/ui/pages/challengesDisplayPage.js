@@ -60,7 +60,7 @@ Template.challengesDisplayPage.events({
       $('#sBModal').openModal();
     },
 
-<<<<<<< HEAD
+
     "click .tBM": function(event){
        $('#tBModal').openModal();
      },
@@ -69,10 +69,10 @@ Template.challengesDisplayPage.events({
         $('#stBModal').openModal();
       },
 
-=======
+
     "click .iBM": function(event){
        $('#iBModal').openModal();
      },
 
->>>>>>> c80424058522d7c831eba61078a20a7ed5614b09
+
 });
