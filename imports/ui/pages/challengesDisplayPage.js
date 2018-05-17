@@ -1,6 +1,7 @@
 import './challengesDisplayPage.html';
 import '../components/modals/challengeModal.js';
 import '../components/modals/startBlockModal.js';
+import '../components/modals/ifBlockModal.js';
 import '../components/modals/thenBlockModal.js';
 import '../components/modals/stopBlockModal.js';
 import '../components/navbar.js';
@@ -59,6 +60,7 @@ Template.challengesDisplayPage.events({
       $('#sBModal').openModal();
     },
 
+<<<<<<< HEAD
     "click .tBM": function(event){
        $('#tBModal').openModal();
      },
@@ -67,4 +69,10 @@ Template.challengesDisplayPage.events({
         $('#stBModal').openModal();
       },
 
+=======
+    "click .iBM": function(event){
+       $('#iBModal').openModal();
+     },
+
+>>>>>>> c80424058522d7c831eba61078a20a7ed5614b09
 });
