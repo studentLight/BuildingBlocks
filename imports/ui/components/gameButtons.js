@@ -2,68 +2,43 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
-var blocks = [];
+//var blocks = [];
 var i = 0;
+
+//Session.set('allBlocks', blocks );
+
+//var coords = Session.get('allBlocks');
+
+Template.gameButtons.rendered = function(){
+  if(Session.get('allBlocks') != undefined){
+    recreateBlocks(Session.get('allBlocks'));
+  }
+};
 
 Template.gameButtons.events({
 
   "click #startButton": function(event){
-      console.log("in startButton klick");
-      var div = createBuildningBlock("images/startBlock.png");
-      var textDiv = createTextDiv("start-block");
-      div.appendChild(textDiv);
-      document.getElementById("placeBlock").appendChild(div);
-      div.id = ""+i;
-      div.name = "start";
-      blocks.push(div);
-      i++;
+      var div = createStartBlock();
+      addBlockToSession(div);
 
-
-      console.log(blocks);
-      console.log(blocks[(blocks.length-1)].name);
-
-      if(blocks[(blocks.length-1)].name == "start"){
-        console.log("true");
-      }
-      
   },
 
   "click #endButton": function(event){
-      console.log("in endButton klick");
-      var div = createBuildningBlock("images/endBlock.png");
-      var textDiv = createTextDiv("Stopp-block");
-      div.appendChild(textDiv);
-      document.getElementById("placeBlock").appendChild(div);
+    var div = createEndBlock();
+      addBlockToSession(div);
 
-      div.id = ""+i;
-      div.name = "end";
-      blocks.push(div);
-      i++;
   },
 
   "click #ifButton": function(event){
-      console.log("in ifButton klick");
-      var div = createBuildningBlock("images/ifBlock.png");
-      var textDiv = createTextDiv("Om-block");
-      div.appendChild(textDiv);
-      document.getElementById("placeBlock").appendChild(div);
+      var div = createIfBlock();
+      addBlockToSession(div);
 
-      div.id = ""+i;
-      div.name = "if";
-      blocks.push(div);
-      i++;
   },
-  "click #thenButton": function(event){
-      console.log("in thenButton klick");
-      var div = createBuildningBlock("images/thenBlock.png");
-      var textDiv = createTextDiv("Så-block");
-      div.appendChild(textDiv);
-      document.getElementById("placeBlock").appendChild(div);
 
-      div.id = ""+i;
-      div.name = "then";
-      blocks.push(div);
-      i++;
+  "click #thenButton": function(event){
+      var div = createThenBlock();
+      addBlockToSession(div);
+
   }
 
 });
@@ -82,6 +57,7 @@ function createBuildningBlock(src){
   div.appendChild(img);
   return div;
 }
+
 function createTextDiv(text){
   var content = document.createElement("div");
   content.style.position = "absolute";
@@ -96,16 +72,70 @@ function createTextDiv(text){
   return content;
 
 }
-/*function createActionDiv(text){
-  var content = document.createElement("div");
-  content.style.textAlign = "center";
-  content.style.top = "50%";
 
-  var paragraph = document.createElement("P");
-  paragraph.innerText = text;
+function addBlockToSession(block){
+  if(Session.get('allBlocks') == undefined){
+    var blocks = [block];
+    Session.set('allBlocks', blocks);
+    return;
+  }else{
+    var blocks = Session.get('allBlocks');
+    blocks.push(block);
+    Session.set('allBlocks', blocks);
+    return;
+  }
+}
 
+function recreateBlocks(blockArray){
+  for(var i = 0; i < blockArray.length; i++){
+    if(blockArray[i].name == "start"){
+      createStartBlock();
+    }else if (blockArray[i].name == "end") {
+      createEndBlock();
+    }else if (blockArray[i].name == "if") {
+      createIfBlock();
+    }else if (blockArray[i].name == "then") {
+      createThenBlock();
+    }
+  }
+}
 
-  content.appendChild(paragraph);
-  return content;
+function createStartBlock(){
+  var div = createBuildningBlock("images/startBlock.png");
+  var textDiv = createTextDiv("start-block");
+  div.appendChild(textDiv);
+  document.getElementById("placeBlock").appendChild(div);
+  div.name = "start";
 
-}*/
+  return div;
+}
+
+function createEndBlock(){
+  var div = createBuildningBlock("images/endBlock.png");
+  var textDiv = createTextDiv("end-block");
+  div.appendChild(textDiv);
+  document.getElementById("placeBlock").appendChild(div);
+  div.name = "end";
+
+  return div;
+}
+
+function createIfBlock(){
+  var div = createBuildningBlock("images/ifBlock.png");
+  var textDiv = createTextDiv("if");
+  div.appendChild(textDiv);
+  document.getElementById("placeBlock").appendChild(div);
+  div.name = "if";
+
+  return div;
+}
+
+function createThenBlock(){
+  var div = createBuildningBlock("images/thenBlock.png");
+  var textDiv = createTextDiv("then");
+  div.appendChild(textDiv);
+  document.getElementById("placeBlock").appendChild(div);
+  div.name = "then";
+
+  return div;
+}
