@@ -20,12 +20,12 @@ Template.gameButtons.events({
   },
 
   "click #ifButton": function(event){
-      console.log("in endButton klick");
+      console.log("in ifButton klick");
       var div = createBuildningBlock("images/OmBlock.png");
       document.getElementById("placeBlock").appendChild(div);
   },
   "click #thenButton": function(event){
-      console.log("in endButton klick");
+      console.log("in thenButton klick");
       var div = createBuildningBlock("images/SåBlock.png");
       document.getElementById("placeBlock").appendChild(div);
   }

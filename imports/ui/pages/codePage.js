@@ -1,5 +1,4 @@
 import './codePage.html';
-import '../components/blocks/startBlock.js';
 import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
