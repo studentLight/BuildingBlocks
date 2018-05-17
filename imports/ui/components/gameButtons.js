@@ -12,7 +12,12 @@ var i = 0;
 Template.gameButtons.rendered = function(){
   if(Session.get('allBlocks') != undefined){
     recreateBlocks(Session.get('allBlocks'));
-  }
+  }else{
+    document.getElementById("startButton").disabled = false;
+    document.getElementById("endButton").disabled = true;
+    document.getElementById("ifButton").disabled = true;
+    document.getElementById("thenButton").disabled = true;
+    }
 };
 
 Template.gameButtons.events({
