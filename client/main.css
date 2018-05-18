@@ -138,8 +138,12 @@ template, body {
   display:inline-block;
   float:left;
 }
-#starButton {
-  /* right: 0px; */
+.unselectedChallenge {
+  border: 1px solid #757575;
+  float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  background-color: grey;
 }
 
 #startButton {

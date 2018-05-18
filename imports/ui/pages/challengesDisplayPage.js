@@ -15,8 +15,6 @@ import { Challenges } from '../../api/collections/challenges.js';
 
 Template.challengesDisplayPage.helpers({
 
-
-
   challengehelper() {
     return Challenges.find({difficulty: difficultySelected()});
   },
@@ -73,6 +71,7 @@ Template.challengesDisplayPage.events({
     "click .iBM": function(event){
        $('#iBModal').openModal();
      },
+
 
 
 });

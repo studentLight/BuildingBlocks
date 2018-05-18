@@ -77,7 +77,7 @@ function insertChallenges(){
   difficulty: "Medium",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 7",
-  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om dess trycksensor är <u>inaktiverad</u>.<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.",
+  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om dess trycksensor är inaktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.",
   difficulty: "Medium",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 8",
@@ -89,15 +89,15 @@ function insertChallenges(){
   difficulty: "Hard",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 10",
-  content: "<b>1)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är <u>inaktiverad</u>.<br><br> <b>3)</b> Få lyktstolpe <b>6</b> att lysa <font color=red>rött</font> om dess ljussensor är <u>inaktiverad</u>.<br><br> <b>4)</b> Få lyktstolpe <b>2</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är <u>inaktiverad</u>.",
+  content: "<b>1)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är inaktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>6</b> att lysa <font color=red>rött</font> om dess ljussensor är inaktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>2</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är inaktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 11",
-  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=green>grönt</font> om dess trycksensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om trycksensor för lyktstolpe <b>1</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljussensor är <u>inaktiverad</u>.<br><br> <b>4)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om trycksensor i lyktstolpe <b>2</b> är aktiverad.<br><br> <b>5)</b> Få lyktstolpe <b>5</b> att lysa <font color=green>grönt</font> om dess ljussensor är aktiverad.<br><br> <b>6)</b> Få lyktstolpe <b>6</b> att lysa <font color=blue>blått</font> om dess trycksensor är <u>inaktiverad</u>.",
+  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=green>grönt</font> om dess trycksensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om trycksensor för lyktstolpe <b>1</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljussensor är inaktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om trycksensor i lyktstolpe <b>2</b> är aktiverad.<br><br> <b>5)</b> Få lyktstolpe <b>5</b> att lysa <font color=green>grönt</font> om dess ljussensor är aktiverad.<br><br> <b>6)</b> Få lyktstolpe <b>6</b> att lysa <font color=blue>blått</font> om dess trycksensor är inaktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 12",
-  content: "<b>1)</b> Få lyktstolpe <b>6</b> att lysa <font color=green>grönt</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om ljussensor i lyktstolpe <b>4</b> är <u>inaktiverad</u>.<br><br> <b>3)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om dess ljudsensor är <u>inaktiverad</u>.<br><br> <b>4)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om trycksensor i lyktstolpe <b>2</b> är aktiverad.<br><br> <b>5)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess trycksensor är aktiverad.<br><br> <b>6)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.",
+  content: "<b>1)</b> Få lyktstolpe <b>6</b> att lysa <font color=green>grönt</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om ljussensor i lyktstolpe <b>4</b> är inaktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om dess ljudsensor är inaktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om trycksensor i lyktstolpe <b>2</b> är aktiverad.<br><br> <b>5)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess trycksensor är aktiverad.<br><br> <b>6)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
 }
 
