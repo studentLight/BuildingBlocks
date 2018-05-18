@@ -16,7 +16,7 @@ var mySubmitFunc = function(error, state){
       FlowRouter.go('homePage');
     }
   }
-};
+}
 
 
 T9n.map('en', {
@@ -30,7 +30,7 @@ T9n.map('en', {
                 'Incorrect password': 'Felaktigt Lösenord!',
             },
         }
-    });
+  });
 
 AccountsTemplates.configure({
     // Behavior
