@@ -6,6 +6,29 @@ function arrayOfValuesForChallanges() {
   return Session.get('values');
 }
 
+function getSelectedChallange() {
+
+  return Session.get('selectedChallenge');
+}
+
+function selectionCheck() {
+ if(getSelectedChallange() == arrayOfValuesForChallanges()){
+   return true;
+ }
+ else{
+   return false;
+ }
+}
+
+function undefinedCheck() {
+  if(getSelectedChallange() == undefined){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 
 Template.challengeModal.helpers({
 
@@ -25,33 +48,75 @@ Template.challengeModal.helpers({
 Template.challengeModal.events({
 
     "click .unselectedChallenge": function(event){
-        console.log("click");
+
         // $(event.currentTarget).toggleClass('done alarm_on');
 
         // this works
+
         if(Session.get("isSelected") == false){
 
-          $('.unselectedChallenge').css({
-            "background-color": "green",
-          });
+          if(Session.get('selectedChallenge') == arrayOfValuesForChallanges()){
+            $('.unselectedChallenge').css({
+              "background-color": "grey",
+            });
+            console.log("grey");
 
-          Session.set('isSelected', true);
+            Session.set('selectedChallenge', undefined);
+            Session.set("isSelected", false);
+
+          } else {
+            $('.unselectedChallenge').css({
+              "background-color": "green",
+            });
+            console.log("green");
+
+            Session.set('selectedChallenge', arrayOfValuesForChallanges());
+            Session.set('isSelected', true);
+          }
+
         }
         else {
           $('.unselectedChallenge').css({
             "background-color": "grey",
           });
-
+          console.log("grey");
+          Session.set('selectedChallenge', undefined);
           Session.set("isSelected", false);
         }
    }
 });
 
-function challengeModalInit() {
-   Session.set("isSelected", false);
-}
-Template.challengeModal.rendered = function(){
-  challengeModalInit();
-  
-
-};
+// function challengeModalInit() {
+//     if(Session.get('selectedChallenge') == undefined){
+//        Session.set("isSelected", false);
+//
+//        $('.unselectedChallenge').css({
+//          "background-color": "grey",
+//        });
+//        console.log("grey");
+//      }
+//      else{
+//       if(Session.get('selectedChallenge') == arrayOfValuesForChallanges()){
+//         $('.unselectedChallenge').css({
+//           "background-color": "green",
+//         });
+//         console.log("green");
+//          Session.set("isSelected", true);
+//       }
+//        else {
+//         $('.unselectedChallenge').css({
+//           "background-color": "grey",
+//         });
+//         console.log("grey");
+//          Session.set("isSelected", false);
+//       }
+//     }
+// }
+//
+// Template.challengeModal.rendered = function(){
+//   challengeModalInit();
+// };
+//
+// Template.challengeModal.onCreated(function(){
+//   challengeModalInit();
+// });

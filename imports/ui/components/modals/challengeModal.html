@@ -3,7 +3,14 @@
   <div id="modal1" class="modal">
     <div class="modal-header">
       <h4 class="modalTitle"><center>{{challengeText}}</center></h4>
+      {{#if undefinedCheck}}
       <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+      {{else if selectionCheck}}
+      <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+      {{else}}
+      <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+      {{/if}}
+
       <div class="modal-content">
       <br>
       <p>{{> challangeDescription}}</p>
