@@ -19,8 +19,7 @@ Template.parkMap.helpers({
 
 
     if( coords == undefined){
-      coords = [59.338408, 18.054466];
-      //window.location.href = "mapPage";
+      window.location.href = "mapPage";
 
     }
 
@@ -339,8 +338,7 @@ Template.parkMap.onCreated(function () {
     var coords = Session.get('parkCoordinates');
 
     if( coords == undefined){
-      coords = [59.338408, 18.054466];
-      //window.location.href = "mapPage";
+      window.location.href = "mapPage";
     }
 
 
