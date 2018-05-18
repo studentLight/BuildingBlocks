@@ -2,7 +2,7 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
-//var blocks = [];
+var blocks = [];
 var i = 0;
 
 //Session.set('allBlocks', blocks );
@@ -10,40 +10,45 @@ var i = 0;
 //var coords = Session.get('allBlocks');
 
 Template.gameButtons.rendered = function(){
-  if(Session.get('allBlocks') != undefined){
-    recreateBlocks(Session.get('allBlocks'));
-  }else{
+    recreateBlocks();
+    setClickable();
+  }/*
+gå igenom blocks och sen append child
+
+add block to session och recreate blocks
+
+  else{
     document.getElementById("startButton").disabled = false;
     document.getElementById("endButton").disabled = true;
     document.getElementById("ifButton").disabled = true;
     document.getElementById("thenButton").disabled = true;
-    }
-};
+  }*/
+
 
 Template.gameButtons.events({
 
   "click #startButton": function(event){
       var div = createStartBlock();
-      addBlockToSession(div);
-
+      addBlockToCurrent(div);
+      setClickable();
   },
 
   "click #endButton": function(event){
     var div = createEndBlock();
-      addBlockToSession(div);
-
+      addBlockToCurrent(div);
+      setClickable();
   },
 
   "click #ifButton": function(event){
       var div = createIfBlock();
-      addBlockToSession(div);
-
+      addBlockToCurrent(div);
+      setClickable();
   },
 
   "click #thenButton": function(event){
       var div = createThenBlock();
-      addBlockToSession(div);
-
+      addBlockToCurrent(div);
+      setClickable();
   }
 
 });
@@ -78,30 +83,15 @@ function createTextDiv(text){
 
 }
 
-function addBlockToSession(block){
-  if(Session.get('allBlocks') == undefined){
-    var blocks = [block];
-    Session.set('allBlocks', blocks);
-    return;
-  }else{
-    var blocks = Session.get('allBlocks');
+function addBlockToCurrent(block){
     blocks.push(block);
-    Session.set('allBlocks', blocks);
     return;
-  }
 }
 
-function recreateBlocks(blockArray){
-  for(var i = 0; i < blockArray.length; i++){
-    if(blockArray[i].name == "start"){
-      createStartBlock();
-    }else if (blockArray[i].name == "end") {
-      createEndBlock();
-    }else if (blockArray[i].name == "if") {
-      createIfBlock();
-    }else if (blockArray[i].name == "then") {
-      createThenBlock();
-    }
+
+function recreateBlocks(){
+  for(var i = 0; i < blocks.length; i++){
+      document.getElementById("placeBlock").appendChild(blocks[i]);
   }
 }
 
@@ -122,6 +112,7 @@ function createEndBlock(){
   document.getElementById("placeBlock").appendChild(div);
   div.name = "end";
 
+
   return div;
 }
 
@@ -131,6 +122,7 @@ function createIfBlock(){
   div.appendChild(textDiv);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "if";
+
 
   return div;
 }
@@ -142,5 +134,44 @@ function createThenBlock(){
   document.getElementById("placeBlock").appendChild(div);
   div.name = "then";
 
+
   return div;
+}
+
+function setClickable(){
+  if(blocks.length == 0){
+    setButtonFalse(document.getElementById("startButton"));
+    setButtonTrue(document.getElementById("endButton"));
+    setButtonTrue(document.getElementById("ifButton"));
+    setButtonTrue(document.getElementById("thenButton"));
+    return;
+  }
+  var lastBlock = blocks[blocks.length-1];
+  if(lastBlock.name == "start"){
+    setButtonTrue(document.getElementById("startButton"));
+    setButtonTrue(document.getElementById("endButton"));
+    setButtonFalse(document.getElementById("ifButton"));
+    setButtonTrue(document.getElementById("thenButton"));
+  }else if(lastBlock.name == "end"){
+    setButtonFalse(document.getElementById("startButton"));
+    setButtonTrue(document.getElementById("endButton"));
+    setButtonTrue(document.getElementById("ifButton"));
+    setButtonTrue(document.getElementById("thenButton"));
+  }else if(lastBlock.name == "then"){
+    setButtonTrue(document.getElementById("startButton"));
+    setButtonFalse(document.getElementById("endButton"));
+    setButtonTrue(document.getElementById("ifButton"));
+    setButtonTrue(document.getElementById("thenButton"));
+  }else if(lastBlock.name == "if"){
+    setButtonTrue(document.getElementById("startButton"));
+    setButtonTrue(document.getElementById("endButton"));
+    setButtonTrue(document.getElementById("ifButton"));
+    setButtonFalse(document.getElementById("thenButton"));
+  }
+}
+function setButtonTrue(button){
+  button.disabled = true;
+}
+function setButtonFalse(button){
+  button.disabled = false;
 }
