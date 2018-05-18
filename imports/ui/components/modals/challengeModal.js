@@ -52,6 +52,6 @@ function challengeModalInit() {
 }
 Template.challengeModal.rendered = function(){
   challengeModalInit();
-  pageInitialize();
+  
 
 };
