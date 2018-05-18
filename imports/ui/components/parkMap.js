@@ -1,33 +1,33 @@
-import { Meteor } from 'meteor/meteor';
-import { Parks } from '../../api/collections/parks.js';
+import '../components/parkMap.html';
+
+import { LightPosts } from '../../api/collections/lightPosts.js';
+import { changeColor } from '../../api/collections/lightPosts.js';
 
 
-import '../components/map.html';
-
-
-
-
-var arrayOfParks = [];
-var activeInfoWindow;
-
+//konstiga merge conflicts
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });
+
 });
 
+Template.parkMap.helpers({
+
+  parkMapOptions: function () {
 
 
-Template.map.helpers({
+    var coords = Session.get('parkCoordinates');
 
-  loadMarkers(){
-    var parks = Parks.find().fetch();
-    arrayOfParks = parks;
-  },
-  mapOptions: function () {
+
+    if( coords == undefined){
+      window.location.href = "mapPage";
+
+    }
+
     if (GoogleMaps.loaded()) {
-      return {
-        center: new google.maps.LatLng(59.33, 18.07),
-        zoom: 12,
-        minZoom: 5,
+      return{
+        center: new google.maps.LatLng(coords[0], coords[1]),
+        zoom: 17,
+        minZoom: 16,
         streetViewControl: false,
         zoomControl: false,
         fullscreenControl: false,
@@ -188,30 +188,13 @@ Template.map.helpers({
               }
             ]
           },
+
           {
             "featureType": "road.highway",
-            "elementType": "geometry",
+            "elementType": "labels",
             "stylers": [
               {
-                "color": "#746855"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              {
-                "color": "#1f2835"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#f3d19c"
+                "visibility": "off"
               }
             ]
           },
@@ -245,7 +228,7 @@ Template.map.helpers({
             "featureType": "transit.station",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -270,7 +253,7 @@ Template.map.helpers({
             "featureType": "transit.station.rail",
             "stylers": [
               {
-                "visibility": "on"
+                "visibility": "off"
               }
             ]
           },
@@ -300,69 +283,115 @@ Template.map.helpers({
                 "color": "#17263c"
               }
             ]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
           }
         ]
       };
     }
-  },
 
-  addMarkers() {
-      GoogleMaps.ready('map', function (map) {
-
-
-
-        parks_objects = [];
-
-        console.log('Array of parks: ', arrayOfParks);
-        var name;
-        for (i = 0; i < arrayOfParks.length; i++) {
-
-
-          marker = new google.maps.Marker({
-          position: new google.maps.LatLng(
-            arrayOfParks[i].obj.GeographicalPosition.lat,
-            arrayOfParks[i].obj.GeographicalPosition.lon),
-          map: map.instance,
-          name: arrayOfParks[i].obj.Name,
-          });
-
-          let infowindow = new google.maps.InfoWindow({
-            maxWidth: 250
-          });
-
-          google.maps.event.addListener(marker, 'click', (function(marker) {
-
-
-            return function(evt) {
-
-              if(activeInfoWindow != undefined){
-                activeInfoWindow.close();
-              }
-
-              Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
-              console.log([this.position.lat(), this.position.lng()]);
-              var content =
-              '<h5>Name: ' + this.name + '</h5>' +
-              '<p>Position: ' + this.position + '</p>' +
-              '<a class="waves-effect waves-light btn" href="parkPage">Programmera</a>';
-
-            infowindow.setContent(content);
-            infowindow.open(map, marker);
-            console.log(this.title);
-
-            activeInfoWindow = infowindow;
-
-            }
-          })(marker));
-
-        parks_objects.push(marker);
-        }
-      });
   }
 });
 
 
-//checks if map is ready and creates markers
-Template.map.onCreated(function () {
+var activeInfoWindow;
 
+Template.parkMap.onCreated(function () {
+  GoogleMaps.ready('parkMap', function (parkMap) {
+
+    changeColor(3, 1, 1, 1);
+
+    var coords = Session.get('parkCoordinates');
+
+    if( coords == undefined){
+      window.location.href = "mapPage";
+    }
+
+
+    lights_objects = [];
+
+    var lights = LightPosts.find().fetch();
+
+    lights = lights[0].lamps;
+    for (var i = 0; i < lights.length ;i++){
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lights[i][1], lights[i][2]),
+      map: parkMap.instance,
+      title:""+lights[i][0]
+    });
+
+    let infowindow = new google.maps.InfoWindow({
+      maxWidth: 250,
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker) {
+      return function(evt) {
+
+        if(activeInfoWindow != undefined){
+          activeInfoWindow.close();
+        }
+
+        let contentstring =
+        '<div id="content" style="text-align: center">' +
+          '<div id="siteNotice">' +
+          '</div>' +
+          '<h4 id="firstHeading" class="firstHeading">' + "LampID: " + lights[(this.title -1)][0] + '</h4>' +
+          '<div id="bodyContent">' +
+            '<p id="light">' + "Ljussensor: " + lights[(this.title -1)][3] + '</p>'+
+            '<p id="touch">' + "Trycksensor: " + lights[(this.title -1)][4] + ' </p>'+
+            '<p id="sound">' + "Ljudsenspr: " + lights[(this.title -1)][5] + ' </p>'+
+            '<p id="red">' + "Röd: " + lights[(this.title -1)][6] + ' </p>'+
+            '<p id="green">' + "Grön: " + lights[(this.title -1)][7] + ' </p>'+
+            '<p id="blue">' + "Blå: " + lights[(this.title -1)][8] + ' </p>'+
+          '</div>' +
+        '</div>';
+
+      let content =  contentstring;
+
+      infowindow.setContent(content);
+      infowindow.open(parkMap, marker);
+
+      activeInfoWindow = infowindow;
+
+      }
+    })(marker));
+    lights_objects.push(marker);
+    }
+
+
+  });
 });

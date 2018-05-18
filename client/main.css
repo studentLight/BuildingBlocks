@@ -94,8 +94,9 @@ template, body {
   /* margin: auto;
   position: static; */
   /* background: #FFFFFF; */
-  /* height: 100%; */
-  /* margin-top: 43.5%; */
+  height: 100%;
+  overflow-y: scroll;
+  /*top: 300px;*/
   /* background: #494251;
   width: 80%; */
 
@@ -105,10 +106,10 @@ template, body {
   margin: auto;
   /* position: static; */
   /* width: 80%; */
-  /* top: 40%; */
+   margin-top: 175px;
   /* bottom: 10%; */
   width: 68%;
-  height: 100%;
+  height: 70%;
   /* color: white; */
   /* font-size: 40px; */
   background: #494251;
