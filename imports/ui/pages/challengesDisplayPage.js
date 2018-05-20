@@ -1,4 +1,5 @@
 import './challengesDisplayPage.html';
+import './challengesPage.js';
 import '../components/modals/challengeModal.js';
 import '../components/modals/startBlockModal.js';
 import '../components/modals/ifBlockModal.js';
@@ -49,11 +50,25 @@ Template.challengesDisplayPage.events({
     Session.set('values', values);
   },
 
+    "click .easySelect": function(event){
+        Session.set('difficulty', 'Easy');
+    },
+
+    "click .mediumSelect": function(event){
+         Session.set('difficulty', 'Medium');
+    },
+
+    "click .hardSelect": function(event){
+         Session.set('difficulty', 'Hard' );
+    },
+
+
    //the one that is really needed
   "click .openContact": function(event){
      $('#modal1').openModal();
    },
 
+   // Move these when gameblocks are functional
    "click .sBM": function(event){
       $('#sBModal').openModal();
     },
@@ -71,7 +86,6 @@ Template.challengesDisplayPage.events({
     "click .iBM": function(event){
        $('#iBModal').openModal();
      },
-
 
 
 });

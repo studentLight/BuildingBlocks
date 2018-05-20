@@ -55,10 +55,20 @@
     {{> thenBlockModal}}
     {{> stopBlockModal}} -->
   <div class="challengeFooter">
-      <a href="" id="previousChallengeButton" class="waves-effect waves-light btn-large">tillbaka</a>
-      <a href="" id="nextChallengeButton" class="waves-effect waves-light btn-large">nästa</a>
+    {{#if isEasy}}
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
+    {{/if}}
+    {{#if isMedium}}
+    <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-2 easySelect"><i class="fa fa-angle-left leftArrow"></i>Lätta</a>
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
+    {{/if}}
+    {{#if isHard}}
+      <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect"><i class="fa fa-angle-left leftArrow"></i>Medium</a>
+    {{/if}}
+
   </div>
 
   </div>
+
   </body>
   </template>
