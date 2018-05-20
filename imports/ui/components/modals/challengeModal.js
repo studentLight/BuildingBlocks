@@ -11,26 +11,28 @@ function getSelectedChallange() {
   return Session.get('selectedChallenge');
 }
 
-function selectionCheck() {
- if(getSelectedChallange() == arrayOfValuesForChallanges()){
-   return true;
- }
- else{
-   return false;
- }
-}
-
-function undefinedCheck() {
-  if(getSelectedChallange() == undefined){
-    return true;
-  }
-  else{
-    return false;
-  }
-}
-
 
 Template.challengeModal.helpers({
+
+  buttonColourHelper(){
+    if(Session.get('selectedChallenge') == undefined){
+       $('.unselectedChallenge').css({
+         "background-color": "grey",
+       });
+     }
+     else{
+          if(Session.get('selectedChallenge')[1] == arrayOfValuesForChallanges()[1]){
+            $('.unselectedChallenge').css({
+              "background-color": "green",
+              });
+            }
+            else {
+                $('.unselectedChallenge').css({
+                  "background-color": "grey",
+                });
+              }
+    }
+  },
 
   challengeText() {
     var arr = arrayOfValuesForChallanges();
@@ -48,75 +50,44 @@ Template.challengeModal.helpers({
 Template.challengeModal.events({
 
     "click .unselectedChallenge": function(event){
-
-        // $(event.currentTarget).toggleClass('done alarm_on');
-
         // this works
+          if(Session.get('selectedChallenge') != undefined){
 
-        if(Session.get("isSelected") == false){
+              if(Session.get('selectedChallenge')[1] == arrayOfValuesForChallanges()[1]){
 
-          if(Session.get('selectedChallenge') == arrayOfValuesForChallanges()){
-            $('.unselectedChallenge').css({
-              "background-color": "grey",
-            });
-            console.log("grey");
+                  $('.unselectedChallenge').css({
+                    "background-color": "grey",
+                  });
 
-            Session.set('selectedChallenge', undefined);
-            Session.set("isSelected", false);
+                  Session.set('selectedChallenge', undefined);
+                }
+                else{
+                  $('.unselectedChallenge').css({
+                 "background-color": "green",
+                  });
 
-          } else {
-            $('.unselectedChallenge').css({
-              "background-color": "green",
-            });
-            console.log("green");
+                  Session.set('selectedChallenge', arrayOfValuesForChallanges());
+                }
+            }
+            else {
+                $('.unselectedChallenge').css({
+                  "background-color": "green",
+                });
 
-            Session.set('selectedChallenge', arrayOfValuesForChallanges());
-            Session.set('isSelected', true);
-          }
-
-        }
-        else {
-          $('.unselectedChallenge').css({
-            "background-color": "grey",
-          });
-          console.log("grey");
-          Session.set('selectedChallenge', undefined);
-          Session.set("isSelected", false);
-        }
+                Session.set('selectedChallenge', arrayOfValuesForChallanges());
+              }
    }
 });
 
-// function challengeModalInit() {
-//     if(Session.get('selectedChallenge') == undefined){
-//        Session.set("isSelected", false);
-//
-//        $('.unselectedChallenge').css({
-//          "background-color": "grey",
-//        });
-//        console.log("grey");
-//      }
-//      else{
-//       if(Session.get('selectedChallenge') == arrayOfValuesForChallanges()){
-//         $('.unselectedChallenge').css({
-//           "background-color": "green",
-//         });
-//         console.log("green");
-//          Session.set("isSelected", true);
-//       }
-//        else {
-//         $('.unselectedChallenge').css({
-//           "background-color": "grey",
-//         });
-//         console.log("grey");
-//          Session.set("isSelected", false);
-//       }
-//     }
-// }
-//
-// Template.challengeModal.rendered = function(){
-//   challengeModalInit();
-// };
-//
-// Template.challengeModal.onCreated(function(){
-//   challengeModalInit();
-// });
+function challengeModalInit() {
+    if(Session.get('selectedChallenge') == undefined){
+
+       $('.unselectedChallenge').css({
+         "background-color": "grey",
+       });
+     }
+}
+
+Template.challengeModal.rendered = function(){
+  challengeModalInit();
+};
