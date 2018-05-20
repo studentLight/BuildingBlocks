@@ -1,9 +1,27 @@
 <template name="challengeModal">
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>{{challengeText}}</h4>
+    <div class="modal-header">
+      <h4 class="modalTitle"><center>{{challengeText}}</center></h4>
+      <!-- {{#if undefinedCheck}} -->
+      {{buttonColourHelper}}
+      <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+
+
+      <!-- {{unDef}}
+      {{match}}
+      {{noMatch}} -->
+      <!-- {{else if selectionCheck}}
+      <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+      {{else}}
+      <a class="btn-floating btn waves-effect waves-light unselectedChallenge"><i class="material-icons">done</i></a>
+      {{/if}} -->
+
+      <div class="modal-content">
+      <br>
+      <p>{{> challangeDescription}}</p>
       <p>{{{challengeContent}}}</p>
+    </div>
     </div>
     <div class="modal-footer">
       <a href="" class="modal-close waves-effect waves-green btn-flat">Stäng</a>

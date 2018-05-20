@@ -130,6 +130,36 @@ template, body {
   width: 100%;
   /* z-index:10; */
 }
+.modal-header{
+  position: relative;
+  width: 100%;
+}
+
+.modalTitle{
+  display:inline-block;
+  float:left;
+}
+.unselectedChallenge {
+  border: 1px solid #757575;
+  float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  /* background-color: grey; */
+}
+
+.challengeContainer{
+
+  height: 100%;
+  width: 88%;
+  margin: auto;
+}
+.challengeFooter{
+  position: fixed;
+  display:inline-block;
+  width: inherit;
+  bottom: 10%;
+}
+
 #startButton {
   border: 1px solid #0D521F;
   float:left;
@@ -164,4 +194,17 @@ template, body {
   border: 1px solid #1a237e;
   float:left;
   width: 50%;
+}
+
+#previousChallengeButton {
+  border: 1px solid #000000;
+  float:left;
+  width: 40%;
+}
+
+#nextChallengeButton {
+  border: 1px solid #000000;
+  /* right: 0px; */
+  float: right;
+  width: 40%;
 }

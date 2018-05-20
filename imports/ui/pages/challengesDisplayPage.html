@@ -2,7 +2,7 @@
   <body>
     {{> header}}
 
-    <div class="container">
+    <div class="challengeContainer">
 
     <header>
       {{#if isEasy}}
@@ -29,9 +29,46 @@
     </ul>
 
     <!-- Modal Trigger -->
-      <!-- <a class="waves-effect waves-light btn openContact" href="#contact">Modal</a> -->
+      <!-- <a class="waves-effect waves-light btn sBM" href="">Modaltest</a>     -->
+
+  <!-- Move these when game blocks are almost done -->
+<!-- <div style="font-size:3em; color:green">
+  <a class=" waves-effect waves-light fa fa-question-circle sBM"></a>
+
+</div>
+<div style="font-size:3em; color:blue">
+  <a class=" waves-effect waves-light fa fa-question-circle iBM"></a>
+</div>
+
+<div style="font-size:3em; color:green">
+  <a class=" waves-effect waves-light fa fa-question-circle tBM"></a>
+</div>
+
+<div style="font-size:3em; color:green">
+  <a class=" waves-effect waves-light fa fa-question-circle stBM"></a>
+</div> -->
 
     {{> challengeModal}}
+    <!-- Move these when game blocks are almost done -->
+    <!-- {{> startBlockModal}}
+    {{> ifBlockModal}}
+    {{> thenBlockModal}}
+    {{> stopBlockModal}} -->
+  <div class="challengeFooter">
+    {{#if isEasy}}
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
+    {{/if}}
+    {{#if isMedium}}
+    <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-2 easySelect"><i class="fa fa-angle-left leftArrow"></i>Lätta</a>
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
+    {{/if}}
+    {{#if isHard}}
+      <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect"><i class="fa fa-angle-left leftArrow"></i>Medium</a>
+    {{/if}}
+
   </div>
+
+  </div>
+
   </body>
   </template>
