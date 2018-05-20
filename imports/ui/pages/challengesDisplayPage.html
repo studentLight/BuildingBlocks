@@ -2,7 +2,7 @@
   <body>
     {{> header}}
 
-    <div class="container">
+    <div class="challengeContainer">
 
     <header>
       {{#if isEasy}}
@@ -30,9 +30,9 @@
 
     <!-- Modal Trigger -->
       <!-- <a class="waves-effect waves-light btn sBM" href="">Modaltest</a>     -->
-      
+
   <!-- Move these when game blocks are almost done -->
-<div style="font-size:3em; color:green">
+<!-- <div style="font-size:3em; color:green">
   <a class=" waves-effect waves-light fa fa-question-circle sBM"></a>
 
 </div>
@@ -46,14 +46,18 @@
 
 <div style="font-size:3em; color:green">
   <a class=" waves-effect waves-light fa fa-question-circle stBM"></a>
-</div>
+</div> -->
 
     {{> challengeModal}}
     <!-- Move these when game blocks are almost done -->
-    {{> startBlockModal}}
+    <!-- {{> startBlockModal}}
     {{> ifBlockModal}}
     {{> thenBlockModal}}
-    {{> stopBlockModal}}
+    {{> stopBlockModal}} -->
+  <div class="challengeFooter">
+      <a href="" id="previousChallengeButton" class="waves-effect waves-light btn-large">tillbaka</a>
+      <a href="" id="nextChallengeButton" class="waves-effect waves-light btn-large">nästa</a>
+  </div>
 
   </div>
   </body>
