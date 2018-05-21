@@ -9,8 +9,6 @@ export function changeColor(lampID, r, g, b){
     return;
   }
 
-  console.log("Good input ");
-
   var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
 
   var tmpID = lights[0]._id;
@@ -29,7 +27,6 @@ export function changeColor(lampID, r, g, b){
     { $set: {lamps: lights} }
   )
 
-  console.log("BUT DOES IT WORK? ",LightPosts.find({parkName: "Tegnerlunden"}).fetch());
 }
 
 
