@@ -6,11 +6,22 @@
       <div class="top">
         {{> codeViewSelector}}
         {{> gameButtons}}
+        <a href="" class="sCModalButton btn-floating btn waves-effect waves-light grey selectedCM"><i class="material-icons">done</i></a>
+        <!-- <a class=" sCModalButton waves-effect waves-light selectedCM" href="">done</a> -->
+        <!-- {{> selectedChallengeButton}} -->
+        <!-- {{> selectedChallengeModal}} -->
       </div>
       <div class="middle">
         {{> board}}
       </div>
     </div>
+    {{> selectedChallengeModal}}
 
   </body>
 </template>
+
+<!-- <template name="selectedChallengeButton">
+
+  <a href="" id="sCModal" class="btn-floating btn waves-effect waves-light grey selectedCM"><i class="material-icons">done</i></a>
+
+</template> -->
