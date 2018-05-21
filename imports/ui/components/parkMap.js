@@ -19,8 +19,7 @@ Template.parkMap.helpers({
 
 
     if( coords == undefined){
-      window.location.href = "mapPage";
-
+      FlowRouter.go('mapPage');
     }
 
     if (GoogleMaps.loaded()) {

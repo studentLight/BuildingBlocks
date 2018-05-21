@@ -54,11 +54,10 @@ Template.map.helpers({
   },
   mapOptions: function () {
     if (GoogleMaps.loaded()) {
-      return mapStylingForBigMap();    
+      return mapStylingForBigMap();
     }
   },
 });
-
 
 //checks if map is ready and creates markers
 Template.map.onCreated(function () {
