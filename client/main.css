@@ -112,7 +112,7 @@ template, body {
    margin-top: 175px;
   /* bottom: 10%; */
   width: 100%;
-  height: 70%;
+  height: 65%;
   /* color: white; */
   /* font-size: 40px; */
 
@@ -216,4 +216,33 @@ template, body {
   /* right: 0px; */
   float: right;
   width: 40%;
+}
+
+.bottom {
+  /* position: fixed; */
+  bottom: 0px;
+  width: 100%;
+}
+
+#backButton{
+  background-color: #189AD3;
+  border: 1px solid #0c435b;
+  color: #FFFFFF;
+  padding: 15px 25px;
+  font-size: 16px;
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+
+#runButton{
+  background-color: #008600;
+  border: 1px solid #013a01;
+  color: #FFFFFF;
+  padding: 15px 25px;
+  font-size: 16px;
+  text-align: center;
+  float: right;
+  width: 50%;
+
 }
