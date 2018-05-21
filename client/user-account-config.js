@@ -74,6 +74,7 @@ AccountsTemplates.configure({
       button: {
         signUp: "Skapa konto!",
         signIn: "Logga in!",
+
       },
 
       errors: {
