@@ -2,27 +2,15 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
+import {runCode} from '../../api/blockEvaluator/evaluator.js';
+
 var blocks = [];
 var i = 0;
-
-//Session.set('allBlocks', blocks );
-
-//var coords = Session.get('allBlocks');
 
 Template.gameButtons.rendered = function(){
     recreateBlocks();
     setClickable();
-  }/*
-gå igenom blocks och sen append child
-
-add block to session och recreate blocks
-
-  else{
-    document.getElementById("startButton").disabled = false;
-    document.getElementById("endButton").disabled = true;
-    document.getElementById("ifButton").disabled = true;
-    document.getElementById("thenButton").disabled = true;
-  }*/
+  }
 
 
 Template.gameButtons.events({
@@ -31,6 +19,9 @@ Template.gameButtons.events({
       var div = createStartBlock();
       addBlockToCurrent(div);
       setClickable();
+
+      runCode(blocks);
+
   },
 
   "click #endButton": function(event){
@@ -74,14 +65,16 @@ function createTextDiv(text){
   content.style.bottom = "40%";
   content.style.right = "40%";
 
+
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
 
-
   content.appendChild(paragraph);
+
   return content;
 
 }
+
 
 function addBlockToCurrent(block){
     blocks.push(block);
