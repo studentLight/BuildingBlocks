@@ -7,8 +7,7 @@ import '../components/modals/thenBlockModal.js';
 import '../components/modals/stopBlockModal.js';
 import '../components/navbar.js';
 import '../components/challenge.js';
-// test
-import '../components/modals/selectedChallengeModal.js';
+
 
 import { Challenges } from '../../api/collections/challenges.js';
 
@@ -88,11 +87,5 @@ Template.challengesDisplayPage.events({
     "click .iBM": function(event){
        $('#iBModal').openModal();
      },
-    // test
-     "click .selectedCM": function(event){
-        $('#sCModal').openModal();
-      },
-
-
 
 });

@@ -35,15 +35,18 @@ Template.challengeModal.helpers({
   },
 
   challengeText() {
+    if(Session.get('values') != undefined){
     var arr = arrayOfValuesForChallanges();
     return arr[1];
+    }
   },
 
   challengeContent() {
+    if(Session.get('values') != undefined){
     var arr = arrayOfValuesForChallanges();
     return arr[2];
-  }
-
+    }
+  },
 
 });
 

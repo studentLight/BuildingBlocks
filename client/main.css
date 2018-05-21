@@ -141,6 +141,7 @@ template, body {
 .modalTitle{
   display:inline-block;
   float:left;
+  margin-left: 20%;
 }
 .unselectedChallenge {
   border: 1px solid #757575;

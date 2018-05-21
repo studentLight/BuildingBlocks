@@ -6,10 +6,9 @@
       <div class="top">
         {{> codeViewSelector}}
         {{> gameButtons}}
+        {{#if notUndefinded}}
         <a href="" class="sCModalButton btn-floating btn waves-effect waves-light grey selectedCM"><i class="material-icons">done</i></a>
-        <!-- <a class=" sCModalButton waves-effect waves-light selectedCM" href="">done</a> -->
-        <!-- {{> selectedChallengeButton}} -->
-        <!-- {{> selectedChallengeModal}} -->
+        {{/if}}
       </div>
       <div class="middle">
         {{> board}}

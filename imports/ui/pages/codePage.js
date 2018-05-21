@@ -10,6 +10,17 @@ import '../components/dropdown.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
 
+Template.codePage.helpers({
+
+  notUndefinded(){
+    if(Session.get('selectedChallenge') != undefined){
+      return true;
+    } else {
+      return false;
+    }
+  },
+});
+
 Template.codePage.events({
 
    //the one that is really needed

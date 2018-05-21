@@ -7,14 +7,27 @@ function getSelectedChallange() {
 
 Template.selectedChallengeModal.helpers({
 
+  // notUndefindedCheck(){
+  //   if(getSelectedChallange() != undefined){
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // },
+
   selectedChallengeText() {
-    var arr = getSelectedChallange();
-    return arr[1];
+    if(Session.get('selectedChallenge') != undefined){
+      var arr = getSelectedChallange();
+      return arr[1];
+    }
+
   },
 
   selectedChallengeContent() {
-    var arr = getSelectedChallange();
-    return arr[2];
+    if(Session.get('selectedChallenge') != undefined){
+      var arr = getSelectedChallange();
+      return arr[2];
+    }
   },
 
 
