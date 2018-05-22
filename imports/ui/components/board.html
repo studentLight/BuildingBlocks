@@ -3,6 +3,9 @@
   <body>
     <div class="boardDiv">
       <div id= "placeBlock">
+        <div class="sensorS">
+          <!-- <p>{{ >selector}}</p> -->
+        </div>
          <!-- <div class="row">
           <div class="white col s4 black-text center-align">space 1</div>
           <div class="white col s4 black-text center-align">space 2</div>
@@ -12,4 +15,44 @@
       </div>
     </div>
   </body>
+</template>
+
+<!-- <template name="SensorSelector">
+  <div class="input-field col m12 l12 s12 inline">
+  <p>Om</p>
+  <select class= "sensorSelect">  css
+    <option value="" disabled selected></option>
+    <option value="ljud">ljudsensor</option>
+    <option value="ljus">ljussensor</option>
+    <option value="tryck">trycksensor</option>
+  </select>
+  <p>för lyktstople</p>
+  </div>
+</template> -->
+
+<template name="lightSelector">
+  <div class="input-field col m12 l12 s12 inline">
+  <select class= "lampSelect"> <!--  css  -->
+    <option value="" disabled selected></option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>
+  <p>är</p>
+  <label></label>
+  </div>
+</template>
+
+<template name="OnOffSelector">
+  <div class="input-field col m12 l12 s12 inline">
+  <select class= "tOrFSelect"> <!--  css  -->
+    <option value="" disabled selected></option>
+    <option value="true">aktiverad</option>
+    <option value="false">inaktiverad</option>
+  </select>
+  <label></label>
+  </div>
 </template>

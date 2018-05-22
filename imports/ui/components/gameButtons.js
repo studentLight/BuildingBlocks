@@ -13,7 +13,8 @@ Template.gameButtons.rendered = function(){
     recreateBlocks(Session.get('allBlocks'));
   }else{
     document.getElementById("startButton").disabled = false;
-    document.getElementById("endButton").disabled = true;
+    //document.getElementById("endButton").disabled = true;
+    document.getElementById("endButton").disabled = false; //testning
     document.getElementById("ifButton").disabled = false; //testning
     //document.getElementById("ifButton").disabled = true;
     //document.getElementById("thenButton").disabled = true;
@@ -51,6 +52,7 @@ Template.gameButtons.events({
 
 function createBuildningBlock(src){
   var div = document.createElement("div");
+  div.id = "aBlock";
   div.className ="container";
   div.style.position = "relative";
   div.style.width = "100%";
@@ -66,10 +68,10 @@ function createBuildningBlock(src){
 
 function createTextDiv(text){
   var content = document.createElement("div");
-  content.className ="white s4 black-text center-align";
+  content.className ="transparent s4 black-text center-align";
   content.style.position = "absolute";
   content.style.right = "70%";
-  content.style.bottom = "60%";
+  content.style.bottom = "65%";
 
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
@@ -79,24 +81,27 @@ function createTextDiv(text){
   return content;
 
 }
-
 // var lampSensors = ["ljus sensorn", "ljud sensorn", "tryck sensorn"];
 // var lampStatus = ["aktiverad", "inaktiverad"];
 // var lampPosts = ["1", "2", "3", "4", "5", "6"];
 // var lampColors = ["rött", "blått", "grönt"];
+// varje värde ska ha ett ID?
 
+//Bengt
 function createDropDownDiv(blockOptions) {
   let content = document.createElement("div");
-  content.className = "dropdown";
+  content.id = "blockDropDown";
+  content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
-  content.style.right = "45%";
+  content.style.right = "5%";
   content.style.bottom = "60%";
 
   let select = document.createElement('select');
-  select.setAttribute("id", "test123"); //argument för testning
+  select.setAttribute("id", "test123"); //line för testning i inspektorn
+  select.className = "dropdownSelect";
   content.appendChild(select);
 
-  let defaultOption = addOption("____");
+  let defaultOption = addOption("");
   defaultOption.setAttribute('selected','selected');
   blockOptions.forEach(addOption);
 
@@ -108,32 +113,43 @@ function createDropDownDiv(blockOptions) {
     return option;
   }
   return content;
-  //Session
+  //Session behövs för att spara värdena satta i dropdown /Bengt
 
 };
 
-  // selekt-button event-listener på knappen, behöver en variabel (array)
-  // bygg dropdown-innehåll funktion från en array-content
-  // returnerar ett DOM-element,
+  // Nästlad if-sats för internt positionering av dropdowns i if och then block
+  // if = 3 dropdowns (sensor/nummer/aktiverad)
+  // then = 2 dropdowns (lyktstople/nummer/färg)
+  // if block == "om"  &&
+  function dropdownPosition() {
+    content.style.right = "5%";
+    content.style.bottom = "60%";
+  };
 
+  //ej klar B
+  function dropdownStyle() {
+    //olika dropdown beteenden och styles på blocken
+  };
+
+  //rendrar select dropdown komponenterna
   function cPageInit() {
     $(document).ready(function() {
       $('select').material_select();
     });
 }
 
-  // Or with jQuery
-
-  // $(document).ready(function() {
-  //   $('select').material_select();
-  // });
+  content.rendered = function(){
+    cPageInit();
+  };
 
   //använda grid-system
   // en div för text, en div för dropdown, en div för modal (i)
   // rad 1 "text"  dropdown  info-modal-ikon  -- om ljus/ljud/tryck  -- i en och samma div-container
   // rad 2 "text"  dropdown  info-modal-ikon  -- i lyktstople 1-6    -- i en och samma div-container
   // rad 2 "text"  dropdown  info-modal-ikon  -- är aktiverad/inaktiverad -- i en och samma div-container
-
+  // selekt-button event-listener på knappen, behöver en variabel (array)
+  // bygg dropdown-innehåll funktion från en array-content
+  // returnerar ett DOM-element,
 
 function addBlockToSession(block){
   if(Session.get('allBlocks') == undefined){
@@ -188,10 +204,10 @@ function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
   var textDivOne = createTextDiv("Om");
   var dropDownDivOne = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"]);
-  //var infoDiv = createInfoDiv(); // info-modal till blocket höger sida /B
+  //var infoDiv = createInfoDiv(); // info-modal till blocket positionerad på höger sida /B
   ifDiv.appendChild(textDivOne);
   ifDiv.appendChild(dropDownDivOne);
-  //IfDiv.appendChild(infoDiv);   // info-modal till blocket höger sida /B
+  //IfDiv.appendChild(infoDiv);   // info-modal till blocket positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
 
@@ -204,10 +220,10 @@ function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
   var textDiv = createTextDiv("så ska lampan i lyktstople");
   var dropDownDiv = createDropDownDiv(["1", "2", "3", "4", "5", "6"]);
-  //var infoDiv = createInfoDiv(); // info-modal till blocket höger sida /B
+  //var infoDiv = createInfoDiv(); // info-modal till blocket positionerad på höger sida /B
   thenDiv.appendChild(textDiv);
   thenDiv.appendChild(dropDownDiv);
-  //thenDiv.appendChild(infoDiv);   // info-modal till blocket höger sida /B
+  //thenDiv.appendChild(infoDiv);   // info-modal till blocket positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(thenDiv);
   thenDiv.name = "then";
 
