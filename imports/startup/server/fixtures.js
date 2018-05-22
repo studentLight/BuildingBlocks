@@ -85,7 +85,7 @@ function insertChallenges(){
   difficulty: "Medium",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 9",
-  content: "<b>1)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om dess ljussensor är <u>inaktiverad</u>.<br><br> <b>2)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är aktiverad.",
+  content: "<b>1)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om dess ljussensor är inaktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är aktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 10",

@@ -168,6 +168,19 @@ template, body {
   margin-top: 3%;
 
 }
+.prevNext{
+  margin-left: 4%;
+  float: left;
+
+}
+.selectedCMPrev{
+  border: 1px solid #311b92;
+}
+
+.selectedCMNext{
+  border: 1px solid #311b92;
+  
+}
 
 #startButton {
   border: 1px solid #0D521F;

@@ -7,13 +7,20 @@ function getSelectedChallange() {
 
 Template.selectedChallengeModal.helpers({
 
-  // notUndefindedCheck(){
-  //   if(getSelectedChallange() != undefined){
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // },
+  noNextOption(){
+    if(Session.get('selectedChallenge')[1] != "Utmaning 12"){
+      return true;
+    } else {
+      return false;
+    }
+  },
+  noPreviousOption(){
+    if(Session.get('selectedChallenge')[1] != "Utmaning 1"){
+      return true;
+    } else {
+      return false;
+    }
+  },
 
   selectedChallengeText() {
     if(Session.get('selectedChallenge') != undefined){
@@ -32,3 +39,7 @@ Template.selectedChallengeModal.helpers({
 
 
 });
+
+// Template.selectedChallengeModal.events({
+//
+// });
