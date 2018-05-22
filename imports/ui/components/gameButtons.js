@@ -91,7 +91,6 @@ function createDropDownDiv(blockOptions, name) {
   content.style.position = "absolute";
   content.style.right = "5%";
   content.style.bottom = "60%";
-  //funktions-anrop till en funktion som sätter nya positioner beroende på block
 
   let select = document.createElement('select');
   select.setAttribute("id", "test123"); //line för testning i inspektorn
@@ -112,17 +111,16 @@ function createDropDownDiv(blockOptions, name) {
   return content;
 
   /* Session behövs för att spara värdena satta i dropdown
-     innehållet i blocken är ej responsiv än 
+     innehållet i blocken är ej responsiv än
     dropdown har name som ID! enskilda option-items kan hämtas via anrop
     "element.getSelectedValues();"
     se https://materializecss.com/select.html */
 
 };
 
-  // Nästlad if-sats för internt positionering av dropdowns i if och then block
-  // if = 3 dropdowns (sensor/nummer/aktiverad)
-  // then = 2 dropdowns (lyktstople/nummer/färg)
-  // if block == "om"  &&
+  /* Nästlad if-sats för internt positionering av dropdowns i if och then block
+    if = 3 dropdowns (sensor/nummer/aktiverad)
+    then = 2 dropdowns (lyktstople/nummer/färg) */
   function dropdownPosition(position) {
     let dropDownSelect = createDropDownDiv(blockOptions);
     let postion =
@@ -213,14 +211,23 @@ function createEndBlock(){
 }
 
 // all innehåll hamnar på samma plats pga samma positionering i generella metoden
+// satt alla delar separat som tillfällig lösning (fult men funkar) /Bengt
 function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
   var topText = createTextDiv("Om");
   var topDropdown = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
   var middleText = createTextDiv("i lyktstople");
+  middleText.style.right = "70%";
+  middleText.style.bottom = "45%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
+  middleDropdown.style.right = "5%";
+  middleDropdown.style.bottom = "40%";
   var bottomText = createTextDiv("är");
+  bottomText.style.right = "70%";
+  bottomText.style.bottom = "25%";
   var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
+  bottomDropdown.style.right = "5%";
+  bottomDropdown.style.bottom = "20%"
   ifDiv.appendChild(topText);
   ifDiv.appendChild(topDropdown);
   //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
@@ -238,17 +245,28 @@ function createIfBlock(){
 
 //i denna göra innehåll
 // all text hamnar på samma plats pga samma positionering i generella metoden
+// satt alla delar separat som tillfällig lösning (fult men funkar) /Bengt
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
-  var topText = createTextDiv("så ska lampan i lyktstople");
-  var topDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
-  var middleText = createTextDiv("lysa");
-  var middleDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
+  var topText = createTextDiv("så ska lampan");
+  var middleText = createTextDiv("i lyktstople");
+  middleText.style.right = "70%";
+  middleText.style.bottom = "45%";
+  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
+  middleDropdown.style.right = "5%";
+  middleDropdown.style.bottom = "40%"
+  var bottomText = createTextDiv("lysa");
+  bottomText.style.right = "70%";
+  bottomText.style.bottom = "25%";
+  var bottomDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
+  bottomDropdown.style.right = "5%";
+  bottomDropdown.style.bottom = "20%"
   thenDiv.appendChild(topText);
-  thenDiv.appendChild(topDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
   thenDiv.appendChild(middleText);
   thenDiv.appendChild(middleDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
+  thenDiv.appendChild(bottomText);
+  thenDiv.appendChild(bottomDropdown);
   //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(thenDiv);
   thenDiv.name = "then";
