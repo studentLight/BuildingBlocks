@@ -34,27 +34,37 @@
     {{> challengeModal}}
     <div>
       <p> Om </p>
-
-      <br>
-      <a class='dropdown-button btn dD' href='' data-activates='dropdown1'>Drop Me!</a>
     </div>
 
     <div class="input-field col s12">
-  <select>
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-  <label></label>
+      <select class = "sensorSelect">
+        <option value="" disabled selected>Välj sensor</option>
+        <option value="1">ljus sensorn</option>
+        <option value="2">ljud sensorn</option>
+        <option value="3">tryck sensorn</option>
+      </select>
   </div>
 
-  <ul id='dropdown1' class='dropdown-content'>
-   <li><a href="#!">one</a></li>
-   <li><a href="#!">two</a></li>
-   <li class="divider"></li>
-   <li><a href="#!">three</a></li>
- </ul>
+  <div class="input-field col s12">
+    <select class="sensorSelect">
+    <option value="" disabled selected>Välj nummer</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>
+  </div>
+
+  <div class="input-field col s12">
+    <select class="sensorSelect">
+      <option value="" disabled selected>Välj status</option>
+      <option value="1">aktiverad</option>
+      <option value="2">inaktiverad</option>
+  </select>
+  </div>
+
   </div>
   </body>
   </template>

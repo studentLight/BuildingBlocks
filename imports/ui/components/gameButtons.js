@@ -66,7 +66,7 @@ function createBuildningBlock(src){
 
 function createTextDiv(text){
   var content = document.createElement("div");
-  content.className ="white col s4 black-text center-align";
+  content.className ="white s4 black-text center-align";
   content.style.position = "absolute";
   content.style.right = "70%";
   content.style.bottom = "60%";
@@ -83,7 +83,7 @@ function createTextDiv(text){
 // var lampSensors = ["ljus sensorn", "ljud sensorn", "tryck sensorn"];
 // var lampStatus = ["aktiverad", "inaktiverad"];
 // var lampPosts = ["1", "2", "3", "4", "5", "6"];
-// var lampColors = ["röd", "blå", "grön"];
+// var lampColors = ["rött", "blått", "grönt"];
 
 function createDropDownDiv(blockOptions) {
   let content = document.createElement("div");
@@ -116,11 +116,11 @@ function createDropDownDiv(blockOptions) {
   // bygg dropdown-innehåll funktion från en array-content
   // returnerar ett DOM-element,
 
-
-  document.addEventListener('blockDropdown', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
+  function cPageInit() {
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+}
 
   // Or with jQuery
 
@@ -199,10 +199,11 @@ function createIfBlock(){
 }
 
 //i denna göra innehåll
+// all text hamnar på samma plats pga samma positionering i generella metoden
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
-  var textDiv = createTextDiv("så");
-  var dropDownDiv = createDropDownDiv();
+  var textDiv = createTextDiv("så ska lampan i lyktstople");
+  var dropDownDiv = createDropDownDiv(["1", "2", "3", "4", "5", "6"]);
   //var infoDiv = createInfoDiv(); // info-modal till blocket höger sida /B
   thenDiv.appendChild(textDiv);
   thenDiv.appendChild(dropDownDiv);

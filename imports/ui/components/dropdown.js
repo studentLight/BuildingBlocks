@@ -1,12 +1,12 @@
 import './dropdown.html';
 
-document.addEventListener('dropMe', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, options);
-});
 
-// Or with jQuery
-
-// $(document).ready(function(){
-//   $('.select').formSelect();
-// });
+function cPageInit() {
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+}
+  // Template.dropdown.rendered = function(){
+  //   // pageInitialize();
+  //   cPageInit();
+  // };

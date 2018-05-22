@@ -130,6 +130,12 @@ template, body {
   width: 100%;
   /* z-index:10; */
 }
+
+.sensorSelect {
+  width: 40%;
+}
+
+
 #startButton {
   border: 1px solid #0D521F;
   float:left;
