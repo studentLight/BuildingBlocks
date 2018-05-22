@@ -39,13 +39,13 @@ Template.gameButtons.events({
   "click #ifButton": function(event){
       var div = createIfBlock();
       addBlockToSession(div);
-
+      blockInit();
   },
 
   "click #thenButton": function(event){
       var div = createThenBlock();
       addBlockToSession(div);
-
+      blockInit();
   }
 
 });
@@ -85,16 +85,18 @@ function createTextDiv(text){
 // var lampStatus = ["aktiverad", "inaktiverad"];
 // var lampPosts = ["1", "2", "3", "4", "5", "6"];
 // var lampColors = ["rött", "blått", "grönt"];
-// varje värde ska ha ett ID?
+// varje värde ska ha ett ID!
 
-//Bengt
-function createDropDownDiv(blockOptions) {
+//funktion som generera 1/3 dropdowns i ett block
+//olika selektor namn
+function createDropDownDiv(blockOptions, name) {
   let content = document.createElement("div");
-  content.id = "blockDropDown";
+  content.id = name;
   content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
   content.style.right = "5%";
-  content.style.bottom = "60%";
+  content.style.bottom = "20%";
+  //funktions-anrop till en funktion som sätter nya positioner beroende på block
 
   let select = document.createElement('select');
   select.setAttribute("id", "test123"); //line för testning i inspektorn
@@ -121,25 +123,35 @@ function createDropDownDiv(blockOptions) {
   // if = 3 dropdowns (sensor/nummer/aktiverad)
   // then = 2 dropdowns (lyktstople/nummer/färg)
   // if block == "om"  &&
-  function dropdownPosition() {
+  function dropdownPosition(position) {
+    let dropDownSelect = createDropDownDiv(blockOptions);
+    let postion =
+    //överst
+    content.style.right = "5%";
+    content.style.bottom = "60%";
+    //mellerst
+    content.style.right = "5%";
+    content.style.bottom = "45%";
+    //underst
     content.style.right = "5%";
     content.style.bottom = "60%";
   };
 
-  //ej klar B
   function dropdownStyle() {
     //olika dropdown beteenden och styles på blocken
+    //för tillfället löst via main.css  i  ".dropdownSelect"
   };
 
-  //rendrar select dropdown komponenterna
-  function cPageInit() {
+  //initierar select dropdown komponenterna
+  function blockInit() {
     $(document).ready(function() {
       $('select').material_select();
     });
 }
 
+  //initierar select dropdown komponenterna
   content.rendered = function(){
-    cPageInit();
+    blockInit();
   };
 
   //använda grid-system
@@ -203,7 +215,7 @@ function createEndBlock(){
 function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
   var textDivOne = createTextDiv("Om");
-  var dropDownDivOne = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"]);
+  var dropDownDivOne = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
   //var infoDiv = createInfoDiv(); // info-modal till blocket positionerad på höger sida /B
   ifDiv.appendChild(textDivOne);
   ifDiv.appendChild(dropDownDivOne);
