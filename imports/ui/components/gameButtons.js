@@ -75,27 +75,22 @@ function createTextDiv(text){
 
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
+  var newLine = document.createElement("B");
 
-  content.appendChild(paragraph); // till "content" som parent lägga på texten som child
+  content.appendChild(paragraph);
 
   return content;
-
 }
-// var lampSensors = ["ljus sensorn", "ljud sensorn", "tryck sensorn"];
-// var lampStatus = ["aktiverad", "inaktiverad"];
-// var lampPosts = ["1", "2", "3", "4", "5", "6"];
-// var lampColors = ["rött", "blått", "grönt"];
-// varje värde ska ha ett ID!
 
-//funktion som generera 1/3 dropdowns i ett block
-//olika selektor namn
+//Bengt
+//funktion som generera en generell variant av 3 olika dropdowns i ett block
 function createDropDownDiv(blockOptions, name) {
   let content = document.createElement("div");
   content.id = name;
   content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
   content.style.right = "5%";
-  content.style.bottom = "20%";
+  content.style.bottom = "60%";
   //funktions-anrop till en funktion som sätter nya positioner beroende på block
 
   let select = document.createElement('select');
@@ -115,7 +110,12 @@ function createDropDownDiv(blockOptions, name) {
     return option;
   }
   return content;
-  //Session behövs för att spara värdena satta i dropdown /Bengt
+
+  /* Session behövs för att spara värdena satta i dropdown
+     innehållet i blocken är ej responsiv än 
+    dropdown har name som ID! enskilda option-items kan hämtas via anrop
+    "element.getSelectedValues();"
+    se https://materializecss.com/select.html */
 
 };
 
@@ -131,15 +131,17 @@ function createDropDownDiv(blockOptions, name) {
     content.style.bottom = "60%";
     //mellerst
     content.style.right = "5%";
-    content.style.bottom = "45%";
+    content.style.bottom = "40%";
     //underst
     content.style.right = "5%";
-    content.style.bottom = "60%";
+    content.style.bottom = "20%";
+
+    return position;
   };
 
   function dropdownStyle() {
     //olika dropdown beteenden och styles på blocken
-    //för tillfället löst via main.css  i  ".dropdownSelect"
+    //för tillfället löst via en generell ".dropdownSelect" i main.css
   };
 
   //initierar select dropdown komponenterna
@@ -210,16 +212,24 @@ function createEndBlock(){
   return div;
 }
 
-//i denna göra innehåll
-// all text hamnar på samma plats pga samma positionering i generella metoden
+// all innehåll hamnar på samma plats pga samma positionering i generella metoden
 function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
-  var textDivOne = createTextDiv("Om");
-  var dropDownDivOne = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
-  //var infoDiv = createInfoDiv(); // info-modal till blocket positionerad på höger sida /B
-  ifDiv.appendChild(textDivOne);
-  ifDiv.appendChild(dropDownDivOne);
-  //IfDiv.appendChild(infoDiv);   // info-modal till blocket positionerad på höger sida /B
+  var topText = createTextDiv("Om");
+  var topDropdown = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
+  var middleText = createTextDiv("i lyktstople");
+  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
+  var bottomText = createTextDiv("är");
+  var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
+  ifDiv.appendChild(topText);
+  ifDiv.appendChild(topDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
+  ifDiv.appendChild(middleText);
+  ifDiv.appendChild(middleDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
+  ifDiv.appendChild(bottomText);
+  ifDiv.appendChild(bottomDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "bottom" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
 
@@ -230,16 +240,18 @@ function createIfBlock(){
 // all text hamnar på samma plats pga samma positionering i generella metoden
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
-  var textDiv = createTextDiv("så ska lampan i lyktstople");
-  var dropDownDiv = createDropDownDiv(["1", "2", "3", "4", "5", "6"]);
-  //var infoDiv = createInfoDiv(); // info-modal till blocket positionerad på höger sida /B
-  thenDiv.appendChild(textDiv);
-  thenDiv.appendChild(dropDownDiv);
-  //thenDiv.appendChild(infoDiv);   // info-modal till blocket positionerad på höger sida /B
+  var topText = createTextDiv("så ska lampan i lyktstople");
+  var topDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
+  var middleText = createTextDiv("lysa");
+  var middleDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
+  thenDiv.appendChild(topText);
+  thenDiv.appendChild(topDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
+  thenDiv.appendChild(middleText);
+  thenDiv.appendChild(middleDropdown);
+  //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(thenDiv);
   thenDiv.name = "then";
-
-  //inre funktion, två-dimensionell array
 
   return thenDiv;
 }
