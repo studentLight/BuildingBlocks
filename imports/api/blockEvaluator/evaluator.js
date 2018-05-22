@@ -1,34 +1,26 @@
 import { changeColor } from '../collections/lightPosts.js';
 import { LightPosts } from '../collections/lightPosts.js';
+import { changeStatusForLightposts } from '../collections/lightPosts.js';
 
 var codeSequenceIsOkey = false;
 var blockStatus = [];
 var lights;
 
 export function runCode(blocks){
-
   blockStatus = [];
-
-
   for(var i = 0; i < blocks.length; i++){
     blockStatus.push(false);
   }
-
   for(var i = 0; i<30; i++){
-
     lights  = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
     lights = lights[0].lamps;
-
     evaluateBlocks(blocks);
-
-    sleep(1000);
-
-
+    sleep(10);
   }
-
   console.log("BlockStatus: ",blockStatus);
-
 }
+
+
 
 function evaluateBlocks(blocks){
   for(var i = 0; i < blocks.length; i++){
@@ -70,21 +62,25 @@ function handleBlock(block){
   }
 }
 
+
 function evaluateIfBlock(block){
+  const isActive = 1;//dont change!
+
   var number = 3;//block.number;
   var sensor = "light";//block.sensor;
-  var activated = 1;//block.activated;
+  var active = true;//block.active;
+  changeStatusForLightposts(number, sensor, active);
 
   if(sensor == "light"){
-    if(lights[(number-1)][3] == activated){
+    if(lights[(number-1)][3] == isActive){
       return true;
     }
   }else if(sensor == "sound"){
-    if(lights[number-1][4] == activated){
+    if(lights[number-1][4] == isActive){
       return true;
     }
   }else if(sensor == "push"){
-    if(lights[number-1][5] == activated){
+    if(lights[number-1][5] == isActive){
       return true;
     }
   }else{
@@ -94,7 +90,7 @@ function evaluateIfBlock(block){
 
 function setLightpostColor(block){
   var number = 3;//block.number;
-  var color = "red";//block.color
+  var color = "green";//block.color
 
   if(color == "red"){
     changeColor(number,1,0,0);
