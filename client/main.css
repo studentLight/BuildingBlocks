@@ -3,6 +3,11 @@ template, body {
   height: 100%;
 }
 
+body {
+  font-family: Trebuchet MS;
+  /* https://atom.io/packages/fonts */
+}
+
 .halfHeight {
   height: 50%;
   overflow-y:auto;
