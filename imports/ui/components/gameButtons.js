@@ -1,5 +1,4 @@
 import '../components/gameButtons.html';
-
 import './board.js';
 
 //var blocks = [];
@@ -15,8 +14,10 @@ Template.gameButtons.rendered = function(){
   }else{
     document.getElementById("startButton").disabled = false;
     document.getElementById("endButton").disabled = true;
-    document.getElementById("ifButton").disabled = true;
-    document.getElementById("thenButton").disabled = true;
+    document.getElementById("ifButton").disabled = false; //testning
+    //document.getElementById("ifButton").disabled = true;
+    //document.getElementById("thenButton").disabled = true;
+    document.getElementById("thenButton").disabled = false; //testning
     }
 };
 
@@ -63,23 +64,76 @@ function createBuildningBlock(src){
   return div;
 }
 
-//metod för att styla, positionering
-//wc3schools javascript x.style.fonrsez
-//materialize ikoner 
 function createTextDiv(text){
   var content = document.createElement("div");
+  content.className ="white col s4 black-text center-align";
   content.style.position = "absolute";
-  content.style.bottom = "40%";
-  content.style.right = "40%";
+  content.style.right = "70%";
+  content.style.bottom = "60%";
 
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
 
+  content.appendChild(paragraph); // till "content" som parent lägga på texten som child
 
-  content.appendChild(paragraph);
   return content;
 
 }
+
+// var lampSensors = ["ljus sensorn", "ljud sensorn", "tryck sensorn"];
+// var lampStatus = ["aktiverad", "inaktiverad"];
+// var lampPosts = ["1", "2", "3", "4", "5", "6"];
+// var lampColors = ["röd", "blå", "grön"];
+
+function createDropDownDiv(blockOptions) {
+  let content = document.createElement("div");
+  content.className = "dropdown";
+  content.style.position = "absolute";
+  content.style.right = "45%";
+  content.style.bottom = "60%";
+
+  let select = document.createElement('select');
+  select.setAttribute("id", "test123"); //argument för testning
+  content.appendChild(select);
+
+  let defaultOption = addOption("____");
+  defaultOption.setAttribute('selected','selected');
+  blockOptions.forEach(addOption);
+
+  function addOption(textContent) {
+    let option = document.createElement('option');
+    select.appendChild(option);
+    option.textContent = textContent;
+
+    return option;
+  }
+  return content;
+  //Session
+
+};
+
+  // selekt-button event-listener på knappen, behöver en variabel (array)
+  // bygg dropdown-innehåll funktion från en array-content
+  // returnerar ett DOM-element,
+
+
+  document.addEventListener('blockDropdown', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  // $(document).ready(function() {
+  //   $('select').material_select();
+  // });
+
+  //använda grid-system
+  // en div för text, en div för dropdown, en div för modal (i)
+  // rad 1 "text"  dropdown  info-modal-ikon  -- om ljus/ljud/tryck  -- i en och samma div-container
+  // rad 2 "text"  dropdown  info-modal-ikon  -- i lyktstople 1-6    -- i en och samma div-container
+  // rad 2 "text"  dropdown  info-modal-ikon  -- är aktiverad/inaktiverad -- i en och samma div-container
+
 
 function addBlockToSession(block){
   if(Session.get('allBlocks') == undefined){
@@ -128,24 +182,35 @@ function createEndBlock(){
   return div;
 }
 
-//här
+//i denna göra innehåll
+// all text hamnar på samma plats pga samma positionering i generella metoden
 function createIfBlock(){
-  var div = createBuildningBlock("images/ifBlock.png");
-  var textDiv = createTextDiv("if");
-  //metod create idContent
-  div.appendChild(textDiv);
-  document.getElementById("placeBlock").appendChild(div);
-  div.name = "if";
+  var ifDiv = createBuildningBlock("images/ifBlock.png");
+  var textDivOne = createTextDiv("Om");
+  var dropDownDivOne = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"]);
+  //var infoDiv = createInfoDiv(); // info-modal till blocket höger sida /B
+  ifDiv.appendChild(textDivOne);
+  ifDiv.appendChild(dropDownDivOne);
+  //IfDiv.appendChild(infoDiv);   // info-modal till blocket höger sida /B
+  document.getElementById("placeBlock").appendChild(ifDiv);
+  ifDiv.name = "if";
 
-  return div;
+  return ifDiv;
 }
 
+//i denna göra innehåll
 function createThenBlock(){
-  var div = createBuildningBlock("images/thenBlock.png");
-  var textDiv = createTextDiv("then");
-  div.appendChild(textDiv);
-  document.getElementById("placeBlock").appendChild(div);
-  div.name = "then";
+  var thenDiv = createBuildningBlock("images/thenBlock.png");
+  var textDiv = createTextDiv("så");
+  var dropDownDiv = createDropDownDiv();
+  //var infoDiv = createInfoDiv(); // info-modal till blocket höger sida /B
+  thenDiv.appendChild(textDiv);
+  thenDiv.appendChild(dropDownDiv);
+  //thenDiv.appendChild(infoDiv);   // info-modal till blocket höger sida /B
+  document.getElementById("placeBlock").appendChild(thenDiv);
+  thenDiv.name = "then";
 
-  return div;
+  //inre funktion, två-dimensionell array
+
+  return thenDiv;
 }
