@@ -8,6 +8,7 @@ import '../components/modals/stopBlockModal.js';
 import '../components/navbar.js';
 import '../components/challenge.js';
 
+
 import { Challenges } from '../../api/collections/challenges.js';
 
  function difficultySelected() {
@@ -86,6 +87,5 @@ Template.challengesDisplayPage.events({
     "click .iBM": function(event){
        $('#iBModal').openModal();
      },
-
 
 });

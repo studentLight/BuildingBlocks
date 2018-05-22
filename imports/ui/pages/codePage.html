@@ -6,11 +6,25 @@
       <div class="top">
         {{> codeViewSelector}}
         {{> gameButtons}}
+        {{#if notUndefinded}}
+        <a href="" class="sCModalButton btn-floating btn waves-effect waves-light green selectedCM"><i class="material-icons">done</i></a>
+        {{/if}}
       </div>
       <div class="middle">
         {{> board}}
+
+            <div class=" col m6 l6 s6 "><a href="" id="backButton" class="waves-effect waves-light"><i class="material-icons undo">undo</i>Backa</a></div>
+            <div class=" col m6 l6 s6 "><a href="" id="runButton" class="waves-effect waves-light">Kör<i class="material-icons playArrow">play_arrow</i></a></div>
+
       </div>
     </div>
+    {{> selectedChallengeModal}}
 
   </body>
 </template>
+
+<!-- <template name="selectedChallengeButton">
+
+  <a href="" id="sCModal" class="btn-floating btn waves-effect waves-light grey selectedCM"><i class="material-icons">done</i></a>
+
+</template> -->

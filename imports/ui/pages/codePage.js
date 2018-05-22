@@ -3,9 +3,33 @@ import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
 import '../components/board.js';
+// test
+import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
 
+
 import {pageInitialize} from '../../api/pageInit.js'
+
+Template.codePage.helpers({
+
+  notUndefinded(){
+    if(Session.get('selectedChallenge') != undefined){
+      return true;
+    } else {
+      return false;
+    }
+  },
+});
+
+Template.codePage.events({
+
+   //the one that is really needed
+  "click .selectedCM": function(event){
+     $('#sCModal').openModal();
+   },
+
+
+});
 
 function pageInit() {
   $('.dropdown').dropdown();

@@ -1,0 +1,16 @@
+<template name="selectedChallengeModal">
+  <!-- Modal Structure -->
+  <div id="sCModal" class="modal">
+    <div class="modal-header">
+      <h4 class="modalTitle"><center>{{selectedChallengeText}}</center></h4>
+      <br>
+      <div class="modal-content">
+      <p>{{> challangeDescription}}</p>
+      <p>{{{selectedChallengeContent}}}</p>
+    </div>
+    </div>
+    <div class="modal-footer">
+      <a href="" class="modal-close waves-effect waves-green btn-flat">Stäng</a>
+    </div>
+  </div>
+</template>

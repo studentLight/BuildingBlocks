@@ -95,7 +95,10 @@ template, body {
   position: static; */
   /* background: #FFFFFF; */
   height: 100%;
+  width: 68%;
   overflow-y: scroll;
+  background: #494251;
+  margin: auto;
   /*top: 300px;*/
   /* background: #494251;
   width: 80%; */
@@ -108,11 +111,11 @@ template, body {
   /* width: 80%; */
    margin-top: 175px;
   /* bottom: 10%; */
-  width: 68%;
-  height: 70%;
+  width: 100%;
+  height: 65%;
   /* color: white; */
   /* font-size: 40px; */
-  background: #494251;
+
 }
 
 .codeSelectorButtons{
@@ -138,6 +141,7 @@ template, body {
 .modalTitle{
   display:inline-block;
   float:left;
+  margin-left: 20%;
 }
 .unselectedChallenge {
   border: 1px solid #757575;
@@ -148,7 +152,6 @@ template, body {
 }
 
 .challengeContainer{
-
   height: 100%;
   width: 88%;
   margin: auto;
@@ -158,6 +161,12 @@ template, body {
   display:inline-block;
   width: inherit;
   bottom: 10%;
+}
+.sCModalButton{
+  float: right;
+  margin-right: 2%;
+  margin-top: 3%;
+
 }
 
 #startButton {
@@ -207,4 +216,41 @@ template, body {
   /* right: 0px; */
   float: right;
   width: 40%;
+}
+
+.bottom {
+  /* position: fixed; */
+  bottom: 0px;
+  width: 100%;
+}
+
+.undo{
+  float: left;
+}
+
+.playArrow{
+  float:right;
+}
+
+#backButton{
+  background-color: #189AD3;
+  border: 1px solid #0c435b;
+  color: #FFFFFF;
+  padding: 15px 25px;
+  font-size: 16px;
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+
+#runButton{
+  background-color: #008600;
+  border: 1px solid #013a01;
+  color: #FFFFFF;
+  padding: 15px 25px;
+  font-size: 16px;
+  text-align: center;
+  float: right;
+  width: 50%;
+
 }
