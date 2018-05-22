@@ -1,0 +1,14 @@
+<template name="sensorActivationForm">
+
+  <div class="container white-text">
+    <h4>Aktivera en sensor</h4>
+    <form id="sensorForm" class="col s6">
+        <label for="lightpost">Vilken lyktstolpe?</label>
+        <input placeholder="1-6" type="number" name="lightpost" min="1" max="6">
+        <label for="sensor">Vilken sensor? Välj mellan: ljus, ljud eller tryck</label>
+        <input type="text" name="sensor">
+        <button style="margin-top:20px;" type="submit" role="submit" id="sumbitSensorState" class="btn waves-effect waves-light orange darken-4">Submit</button>
+      </form>
+  </div>
+
+</template>

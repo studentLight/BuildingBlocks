@@ -3,6 +3,10 @@ template, body {
   height: 100%;
 }
 
+form, label {
+  font-size: 20px;
+}
+
 .halfHeight {
   height: 50%;
   overflow-y:auto;
