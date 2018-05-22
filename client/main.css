@@ -224,6 +224,14 @@ template, body {
   width: 100%;
 }
 
+.undo{
+  float: left;
+}
+
+.playArrow{
+  float:right;
+}
+
 #backButton{
   background-color: #189AD3;
   border: 1px solid #0c435b;
