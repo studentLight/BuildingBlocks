@@ -45,13 +45,34 @@ Template.gameButtons.events({
   }
 
 });
-
 function createBuildningBlock(src){
-  var div = document.createElement("div");
-  div.className ="container";
-  div.style.position = "relative";
-  div.style.width = "100%";
-  div.style.padding = "10px";
+  var sistaBlock = blocks[blocks.length-1];
+  if(blocks.length == 0){
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+  }else if(sistaBlock.name == "end")
+  {var i = (blocks.length*-77)+20;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else{
+      var div = document.createElement("div");
+      div.className ="container";
+      div.style.position = "relative";
+      div.style.width = "100%";
+      div.style.padding = "10px";
+      var i = blocks.length*-77;
+      div.style.top = i+"px";
+}
+
+
+
 
   var img = document.createElement("img");
   img.setAttribute("src", src);
