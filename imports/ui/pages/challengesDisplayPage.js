@@ -11,6 +11,8 @@ import { Challenges } from '../../api/collections/challenges.js';
 
 Template.challengesDisplayPage.helpers({
 
+
+
   challengehelper() {
     return Challenges.find({difficulty: difficultySelected()});
   },
@@ -43,5 +45,6 @@ Template.challengesDisplayPage.events({
   "click .openContact": function(event){
      $('#modal1').openModal();
    },
+
 
 });
