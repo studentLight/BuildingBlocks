@@ -31,7 +31,7 @@ Template.codePage.events({
    },
 
    "click .selectedCMNext": function(event){
-     
+
      var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
 
      var next = Challenges.findOne({createdAt: {$gt: currentSC.createdAt}}, {sort: {createdAt: 1}, limit:1});

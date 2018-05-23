@@ -2,6 +2,9 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
+//import '../../ui/pages/codePage.js';
+
+
 import {runCode} from '../../api/blockEvaluator/evaluator.js';
 
 var blocks = [];
@@ -10,6 +13,8 @@ var i = 0;
 Template.gameButtons.rendered = function(){
     recreateBlocks();
     setClickable();
+    document.getElementById("runButton").addEventListener("click", function(){ runCode(blocks) });
+    document.getElementById("backButton").addEventListener("click", function(){ deleteBlock() });
   }
 
 
@@ -20,7 +25,7 @@ Template.gameButtons.events({
       addBlockToCurrent(div);
       setClickable();
 
-      runCode(blocks);
+
 
   },
 
@@ -45,6 +50,14 @@ Template.gameButtons.events({
   }
 
 });
+
+
+function deleteBlock(){
+  console.log("make it burn");
+  document.getElementById("placeBlock").removeChild(blocks[(blocks.length-1)]);
+  blocks.pop();
+  setClickable();
+}
 
 function createBuildningBlock(src){
   var div = document.createElement("div");
