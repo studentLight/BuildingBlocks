@@ -9,6 +9,7 @@
         {{#if notUndefinded}}
         <a href="" class="sCModalButton btn-floating btn waves-effect waves-light green selectedCM"><i class="material-icons">done</i></a>
         {{/if}}
+        <a class="btn-floating btn-small waves-effect waves-light red sensorActorBtn" id="sumbitSensorState"><i class="material-icons">add</i></a>
       </div>
       <div class="middle">
         {{> board}}
@@ -17,11 +18,11 @@
             <div class=" col m6 l6 s6 "><a href="" id="runButton" class="waves-effect waves-light">Kör<i class="material-icons playArrow">play_arrow</i></a></div>
 
       </div>
-      {{> sensorActivationForm}}
-      <a class="btn-floating btn-large waves-effect waves-light red" id="sumbitSensorState"><i class="material-icons">add</i></a>
+
+
     </div>
     {{> selectedChallengeModal}}
-
+    {{> sensorActivationForm}}
 
 
   </body>
