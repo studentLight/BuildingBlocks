@@ -3,6 +3,10 @@ template, body {
   height: 100%;
 }
 
+label{
+  font-size: 20px;
+}
+
 body {
   font-family: Trebuchet MS;
   /* https://atom.io/packages/fonts */
