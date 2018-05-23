@@ -239,11 +239,11 @@ function blockInit() {
 }
 
   //initierar select dropdown komponenterna
-  /*
+
   content.rendered = function(){
     blockInit();
   };
-  */
+  
 
   //använda grid-system
   // en div för text, en div för dropdown, en div för modal (i)
