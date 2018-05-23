@@ -11,11 +11,11 @@ export function runCode(blocks){
   for(var i = 0; i < blocks.length; i++){
     blockStatus.push(false);
   }
-  for(var i = 0; i<30; i++){
+  for(var i = 0; i<1; i++){
     lights  = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
     lights = lights[0].lamps;
     evaluateBlocks(blocks);
-    sleep(10);
+    sleep(1);
   }
   console.log("BlockStatus: ",blockStatus);
 }
@@ -64,23 +64,32 @@ function handleBlock(block){
 
 
 function evaluateIfBlock(block){
-  const isActive = 1;//dont change!
 
-  var number = 3;//block.number;
-  var sensor = "light";//block.sensor;
-  var active = true;//block.active;
-  changeStatusForLightposts(number, sensor, active);
+  var sensorId = block.children[2].childNodes[0].childNodes[3].attributes.id;
+  var postId = block.children[4].childNodes[0].childNodes[3].attributes.id;
+  var activeId = block.children[6].childNodes[0].childNodes[3].attributes.id;
 
-  if(sensor == "light"){
-    if(lights[(number-1)][3] == isActive){
+  var number = document.getElementById(postId.value).value;
+  var sensor = document.getElementById(sensorId.value).value;
+  var active = document.getElementById(activeId.value).value;
+  //changeStatusForLightposts(number, sensor, active);
+
+  if(active == "aktiverad"){
+    active = 1;
+  }else{
+    active = 0;
+  }
+
+  if(sensor == "ljus sensorn"){
+    if(lights[(number-1)][3] == active){
       return true;
     }
-  }else if(sensor == "sound"){
-    if(lights[number-1][4] == isActive){
+  }else if(sensor == "ljud sensorn"){
+    if(lights[number-1][4] == active){
       return true;
     }
-  }else if(sensor == "push"){
-    if(lights[number-1][5] == isActive){
+  }else if(sensor == "tryck sensorn"){
+    if(lights[number-1][5] == active){
       return true;
     }
   }else{
@@ -89,14 +98,25 @@ function evaluateIfBlock(block){
 }
 
 function setLightpostColor(block){
-  var number = 3;//block.number;
-  var color = "green";//block.color
 
-  if(color == "red"){
+
+
+  var postId = block.children[3].childNodes[0].childNodes[3].attributes.id;
+  var colorId = block.children[5].childNodes[0].childNodes[3].attributes.id;
+
+  var number = document.getElementById(postId.value).value;
+  var color = document.getElementById(colorId.value).value;
+
+
+  console.log(number);
+  console.log(color);
+
+
+  if(color == "rött"){
     changeColor(number,1,0,0);
-  }else if(color == "green"){
+  }else if(color == "grönt"){
     changeColor(number,0,1,0);
-  }else if(color == "blue"){
+  }else if(color == "blått"){
     changeColor(number,0,0,1);
   }
 
