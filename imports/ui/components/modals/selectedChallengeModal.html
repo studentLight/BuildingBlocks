@@ -10,6 +10,14 @@
     </div>
     </div>
     <div class="modal-footer">
+      <div class="prevNext">
+      {{#if noNextOption}}
+      <a href="" class="sCModalNext btn waves-effect waves-light deep-purple darken-3 selectedCMNext"><i class="fa fa-angle-right rightArrow"></i></a>
+      {{/if}}
+      {{#if noPreviousOption}}
+      <a href="" class="sCModalPrevious  btn waves-effect waves-light deep-purple darken-1 selectedCMPrev"><i class="fa fa-angle-left leftArrow"></i></a>
+      {{/if}}
+      </div>
       <a href="" class="modal-close waves-effect waves-green btn-flat">Stäng</a>
     </div>
   </div>

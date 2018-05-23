@@ -35,8 +35,6 @@ var activeInfoWindow;
 Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
 
-    changeColor(3, 1, 1, 1);
-
     var coords = Session.get('parkCoordinates');
 
     if( coords == undefined){

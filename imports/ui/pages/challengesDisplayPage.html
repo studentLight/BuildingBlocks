@@ -21,7 +21,7 @@
         <div class ="listItem">
         <li>
           <!-- make a template for this -->
-          <a class="challengeItem waves-effect waves-light deep-purple darken-2 openContact white-text" href="">{{text}}</a>
+          <a class="challengeItem waves-effect waves-light #1565c0 blue darken-3 openContact white-text" href="">{{text}}</a>
         </li>
         </div>
       {{/each}}
@@ -56,18 +56,58 @@
     {{> stopBlockModal}} -->
   <div class="challengeFooter">
     {{#if isEasy}}
-    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #1565c0 blue darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
     {{/if}}
     {{#if isMedium}}
-    <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-2 easySelect"><i class="fa fa-angle-left leftArrow"></i>Lätta</a>
-    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
+    <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large #0288d1 light-blue darken-2 easySelect"><i class="fa fa-angle-left leftArrow"></i>Lätta</a>
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #311b92 deep-purple darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
     {{/if}}
     {{#if isHard}}
-      <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large deep-purple darken-3 mediumSelect"><i class="fa fa-angle-left leftArrow"></i>Medium</a>
+      <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large #311b92 #1565c0 blue darken-3 mediumSelect"><i class="fa fa-angle-left leftArrow"></i>Medium</a>
     {{/if}}
 
   </div>
   </div>
 
   </body>
+  </template>
+
+  <template name="sensorSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <p>Om</p>
+    <select class= "sensorSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="ljud">ljudsensor</option>
+      <option value="ljus">ljussensor</option>
+      <option value="tryck">trycksensor</option>
+    </select>
+    <p>för lyktstople</p>
+    </div>
+  </template>
+
+  <template name="lampSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <select class= "lampSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <p>är</p>
+    <label></label>
+    </div>
+  </template>
+
+  <template name="tOrFSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <select class= "tOrFSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="true">aktiverad</option>
+      <option value="false">inaktiverad</option>
+    </select>
+    <label></label>
+    </div>
   </template>

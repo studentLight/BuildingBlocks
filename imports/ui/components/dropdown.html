@@ -1,8 +1,43 @@
+
+<!-- flow-text för responsiv design?  -->
+<!-- class="dropdown-content"> gömmer alternatv default
+    class = centre-align"-->
+
+<!-- använda DOM istället eller initiera från js.  -->
 <template name="dropdown">
+  <div id= "blockDropdown" class="input-field col s12 m6">
+      <select class="icons sensorSelect">
+        <option value="" disabled selected>Välj sensor</option>
+        <option value="1" data-icon="images/lightSensor.png">ljus sensorn</option>
+        <option value="2" data-icon="images/soundSensor.png">ljud sensorn</option>
+        <option value="3" data-icon="images/pressSensor.png">tryck sensorn</option>
+      </select>
+   <label></label>
+ </div>
+</template>
+
+<!-- test variant 2 -->
+<!-- <template name="dropMe">
+<div class = "row">
+         <form class = "col s12">
+            <div class = "row">
+            <label>Materialize Select</label>
+               <select>
+                  <option value = "" disabled selected>Select Fruit</option>
+                  <option value = "1">option 1</option>
+                  <option value = "2">option 2</option>
+                  <option value = "3">option 3/option>
+               </select>
+            </div>
+        </form>
+  </div>
+</template> -->
+
+<!-- <template name="dropdown">
   <ul id='dropdown1' class='dropdown-content'>
   <li><a href="#!">one</a></li>
   <li><a href="#!">two</a></li>
   <li class="divider"></li>
   <li><a href="#!">three</a></li>
 </ul>
-</template>
+</template> -->

@@ -3,6 +3,11 @@ template, body {
   height: 100%;
 }
 
+body {
+  font-family: Trebuchet MS;
+  /* https://atom.io/packages/fonts */
+}
+
 .halfHeight {
   height: 50%;
   overflow-y:auto;
@@ -26,11 +31,13 @@ template, body {
 }
 
 .blue-gradient{
-  background: linear-gradient(to right, #1976d2, #0d47a1  );
+  background: linear-gradient(to right, #1976d2, #2d8fa8  );
 }
 
 .navbar-gradient {
-  background: linear-gradient(to right, #512da8   , #311b92 );
+  background: linear-gradient(to right, #2d31a8  , #2d7aa8 );
+/*  background: linear-gradient(to right, #2d83a8   , #1a8c91 ); : blågrön
+  /* background: linear-gradient(to right, #512da8   , #311b92 );
   /* background: linear-gradient(to right, #303f9f  , #1a237e ); */
 }
 
@@ -168,29 +175,82 @@ template, body {
   margin-top: 3%;
 
 }
+.dropdownSelect{
+  width: 50%;
+  /* float: right;
+  margin: 0; */
+}
+.sensorSelect{
+  width: 70%;
+  /* float: right;
+  margin: 0; */
+}
+.lampSelect{
+  width: 10%;
+  /* float: right;
+  margin: 0; */
+}
 
+.tOrFSelect{
+  width: 30%;
+  /* float: right;
+  margin: 0; */
+}
+.sensorP{
+  display: inline;
+  clear: both;
+  float: none;
+ /* display: inline;
+ width: 100%; */
+ /* margin-top: 0;
+ margin-bottom: 0;
+ line-height: 28px; */
+ /* position: inherit; */
+}
+.input-field p, .input-field .select-wrapper {
+  display: inline-block;
+  clear: both;
+  float: none;
+}
+.prevNext{
+  margin-left: 4%;
+  float: left;
+
+}
+.selectedCMPrev{
+  border: 1px solid #311b92;
+}
+
+.selectedCMNext{
+  border: 1px solid #311b92;
+
+}
 #startButton {
   border: 1px solid #0D521F;
   float:left;
   width: 50%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #endButton {
   border: 1px solid #6C0F0F;
   float:left;
   width: 50%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #ifButton {
   border: 1px solid #616161;
   float:left;
   width: 50%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #thenButton {
   border: 1px solid #424242;
   float:left;
   width: 50%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 #parkButton {

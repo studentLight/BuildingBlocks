@@ -8,6 +8,7 @@ var activeInfoWindow;
 function addMarkers() {
     GoogleMaps.ready('map', function (map) {
       parks_objects = [];
+      markerClusterer = new MarkerClusterer(map.instance, parks_objects);
       var name;
       for (i = 0; i < arrayOfParks.length; i++) {
         marker = new google.maps.Marker({
@@ -26,10 +27,12 @@ function addMarkers() {
               activeInfoWindow.close();
             }
             Session.set('parkCoordinates', [this.position.lat(), this.position.lng()] );
-            var content =
-            '<h5>Name: ' + this.name + '</h5>' +
-            '<p>Position: ' + this.position + '</p>' +
-            '<a class="waves-effect waves-light btn" href="parkPage">Programmera</a>';
+            var content = '<div>' + 
+            '<h5 class="center-align">' + this.name + '</h5>' +
+            '<div class="center-align">' +
+            '<a class="waves-effect waves-light btn" class="center-align" href="parkPage">Programmera</a>' +
+            '</div>' +
+            '</div>';
           infowindow.setContent(content);
           infowindow.open(map, marker);
           activeInfoWindow = infowindow;
@@ -37,8 +40,16 @@ function addMarkers() {
         })(marker));
       parks_objects.push(marker);
       }
+
+      var mcOptions = {
+        imagePath: 'images/markerClusterer/m',
+        gridSize: 80,
+        maxZoom: 14,
+      };
+    
+      markerClusterer = new MarkerClusterer(map.instance, parks_objects,  mcOptions);
     });
-}
+  }
 
 Meteor.startup(function () {
   GoogleMaps.load({ v: '3.exp', key: 'AIzaSyAgjN9v8r4q8CBgGXiVnbcqUJASk9KkF3I', libraries: 'geometry' });

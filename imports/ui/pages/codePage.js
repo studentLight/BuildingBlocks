@@ -7,6 +7,7 @@ import '../components/board.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
 
+import { Challenges } from '../../api/collections/challenges.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
 
@@ -19,6 +20,7 @@ Template.codePage.helpers({
       return false;
     }
   },
+
 });
 
 Template.codePage.events({
@@ -28,6 +30,31 @@ Template.codePage.events({
      $('#sCModal').openModal();
    },
 
+   "click .selectedCMNext": function(event){
+     
+     var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
+
+     var next = Challenges.findOne({createdAt: {$gt: currentSC.createdAt}}, {sort: {createdAt: 1}, limit:1});
+     var id = next._id;
+     var text = next.text;
+     var content = next.content;
+     var sC = [id, text, content];
+
+     Session.set('selectedChallenge', sC);
+    },
+
+    "click .selectedCMPrev": function(event){
+
+      var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
+
+      var next = Challenges.findOne({createdAt: {$lt: currentSC.createdAt}}, {sort: {createdAt: -1}, limit:1});
+      var id = next._id;
+      var text = next.text;
+      var content = next.content;
+      var sC = [id, text, content];
+
+      Session.set('selectedChallenge', sC);
+     },
 
 });
 

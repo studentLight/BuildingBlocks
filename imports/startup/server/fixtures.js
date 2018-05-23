@@ -85,7 +85,7 @@ function insertChallenges(){
   difficulty: "Medium",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 9",
-  content: "<b>1)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om dess ljussensor är <u>inaktiverad</u>.<br><br> <b>2)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är aktiverad.",
+  content: "<b>1)</b> Få lyktstolpe <b>2</b> att lysa <font color=green>grönt</font> om dess ljussensor är inaktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>4</b> att lysa <font color=blue>blått</font> om ljudsensor i lyktstolpe <b>6</b> är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>5</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>4)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om trycksensor i lyktstolpe <b>6</b> är aktiverad.",
   difficulty: "Hard",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 10",
@@ -102,6 +102,7 @@ function insertChallenges(){
 }
 
 function insertLightposts(){
+  //name, lat, long, light, sound, push, r, g, b
   var lmp1 = [1, 59.338209, 18.053968, 0, 0, 0, 0, 0, 0];
   var lmp2 = [2, 59.337923, 18.053810, 0, 0, 0, 0, 0, 0];
   var lmp3 = [3, 59.337876, 18.054372, 0, 0, 0, 0, 0, 0];

@@ -39,3 +39,4 @@ raix:handlebar-helpers
 aldeed:template-extension
 session
 http
+oakworks:marker-clusterer@=0.1.1
