@@ -13,7 +13,7 @@ function extractTimeStamp(response){
   sunset = response.data.sys.sunset;
   var realTime = Date.now() / 1000;
   var boolean = ( (sunrise < realTime) || (realTime < sunset) );
-  Session.set("itIsDayTime", boolean)
+  Session.set("itIsDayTime", boolean);
 }
 
 Template.mapPage.helpers({

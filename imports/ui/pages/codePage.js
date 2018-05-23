@@ -20,7 +20,6 @@ Template.codePage.helpers({
       return false;
     }
   },
-
 });
 
 Template.codePage.events({
