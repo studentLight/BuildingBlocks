@@ -91,6 +91,7 @@ msavin:jetsetter@4.0.0
 msavin:mongol@4.0.1
 npm-bcrypt@0.9.3
 npm-mongo@2.2.34
+oakworks:marker-clusterer@0.1.1
 oauth@1.2.3
 oauth2@1.2.0
 observe-sequence@1.0.16
