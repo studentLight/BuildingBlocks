@@ -80,13 +80,13 @@ body {
 }
 
 .listItem {
-  padding: 0px;
+  padding: 0;
   height: auto;
-  border: 2px solid #bbb;
-  margin: 0px;
+  border: 2px solid #000000;
+  margin: 3px;
   line-height: 40px;
   width: auto;
-  background: #512da8;
+  background: #292233;
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
@@ -95,6 +95,8 @@ body {
 .challengeItem{
   height: 50px;
   width: 100%;
+
+
 }
 
 .boardDiv{
@@ -162,6 +164,8 @@ body {
   height: 100%;
   width: 88%;
   margin: auto;
+  color: white;
+  background-color: inherit;
 }
 .challengeFooter{
   position: fixed;
