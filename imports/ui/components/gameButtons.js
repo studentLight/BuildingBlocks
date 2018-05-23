@@ -46,14 +46,14 @@ Template.gameButtons.events({
 
 });
 function createBuildningBlock(src){
-  var sistaBlock = blocks[blocks.length-1];
+  var lastBlock = blocks[blocks.length-1];
   if(blocks.length == 0){
     var div = document.createElement("div");
     div.className ="container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
-  }else if(sistaBlock.name == "end")
+  }else if(lastBlock.name == "end")
   {var i = (blocks.length*-77)+20;
     var div = document.createElement("div");
     div.className ="container";
