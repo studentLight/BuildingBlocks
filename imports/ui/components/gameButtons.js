@@ -164,8 +164,9 @@ function setClickable(){
 }
 function setButtonTrue(button){
   button.disabled = true;
-  button.style.background = "red";
+  button.style.opacity = 0.5;
 }
 function setButtonFalse(button){
   button.disabled = false;
+  button.style.opacity = 1.0;
 }
