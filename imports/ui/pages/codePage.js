@@ -3,7 +3,7 @@ import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
 import '../components/board.js';
-// test
+import '../components/lightPostSensorForm.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
 
@@ -25,6 +25,10 @@ Template.codePage.helpers({
 
 Template.codePage.events({
 
+
+  "click #sumbitSensorState": function(event){
+     $('#modal2').openModal();
+   },
    //the one that is really needed
   "click .selectedCM": function(event){
      $('#sCModal').openModal();

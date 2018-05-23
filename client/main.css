@@ -3,6 +3,10 @@ template, body {
   height: 100%;
 }
 
+label{
+  font-size: 20px;
+}
+
 body {
   font-family: Trebuchet MS;
   /* https://atom.io/packages/fonts */
@@ -173,7 +177,11 @@ body {
   float: right;
   margin-right: 2%;
   margin-top: 3%;
-
+}
+.sensorActorBtn{
+  float: left;
+  margin-left: 2%;
+  margin-top: 3%;
 }
 .dropdownSelect{
   width: 50%;

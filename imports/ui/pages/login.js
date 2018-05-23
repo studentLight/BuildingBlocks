@@ -11,12 +11,6 @@ Template.login.onRendered(function(){
 });
 
 
-// Meteor.loginWithFacebook({requestPermissions: ['public_profile', 'email']}, function(err){
-//     if (err) {
-//         console.log('Handle errors here: ', err);
-//     }
-// });
-
 // Google
 Meteor.loginWithGoogle({
   requestPermissions: ['user_friends', 'public_profile', 'email']

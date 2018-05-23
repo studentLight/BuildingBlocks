@@ -25,8 +25,6 @@ Template.gameButtons.events({
       addBlockToCurrent(div);
       setClickable();
 
-
-
   },
 
   "click #endButton": function(event){
