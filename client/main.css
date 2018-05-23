@@ -3,6 +3,10 @@ template, body {
   height: 100%;
 }
 
+form, label {
+  font-size: 20px;
+}
+
 .halfHeight {
   height: 50%;
   overflow-y:auto;
@@ -168,7 +172,43 @@ template, body {
   margin-top: 3%;
 
 }
+.dropdownSelect{
+  width: 50%;
+  /* float: right;
+  margin: 0; */
+}
+.sensorSelect{
+  width: 70%;
+  /* float: right;
+  margin: 0; */
+}
+.lampSelect{
+  width: 10%;
+  /* float: right;
+  margin: 0; */
+}
 
+.tOrFSelect{
+  width: 30%;
+  /* float: right;
+  margin: 0; */
+}
+.sensorP{
+  display: inline;
+  clear: both;
+  float: none;
+ /* display: inline;
+ width: 100%; */
+ /* margin-top: 0;
+ margin-bottom: 0;
+ line-height: 28px; */
+ /* position: inherit; */
+}
+.input-field p, .input-field .select-wrapper {
+  display: inline-block;
+  clear: both;
+  float: none;
+}
 #startButton {
   border: 1px solid #0D521F;
   float:left;

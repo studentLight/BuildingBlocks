@@ -20,26 +20,20 @@ Template.challengesDisplayPage.helpers({
   challengehelper() {
     return Challenges.find({difficulty: difficultySelected()});
   },
-
   isEasy(){
     // console.log("Easy ",difficultySelected());
     return "Easy" == difficultySelected();
-
   },
-
   isMedium(){
     // console.log("Medium ",difficultySelected());
     return "Medium" == difficultySelected();
-
   },
-
   isHard(){
     // console.log("Hard ",difficultySelected());
     return "Hard" == difficultySelected();
-
   },
-
 });
+
 
 Template.challengesDisplayPage.events({
 

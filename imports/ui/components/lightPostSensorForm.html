@@ -1,0 +1,32 @@
+<template name="sensorActivationForm">
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+
+      <div class="container black-text">
+        <h4>Aktivera en sensor</h4>
+
+        <div class="row">
+          <div class="col l3 s3 m3"></div> <!-- DUMMY -->
+          <div class="l6 s6 m6">
+            <form id="sensorForm">
+
+                <label class="blue-text" for="lightpost">Vilken lyktstolpe?</label>
+                <input placeholder="1-6" type="number" name="lightpost" min="1" max="6">
+                <label class="blue-text" for="sensor">Vilken sensor: "light", "sound" eller "push"?</label>
+                <input type="text" name="sensor">
+                <button style="margin-top:20px;" type="submit" role="submit" class="btn waves-effect waves-light orange darken-4">Aktivera</button>
+
+            </form>
+          </div>
+          <div class="col l3 s3 m3"></div> <!-- DUMMY -->
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="" class="modal-close waves-effect waves-green btn-flat">Stäng</a>
+    </div>
+  </div>
+
+</template>

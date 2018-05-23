@@ -9,8 +9,6 @@ export function changeColor(lampID, r, g, b){
     return;
   }
 
-  console.log("Good input ");
-
   var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
 
   var tmpID = lights[0]._id;
@@ -29,8 +27,39 @@ export function changeColor(lampID, r, g, b){
     { $set: {lamps: lights} }
   )
 
-  console.log("BUT DOES IT WORK? ",LightPosts.find({parkName: "Tegnerlunden"}).fetch());
 }
+
+
+//sensorIndex --> 3=light, 4=sound, 5=push
+export function changeStatusForLightposts(lampID, sensor, isOn){
+  var sensorIndex;
+  if(sensor == "light"){
+    sensorIndex = 3;
+  }else if(sensor == "sound"){
+    sensorIndex = 4;
+  }else if(sensor == "push"){
+    sensorIndex = 5;
+  }else{
+    console.log("Not a valid sensor");
+  }
+
+  var activationValue;
+  if(isOn == true){
+    activationValue=1;
+  }else{
+    activationValue=0;
+  }
+
+  var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
+  var tmpID = lights[0]._id;
+  lights = lights[0].lamps;
+  lights[(lampID-1)][sensorIndex] = activationValue;
+
+  LightPosts.update(
+    {_id: tmpID},
+    { $set: {lamps: lights} }  );
+}
+
 
 
 function isInt(value) {
