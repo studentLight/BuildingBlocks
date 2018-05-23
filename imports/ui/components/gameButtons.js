@@ -39,14 +39,17 @@ Template.gameButtons.events({
       var div = createIfBlock();
       addBlockToCurrent(div);
       setClickable();
-      blockInit();
+      blockInit(i-3);
+      blockInit(i-2);
+      blockInit(i-1);
   },
 
   "click #thenButton": function(event){
       var div = createThenBlock();
       addBlockToCurrent(div);
       setClickable();
-      blockInit();
+      blockInit(i-2);
+      blockInit(i-1);
   }
 
 });
@@ -201,13 +204,18 @@ function createDropDownDiv(blockOptions, name) {
   content.style.bottom = "60%";
 
   let select = document.createElement('select');
-  select.setAttribute("id", "test123"); //line för testning i inspektorn
+  select.setAttribute("id", "select"+i); //line för testning i inspektorn
   select.className = "dropdownSelect";
   content.appendChild(select);
 
   let defaultOption = addOption("");
   defaultOption.setAttribute('selected','selected');
   blockOptions.forEach(addOption);
+
+
+
+  i++;
+
 
   function addOption(textContent) {
     let option = document.createElement('option');
@@ -216,6 +224,7 @@ function createDropDownDiv(blockOptions, name) {
 
     return option;
   }
+
   return content;
 
 }
@@ -245,9 +254,10 @@ function dropdownStyle() {
 }
 
   //initierar select dropdown komponenterna
-function blockInit() {
+function blockInit(id) {
   $(document).ready(function() {
-    $('select').material_select();
+    //$('select').material_select('destroy');
+    $('#select'+id).material_select();
   });
 }
 
