@@ -17,10 +17,4 @@ Template.challengeModal.helpers({
     var arr = arrayOfValuesForChallanges();
     return arr[2];
   }
-
-
 });
-
-// Template.challengeModal.events({
-//
-// });

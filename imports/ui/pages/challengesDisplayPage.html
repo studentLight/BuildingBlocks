@@ -32,6 +32,52 @@
       <!-- <a class="waves-effect waves-light btn openContact" href="#contact">Modal</a> -->
 
     {{> challengeModal}}
+    <div class="sensorP">
+      <p>{{ >sensorSelectTemp}}{{>lampSelectTemp}}{{>tOrFSelectTemp}}</p>
+      <!-- <p class="sensorP">Om <span>{{> sensorSelectTemp}}</span> för lyktstople <span>{{> lampSelectTemp}}</span> är <span>{{> tOrFSelectTemp}}</span></p> -->
+      <!-- <a class='dropdown-button btn dD' href='' data-activates='dropdown1'>Drop Me!</a> -->
+    </div>
+
   </div>
   </body>
+  </template>
+
+  <template name="sensorSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <p>Om</p>
+    <select class= "sensorSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="ljud">ljudsensor</option>
+      <option value="ljus">ljussensor</option>
+      <option value="tryck">trycksensor</option>
+    </select>
+    <p>för lyktstople</p>
+    </div>
+  </template>
+
+  <template name="lampSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <select class= "lampSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+    <p>är</p>
+    <label></label>
+    </div>
+  </template>
+
+  <template name="tOrFSelectTemp">
+    <div class="input-field col m12 l12 s12 inline">
+    <select class= "tOrFSelect"> <!--  css  -->
+      <option value="" disabled selected></option>
+      <option value="true">aktiverad</option>
+      <option value="false">inaktiverad</option>
+    </select>
+    <label></label>
+    </div>
   </template>

@@ -39,6 +39,8 @@ export function changeStatusForLightposts(lampID, sensor, isOn){
     sensorIndex = 4;
   }else if(sensor == "push"){
     sensorIndex = 5;
+  }else{
+    console.log("Not a valid sensor");
   }
 
   var activationValue;
