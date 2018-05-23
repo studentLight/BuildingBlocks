@@ -116,7 +116,7 @@ function createDropDownDiv(blockOptions, name) {
     "element.getSelectedValues();"
     se https://materializecss.com/select.html */
 
-};
+}
 
   /* Nästlad if-sats för internt positionering av dropdowns i if och then block
     if = 3 dropdowns (sensor/nummer/aktiverad)
@@ -135,12 +135,12 @@ function createDropDownDiv(blockOptions, name) {
     content.style.bottom = "20%";
 
     return position;
-  };
+  }
 
   function dropdownStyle() {
     //olika dropdown beteenden och styles på blocken
     //för tillfället löst via en generell ".dropdownSelect" i main.css
-  };
+  }
 
   //initierar select dropdown komponenterna
   function blockInit() {
@@ -150,9 +150,11 @@ function createDropDownDiv(blockOptions, name) {
 }
 
   //initierar select dropdown komponenterna
+  /*
   content.rendered = function(){
     blockInit();
   };
+  */
 
   //använda grid-system
   // en div för text, en div för dropdown, en div för modal (i)
