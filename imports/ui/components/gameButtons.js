@@ -47,14 +47,32 @@ Template.gameButtons.events({
 });
 function createBuildningBlock(src){
   var lastBlock = blocks[blocks.length-1];
+  var i;
   if(blocks.length == 0){
     var div = document.createElement("div");
     div.className ="container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
-  }else if(lastBlock.name == "end")
-  {var i = (blocks.length*-77)+20;
+    div.style.top = "25px";
+  }else if(lastBlock.name == "end"){
+    var i = (blocks.length*-40)+25;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else if(lastBlock.name == "start"){
+    var i = (blocks.length*-40)+22;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else if(lastBlock.name == "then"){
+    var i = (blocks.length*-40)+8;
     var div = document.createElement("div");
     div.className ="container";
     div.style.position = "relative";
@@ -67,7 +85,7 @@ function createBuildningBlock(src){
       div.style.position = "relative";
       div.style.width = "100%";
       div.style.padding = "10px";
-      var i = blocks.length*-77;
+      var i = (blocks.length*-40)+15;
       div.style.top = i+"px";
 }
 
