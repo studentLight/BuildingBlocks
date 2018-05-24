@@ -64,6 +64,7 @@ Template.challengesDisplayPage.events({
    },
 
    // Move these when gameblocks are functional
+      //KOLLA HÄR!!!!! sBM = modal-knapp id
    "click .sBM": function(event){
       $('#sBModal').openModal();
     },

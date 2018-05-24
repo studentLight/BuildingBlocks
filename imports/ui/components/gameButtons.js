@@ -119,26 +119,29 @@ function createIfBlock(){
   var topText = createTextDiv("Om");
   var topDropdown = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
   var middleText = createTextDiv("i lyktstople");
+  // --> var topinfoDiv = creteInfoDiv();  //HÄR!!!
   middleText.style.right = "70%";
   middleText.style.bottom = "45%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
   middleDropdown.style.right = "5%";
   middleDropdown.style.bottom = "40%";
-  var bottomText = createTextDiv("är");
+  // --> var middleinfoDiv = creteInfoDiv(); //HÄR!!!
+  var bottomText = createTextDiv("är");  // fixa positionering?
   bottomText.style.right = "70%";
   bottomText.style.bottom = "25%";
   var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
   bottomDropdown.style.right = "5%";
   bottomDropdown.style.bottom = "20%"
+  // --> var bottominfoDiv = creteInfoDiv(); //HÄR!!!
   ifDiv.appendChild(topText);
   ifDiv.appendChild(topDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
+  //IfDiv.appendChild(topinfoDiv);   // info-modal till "top" positionerad på höger sida /B
   ifDiv.appendChild(middleText);
   ifDiv.appendChild(middleDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
+  //IfDiv.appendChild(middleinfoDiv);   // info-modal till "middle" positionerad på höger sida /B
   ifDiv.appendChild(bottomText);
   ifDiv.appendChild(bottomDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "bottom" positionerad på höger sida /B
+  //IfDiv.appendChild(bottominfoDiv);   // info-modal till "bottom" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
 
@@ -243,7 +246,7 @@ function blockInit() {
   content.rendered = function(){
     blockInit();
   };
-  
+
 
   //använda grid-system
   // en div för text, en div för dropdown, en div för modal (i)
