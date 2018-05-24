@@ -66,6 +66,7 @@ function createBuildningBlock(src){
   div.style.position = "relative";
   div.style.width = "100%";
   div.style.padding = "10px";
+  div.style.margin = "0px";
 
   var img = document.createElement("img");
   img.setAttribute("src", src);
@@ -200,11 +201,16 @@ function createDropDownDiv(blockOptions, name) {
   content.style.position = "absolute";
   content.style.right = "5%";
   content.style.bottom = "60%";
+  content.style.padding = "0px";
+  content.style.margin = "0px";
 
   let select = document.createElement('select');
   select.setAttribute("id", "select"+i); //line för testning i inspektorn
   select.className = "dropdownSelect";
+  select.style.padding = "0px";
+  select.style.margin = "0px";
   content.appendChild(select);
+
 
   let defaultOption = addOption("");
   defaultOption.setAttribute('selected','selected');

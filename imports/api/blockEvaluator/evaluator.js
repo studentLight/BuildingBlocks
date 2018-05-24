@@ -65,6 +65,9 @@ function handleBlock(block){
 
 function evaluateIfBlock(block){
 
+  //console.log( block.getElementsByClassName("dropdownSelect") );
+  console.log($('div[id^="select"]'));
+
   var sensorId = block.children[2].childNodes[0].childNodes[3].attributes.id;
   var postId = block.children[4].childNodes[0].childNodes[3].attributes.id;
   var activeId = block.children[6].childNodes[0].childNodes[3].attributes.id;
@@ -106,10 +109,6 @@ function setLightpostColor(block){
 
   var number = document.getElementById(postId.value).value;
   var color = document.getElementById(colorId.value).value;
-
-
-  console.log(number);
-  console.log(color);
 
 
   if(color == "rött"){
