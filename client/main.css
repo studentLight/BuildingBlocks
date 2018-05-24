@@ -18,7 +18,7 @@ body {
 }
 
 .grey-gradient {
-  background: radial-gradient(#424242  , #212121 );
+  background: radial-gradient(#1565c0   , #212121 );
 }
 
 .noPadding{
@@ -114,6 +114,16 @@ body {
   /* background: #494251;
   width: 80%; */
 
+}
+.tutorialPageDiv{
+  height: 80%;
+  overflow-y: scroll;
+  /* background: #292233; */
+  color: white;
+  /* font-size: 60px; */
+  background-color: #292233;
+  width: 80%;
+  margin: auto;
 }
 
 .middle{
@@ -321,4 +331,8 @@ body {
   float: right;
   width: 50%;
 
+}
+.helpButton{
+  font-size:3em;
+  color:white;
 }

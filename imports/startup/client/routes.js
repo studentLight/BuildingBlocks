@@ -8,6 +8,7 @@ import '../../ui/pages/parkPage.js';
 import '../../ui/pages/challengesPage.js';
 import '../../ui/pages/challengesDisplayPage.js';
 import '../../ui/pages/login.js';
+import '../../ui/pages/tutorialPage.js';
 
 
 /**
@@ -73,4 +74,12 @@ FlowRouter.route('/challengesPage', {
           BlazeLayout.render('challengesDisplayPage'); //Render our HomeLayout as soon as we route to /home
           checkLoggedIn();
         }
+});
+
+FlowRouter.route('/tutorialPage', {
+    name: 'tutorialPage', //Reference name
+    action() {  //What actually happens.
+        BlazeLayout.render('tutorialPage'); //Render our HomeLayout as soon as we route to /home
+        checkLoggedIn();
+      }
 });
