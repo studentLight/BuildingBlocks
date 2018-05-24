@@ -2,6 +2,9 @@ import '../components/gameButtons.html';
 
 import './board.js';
 
+//import '../../ui/pages/codePage.js';
+
+
 import {runCode} from '../../api/blockEvaluator/evaluator.js';
 
 var blocks = [];
@@ -10,6 +13,17 @@ var i = 0;
 Template.gameButtons.rendered = function(){
     recreateBlocks();
     setClickable();
+    document.getElementById("runButton").addEventListener("click", function(){
+      if(Session.get('itIsDayTime')){
+        runCode(blocks)
+      }else{
+        alert("Det är inte tillåtet att koda på kvällen");
+      }
+
+     });
+    document.getElementById("backButton").addEventListener("click", function(){
+       deleteBlock()
+     });
   }
 
 
@@ -19,8 +33,6 @@ Template.gameButtons.events({
       var div = createStartBlock();
       addBlockToCurrent(div);
       setClickable();
-
-      runCode(blocks);
 
   },
 
@@ -34,17 +46,49 @@ Template.gameButtons.events({
       var div = createIfBlock();
       addBlockToCurrent(div);
       setClickable();
-      blockInit();
+      blockInit(i-3);
+      blockInit(i-2);
+      blockInit(i-1);
+      // till blockinit lägga till "Prevent default browser form submit"?
+      //event.preventDefault();
   },
 
   "click #thenButton": function(event){
       var div = createThenBlock();
       addBlockToCurrent(div);
       setClickable();
-      blockInit();
-  }
+      blockInit(i-2);
+      blockInit(i-1);
+  },
 
+  // TRIGGERS startBlockInfoModal = modal-knapp id /Bengt
+  // #sBModal template class ID
+  // skriva om in i blocken
+  "click .startBlockInfoModal": function(event){
+     $('#sBModal').openModal();
+     var div = createInfoModal();
+   },
+
+   "click .thenBlockInfoModal": function(event){
+      $('#tBModal').openModal();
+    },
+
+    "click .stopBlockInfoModal": function(event){
+       $('#stBModal').openModal();
+     },
+
+   "click .ifBlockInfoModal": function(event){
+      $('#iBModal').openModal();
+    }
 });
+
+
+function deleteBlock(){
+  console.log("make it burn");
+  document.getElementById("placeBlock").removeChild(blocks[(blocks.length-1)]);
+  blocks.pop();
+  setClickable();
+}
 
 function createBuildningBlock(src){
   var div = document.createElement("div");
@@ -52,6 +96,7 @@ function createBuildningBlock(src){
   div.style.position = "relative";
   div.style.width = "100%";
   div.style.padding = "10px";
+  div.style.margin = "0px";
 
   var img = document.createElement("img");
   img.setAttribute("src", src);
@@ -64,9 +109,10 @@ function createBuildningBlock(src){
 function createTextDiv(text){
   var content = document.createElement("div");
   content.className ="transparent s4 black-text center-align";
+  // content.className ="transparent s4 white-text bold center-align"; ändra till white text
   content.style.position = "absolute";
   content.style.right = "70%";
-  content.style.bottom = "65%";
+  content.style.bottom = "60%";
 
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
@@ -76,15 +122,25 @@ function createTextDiv(text){
 
   return content;
 
-
 }
+  //Bengt
+  function createInfoModal() {
+     var infoModal = document.createElement("div");
+     infoModal.className = "helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal";
+     infoModal.style.position = "absolute";
+     infoModal.style.right = "10%";            //default placering, gör dessa specifika i de enskilda block-funktionerna
+     infoModal.style.bottom = "40%";
+     //Dessa ska skrivas om i JS
+     // <a class="helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal"></a>
+     // <a class="helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal"></a>
+     // <a class="helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal"></a>
 
+  }
 
 function addBlockToCurrent(block){
     blocks.push(block);
     return;
 }
-
 
 function recreateBlocks(){
   for(var i = 0; i < blocks.length; i++){
@@ -95,6 +151,9 @@ function recreateBlocks(){
 function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
   var textDiv = createTextDiv("start-block");
+  var infoDiv = createInfoModal();
+  div.appendChild(infoDiv);
+  /* Error = "TypeError: Argument 1 of Node.appendChild is not an object". */
   div.appendChild(textDiv);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "start";
@@ -119,29 +178,27 @@ function createIfBlock(){
   var topText = createTextDiv("Om");
   var topDropdown = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
   var middleText = createTextDiv("i lyktstople");
-  // --> var topinfoDiv = creteInfoDiv();  //HÄR!!!
   middleText.style.right = "70%";
   middleText.style.bottom = "45%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
   middleDropdown.style.right = "5%";
   middleDropdown.style.bottom = "40%";
-  // --> var middleinfoDiv = creteInfoDiv(); //HÄR!!!
   var bottomText = createTextDiv("är");  // fixa positionering?
   bottomText.style.right = "70%";
-  bottomText.style.bottom = "25%";
+  bottomText.style.bottom = "30%";
   var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
   bottomDropdown.style.right = "5%";
-  bottomDropdown.style.bottom = "20%"
-  // --> var bottominfoDiv = creteInfoDiv(); //HÄR!!!
+  bottomDropdown.style.bottom = "25%"
+  // var infoDiv = createInfoModal();
+  // infoDiv.style.right = "10%";
+  // infoDiv.style.bottom = "45%";
   ifDiv.appendChild(topText);
   ifDiv.appendChild(topDropdown);
-  //IfDiv.appendChild(topinfoDiv);   // info-modal till "top" positionerad på höger sida /B
   ifDiv.appendChild(middleText);
   ifDiv.appendChild(middleDropdown);
-  //IfDiv.appendChild(middleinfoDiv);   // info-modal till "middle" positionerad på höger sida /B
   ifDiv.appendChild(bottomText);
   ifDiv.appendChild(bottomDropdown);
-  //IfDiv.appendChild(bottominfoDiv);   // info-modal till "bottom" positionerad på höger sida /B
+  //div.appendChild(infoDiv);             // info-modal till "bottom" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
 
@@ -162,10 +219,10 @@ function createThenBlock(){
   middleDropdown.style.bottom = "40%"
   var bottomText = createTextDiv("lysa");
   bottomText.style.right = "70%";
-  bottomText.style.bottom = "25%";
+  bottomText.style.bottom = "30%";
   var bottomDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
   bottomDropdown.style.right = "5%";
-  bottomDropdown.style.bottom = "20%"
+  bottomDropdown.style.bottom = "25%"
   thenDiv.appendChild(topText);
   thenDiv.appendChild(middleText);
   thenDiv.appendChild(middleDropdown);
@@ -188,31 +245,41 @@ function createDropDownDiv(blockOptions, name) {
   content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
   content.style.right = "5%";
-  content.style.bottom = "60%";
+  content.style.bottom = "55%";
+  content.style.padding = "0px";
+  content.style.margin = "0px";
 
   let select = document.createElement('select');
-  select.setAttribute("id", "test123"); //line för testning i inspektorn
+  select.setAttribute("id", "select"+i); //line för testning i inspektorn
   select.className = "dropdownSelect";
+  select.style.padding = "0px";
+  select.style.margin = "0px";
   content.appendChild(select);
+
 
   let defaultOption = addOption("");
   defaultOption.setAttribute('selected','selected');
   blockOptions.forEach(addOption);
 
+  i++;
+
   function addOption(textContent) {
     let option = document.createElement('option');
     select.appendChild(option);
+    // option.style.textContent = "white-text bold"; //försöker ändra option-text till white
     option.textContent = textContent;
 
     return option;
   }
+
   return content;
 
 }
 
   /* Nästlad if-sats för internt positionering av dropdowns i if och then block
     if = 3 dropdowns (sensor/nummer/aktiverad)
-    then = 2 dropdowns (lyktstople/nummer/färg) */
+    then = 2 dropdowns (lyktstople/nummer/färg)
+    DENNA KAN TAS BORT !!! */
 function dropdownPosition(position) {
   let dropDownSelect = createDropDownDiv(blockOptions);
   let postion =
@@ -235,9 +302,10 @@ function dropdownStyle() {
 }
 
   //initierar select dropdown komponenterna
-function blockInit() {
+function blockInit(id) {
   $(document).ready(function() {
-    $('select').material_select();
+    //$('select').material_select('destroy');
+    $('#select'+id).material_select();
   });
 }
 

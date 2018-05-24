@@ -5,7 +5,6 @@ Template.sensorActivationForm.events({
   'submit #sensorForm'(event) {
     // Prevent default browser form submit
     event.preventDefault();
-
     const target = event.target;
     const lampID = target.lightpost.value;
     const sensor = target.sensor.value;

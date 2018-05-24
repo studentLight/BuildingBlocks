@@ -3,9 +3,14 @@ import '../components/header.js';
 import '../components/codeViewSelector.js';
 import '../components/gameButtons.js';
 import '../components/board.js';
-// test
+import '../components/lightPostSensorForm.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
+//B importer inte behövs? 
+// import '../components/modals/startBlockModal.js';
+// import '../components/modals/ifBlockModal.js';
+// import '../components/modals/thenBlockModal.js';
+// import '../components/modals/stopBlockModal.js';
 
 import { Challenges } from '../../api/collections/challenges.js';
 
@@ -20,20 +25,21 @@ Template.codePage.helpers({
       return false;
     }
   },
-
 });
 
 Template.codePage.events({
 
+  "click #sumbitSensorState": function(event){
+     $('#modal2').openModal();
+   },
    //the one that is really needed
   "click .selectedCM": function(event){
      $('#sCModal').openModal();
    },
 
    "click .selectedCMNext": function(event){
-     
-     var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
 
+     var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
      var next = Challenges.findOne({createdAt: {$gt: currentSC.createdAt}}, {sort: {createdAt: 1}, limit:1});
      var id = next._id;
      var text = next.text;
@@ -46,7 +52,6 @@ Template.codePage.events({
     "click .selectedCMPrev": function(event){
 
       var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
-
       var next = Challenges.findOne({createdAt: {$lt: currentSC.createdAt}}, {sort: {createdAt: -1}, limit:1});
       var id = next._id;
       var text = next.text;

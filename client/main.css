@@ -3,6 +3,10 @@ template, body {
   height: 100%;
 }
 
+label{
+  font-size: 20px;
+}
+
 body {
   font-family: Trebuchet MS;
   /* https://atom.io/packages/fonts */
@@ -14,7 +18,7 @@ body {
 }
 
 .grey-gradient {
-  background: radial-gradient(#424242  , #212121 );
+  background: radial-gradient(#1565c0   , #212121 );
 }
 
 .noPadding{
@@ -111,6 +115,16 @@ body {
   width: 80%; */
 
 }
+.tutorialPageDiv{
+  height: 80%;
+  overflow-y: scroll;
+  /* background: #292233; */
+  color: white;
+  /* font-size: 60px; */
+  background-color: #292233;
+  width: 80%;
+  margin: auto;
+}
 
 .middle{
   margin: auto;
@@ -173,7 +187,11 @@ body {
   float: right;
   margin-right: 2%;
   margin-top: 3%;
-
+}
+.sensorActorBtn{
+  float: left;
+  margin-left: 2%;
+  margin-top: 3%;
 }
 .dropdownSelect{
   width: 50%;
@@ -313,4 +331,9 @@ body {
   float: right;
   width: 50%;
 
+}
+/* css för help-modals  */
+.helpButton{
+  font-size:3em;
+  color:white;
 }
