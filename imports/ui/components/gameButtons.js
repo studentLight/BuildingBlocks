@@ -13,8 +13,17 @@ var i = 0;
 Template.gameButtons.rendered = function(){
     recreateBlocks();
     setClickable();
-    document.getElementById("runButton").addEventListener("click", function(){ runCode(blocks) });
-    document.getElementById("backButton").addEventListener("click", function(){ deleteBlock() });
+    document.getElementById("runButton").addEventListener("click", function(){
+      if(Session.get('itIsDayTime')){
+        runCode(blocks)
+      }else{
+        alert("Det är inte tillåtet att koda på kvällen");
+      }
+
+     });
+    document.getElementById("backButton").addEventListener("click", function(){
+       deleteBlock()
+     });
   }
 
 
