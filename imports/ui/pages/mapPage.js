@@ -8,10 +8,21 @@ import { HTTP } from 'meteor/http';
 var sunrise;
 var sunset;
 
+function addTwoHouersForUnixTimeStamp(timestamp){
+  return (timestamp + (120 * 60 * 1000));
+}
+
 function extractTimeStamp(response){
-  sunrise = response.data.sys.sunrise;
-  sunset = response.data.sys.sunset;
-  var realTime = Date.now() / 1000;
+  sunrise = response.data.sys.sunrise * 1000;
+  sunset = response.data.sys.sunset * 1000;
+  realTime = Date.now();
+  sunrise = addTwoHouersForUnixTimeStamp(sunrise);
+  sunset = addTwoHouersForUnixTimeStamp(sunset);
+  realTime = addTwoHouersForUnixTimeStamp(realTime);
+  console.log("sunrise", sunrise);
+  console.log("sunset", sunset);
+  console.log("realTime", realTime);
+
   var boolean = ( (sunrise < realTime) || (realTime < sunset) );
   Session.set("itIsDayTime", boolean);
 }
