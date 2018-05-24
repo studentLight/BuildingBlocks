@@ -64,9 +64,15 @@ Template.gameButtons.events({
   // TRIGGERS startBlockInfoModal = modal-knapp id /Bengt
   // #sBModal template class ID
   // skriva om in i blocken
+  // classnanm,ttriggern har samma klassnamn
+  //aref = en ikon
+
   "click .startBlockInfoModal": function(event){
      $('#sBModal').openModal();
-     var div = createInfoModal();
+     // referear till html filen
+     //trigger namn samma som referens
+     //knappens postionernas
+     //tycker på trigger, en knapp, trigger ikonen i blocket
    },
 
    "click .thenBlockInfoModal": function(event){
@@ -130,6 +136,7 @@ function createTextDiv(text){
      infoModal.style.position = "absolute";
      infoModal.style.right = "10%";            //default placering, gör dessa specifika i de enskilda block-funktionerna
      infoModal.style.bottom = "40%";
+     //dessa är events i template.event
      //Dessa ska skrivas om i JS
      // <a class="helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal"></a>
      // <a class="helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal"></a>
@@ -230,6 +237,7 @@ function createThenBlock(){
   thenDiv.appendChild(bottomText);
   thenDiv.appendChild(bottomDropdown);
   //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
+  //triggern appendas här
   document.getElementById("placeBlock").appendChild(thenDiv);
   thenDiv.name = "then";
 
