@@ -193,6 +193,7 @@ body {
   margin-left: 2%;
   margin-top: 3%;
 }
+ /* används  */
 .dropdownSelect{
   width: 50%;
   /* float: right;
@@ -334,6 +335,24 @@ body {
 }
 /* css för help-modals  */
 .helpButton{
-  font-size:3em;
+  font-size:2em;
   color:white;
+  /* right : 1%;
+  bottom : 1%; */
+}
+
+/* block-text properties  */
+.blockText {
+  font-family: "Lucida Console", Monaco, monospace;
+  color:white;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* selct-text properties  */
+.selectText {
+  font-family: "Lucida Console", Monaco, monospace;
+  color:white;
+  font-size: 8px;
+  text-align: left;
 }

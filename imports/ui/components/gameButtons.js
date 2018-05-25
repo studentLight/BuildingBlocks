@@ -1,9 +1,12 @@
 import '../components/gameButtons.html';
-
+import '../components/board.html';
 import './board.js';
-
-//import '../../ui/pages/codePage.js';
-
+import '../components/modals/selectedChallengeModal.js';
+import '../components/modals/startBlockModal.js';
+import '../components/modals/ifBlockModal.js';
+import '../components/modals/thenBlockModal.js';
+import '../components/modals/stopBlockModal.js';
+import '../../ui/pages/codePage.js';
 
 import {runCode} from '../../api/blockEvaluator/evaluator.js';
 
@@ -61,30 +64,6 @@ Template.gameButtons.events({
       blockInit(i-1);
   },
 
-  // TRIGGERS startBlockInfoModal = modal-knapp id /Bengt
-  // #sBModal template class ID
-  // classnanm,ttriggern har samma klassnamn
-  //aref = en ikon
-
-  "click .startBlockInfoModal": function(event){
-     $('#sBModal').openModal();
-     // referear till html filen
-     //trigger namn samma som referens
-     //knappens postionernas
-     //tycker på trigger, en knapp, trigger ikonen i blocket
-   },
-
-   "click .thenBlockInfoModal": function(event){
-      $('#tBModal').openModal();
-    },
-
-    "click .stopBlockInfoModal": function(event){
-       $('#stBModal').openModal();
-     },
-
-   "click .ifBlockInfoModal": function(event){
-      $('#iBModal').openModal();
-    }
 });
 
 
@@ -113,34 +92,27 @@ function createBuildningBlock(src){
 
 function createTextDiv(text){
   var content = document.createElement("div");
-  content.className ="transparent s4 black-text center-align";
-  // content.className ="transparent s4 white-text bold center-align"; ändra till white text
+  content.setAttribute('class', 'blockText');   //bloxText ligger i main.css
   content.style.position = "absolute";
-  content.style.right = "70%";
-  content.style.bottom = "60%";
-
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
   var newLine = document.createElement("B");
-
   content.appendChild(paragraph);
 
   return content;
 
 }
   //Bengt
+  //appendar ikonen till boarden, ej i gamebuttons, saker sker på olika ställen
   function createInfoModal() {
-     var infoModal = document.createElement("div");
-     infoModal.className = "helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal";
+     let modalDiv = document.createElement("div");
+     infoModal = document.createElement('a');
+     //console.log(infoModal);                      //line för testning i inspektorn
+     //infoModal.setAttribute("id", "test123");     //line för testning i inspektorn
      infoModal.style.position = "absolute";
-     infoModal.style.right = "10%";            //default placering, gör dessa specifika i de enskilda block-funktionerna
-     infoModal.style.bottom = "40%";
-     //dessa är events i template.event
-     //Dessa ska skrivas om i JS
-     // <a class="helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal"></a>
-     // <a class="helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal"></a>
-     // <a class="helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal"></a>
+     modalDiv.appendChild(infoModal);
 
+     return modalDiv;
   }
 
 function addBlockToCurrent(block){
@@ -156,10 +128,16 @@ function recreateBlocks(){
 
 function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
-  var textDiv = createTextDiv("start-block");
+  var textDiv = createTextDiv("INLEDNING");
+  textDiv.style.right = "37%";
+  textDiv.style.bottom = "60%";
   var infoDiv = createInfoModal();
+  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal');  // specifik för startBlocket
+  // infoDiv.setAttribute('id', 'tes456');   //test kod-rad
+  // console.log(infoDiv);                   //test kod-rad
+  infoModal.style.right = "6%";
+  infoModal.style.bottom = "18%";
   div.appendChild(infoDiv);
-  /* Error = "TypeError: Argument 1 of Node.appendChild is not an object". */
   div.appendChild(textDiv);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "start";
@@ -170,8 +148,15 @@ function createStartBlock(){
 
 function createEndBlock(){
   var div = createBuildningBlock("images/endBlock.png");
-  var textDiv = createTextDiv("end-block");
+  var textDiv = createTextDiv("AVSLUT");
+  textDiv.style.right = "42%";
+  textDiv.style.bottom = "25%";
+  var infoDiv = createInfoModal();
+  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal');    // specifik för stoppBlocket
+  infoModal.style.right = "6%";
+  infoModal.style.bottom = "18%";
   div.appendChild(textDiv);
+  div.appendChild(infoDiv);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "end";
 
@@ -179,31 +164,35 @@ function createEndBlock(){
   return div;
 }
 
+// fixa resten av textens positionering!
 function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
-  var topText = createTextDiv("Om");
-  var topDropdown = createDropDownDiv(["ljus sensorn", "ljud sensorn", "tryck sensorn"], "ifSensorValues");
-  var middleText = createTextDiv("i lyktstople");
+  var topText = createTextDiv("Om");  // fixa positionering!
+  var topDropdown = createDropDownDiv(["ljussensorn", "ljudsensorn", "trycksensorn"], "ifSensorValues");
+  var ifInfoDiv = createInfoModal();
+  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle ifBlockInfoModal');   // specifik för ifBlocket
+  infoModal.style.right = "6%";
+  infoModal.style.bottom = "10%";
+  ifInfoDiv.setAttribute('id', 'test123');
+  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
   middleText.style.right = "70%";
   middleText.style.bottom = "45%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
   middleDropdown.style.right = "5%";
   middleDropdown.style.bottom = "40%";
-  var bottomText = createTextDiv("är");  // fixa positionering?
+  var bottomText = createTextDiv("är");  // fixa positionering!
   bottomText.style.right = "70%";
   bottomText.style.bottom = "30%";
   var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
   bottomDropdown.style.right = "5%";
   bottomDropdown.style.bottom = "25%"
-  // var infoDiv = createInfoModal();
-  // infoDiv.style.right = "10%";
-  // infoDiv.style.bottom = "45%";
   ifDiv.appendChild(topText);
   ifDiv.appendChild(topDropdown);
   ifDiv.appendChild(middleText);
   ifDiv.appendChild(middleDropdown);
   ifDiv.appendChild(bottomText);
   ifDiv.appendChild(bottomDropdown);
+  ifDiv.appendChild(ifInfoDiv);
   //div.appendChild(infoDiv);             // info-modal till "bottom" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
@@ -211,13 +200,17 @@ function createIfBlock(){
   return ifDiv;
 }
 
-//i denna göra innehåll
+// fixa positionering!
 // all text hamnar på samma plats pga samma positionering i generella metoden
-// satt alla delar separat som tillfällig lösning (fult men funkar) /Bengt
+// sätter alla delar separat i varje block som en lösning (fult men funkar) /Bengt
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
-  var topText = createTextDiv("så ska lampan");
-  var middleText = createTextDiv("i lyktstople");
+  var topText = createTextDiv("så ska lampan");  // fixa positionering!
+  var infoDiv = createInfoModal();
+  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal');   // specifik för thenBlocket
+  infoModal.style.right = "6%";
+  infoModal.style.bottom = "10%";
+  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
   middleText.style.right = "70%";
   middleText.style.bottom = "45%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
@@ -232,11 +225,9 @@ function createThenBlock(){
   thenDiv.appendChild(topText);
   thenDiv.appendChild(middleText);
   thenDiv.appendChild(middleDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "top" positionerad på höger sida /B
   thenDiv.appendChild(bottomText);
   thenDiv.appendChild(bottomDropdown);
-  //IfDiv.appendChild(infoDiv);   // info-modal till "middle" positionerad på höger sida /B
-  //triggern appendas här
+  thenDiv.appendChild(infoDiv);
   document.getElementById("placeBlock").appendChild(thenDiv);
   thenDiv.name = "then";
 
@@ -248,16 +239,18 @@ function createThenBlock(){
 //funktion som generera en generell variant av 3 olika dropdowns i ett block
 function createDropDownDiv(blockOptions, name) {
   let content = document.createElement("div");
+  // content.setAttribute('class', 'input-field col m12 l12 s12 inline');     //alterntiv kod
+  // content.setAttribute('id', name);
   content.id = name;
   content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
-  content.style.right = "5%";
+  content.style.right = "10%";
   content.style.bottom = "55%";
   content.style.padding = "0px";
   content.style.margin = "0px";
 
   let select = document.createElement('select');
-  select.setAttribute("id", "select"+i); //line för testning i inspektorn
+  select.setAttribute("id", "select" +i); //line för testning i inspektorn
   select.className = "dropdownSelect";
   select.style.padding = "0px";
   select.style.margin = "0px";
@@ -272,8 +265,9 @@ function createDropDownDiv(blockOptions, name) {
 
   function addOption(textContent) {
     let option = document.createElement('option');
+    option.setAttribute('class','selectText');      //försöker ändra option-text till white
+    // console.log(option);
     select.appendChild(option);
-    // option.style.textContent = "white-text bold"; //försöker ändra option-text till white
     option.textContent = textContent;
 
     return option;
@@ -281,26 +275,6 @@ function createDropDownDiv(blockOptions, name) {
 
   return content;
 
-}
-
-  /* Nästlad if-sats för internt positionering av dropdowns i if och then block
-    if = 3 dropdowns (sensor/nummer/aktiverad)
-    then = 2 dropdowns (lyktstople/nummer/färg)
-    DENNA KAN TAS BORT !!! */
-function dropdownPosition(position) {
-  let dropDownSelect = createDropDownDiv(blockOptions);
-  let postion =
-  //överst
-  content.style.right = "5%";
-  content.style.bottom = "60%";
-  //mellerst
-  content.style.right = "5%";
-  content.style.bottom = "40%";
-  //underst
-  content.style.right = "5%";
-  content.style.bottom = "20%";
-
-  return position;
 }
 
 function dropdownStyle() {
@@ -315,13 +289,9 @@ function blockInit(id) {
     $('#select'+id).material_select();
   });
 }
-
-  //initierar select dropdown komponenterna
-
   content.rendered = function(){
     blockInit();
   };
-
 
   //använda grid-system
   // en div för text, en div för dropdown, en div för modal (i)
@@ -331,13 +301,6 @@ function blockInit(id) {
   // selekt-button event-listener på knappen, behöver en variabel (array)
   // bygg dropdown-innehåll funktion från en array-content
   // returnerar ett DOM-element,
-
-
-
-// all innehåll hamnar på samma plats pga samma positionering i generella metoden
-// satt alla delar separat som tillfällig lösning (fult men funkar) /Bengt
-
-
 
 function setClickable(){
   if(blocks.length == 0){
