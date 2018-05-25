@@ -75,6 +75,7 @@ function deleteBlock(){
 }
 
 //albin
+// Noterar att om och avslut blocket går lite över vid borders varandra när de läggs till intill varandra.
 function createBuildningBlock(src){
   var lastBlock = blocks[blocks.length-1];
   var i;
@@ -134,7 +135,7 @@ function createTextDiv(text){
   content.style.position = "absolute";
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
-  var newLine = document.createElement("B");
+  //var newLine = document.createElement("B");
   content.appendChild(paragraph);
 
   return content;
@@ -168,7 +169,7 @@ function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
   var textDiv = createTextDiv("INLEDNING");
   textDiv.style.right = "37%";
-  textDiv.style.bottom = "60%";
+  textDiv.style.bottom = "35%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal');  // specifik för startBlocket
   // infoDiv.setAttribute('id', 'tes456');   //test kod-rad
@@ -188,7 +189,7 @@ function createEndBlock(){
   var div = createBuildningBlock("images/endBlock.png");
   var textDiv = createTextDiv("AVSLUT");
   textDiv.style.right = "42%";
-  textDiv.style.bottom = "25%";
+  textDiv.style.bottom = "35%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal');    // specifik för stoppBlocket
   infoModal.style.right = "9%";
@@ -205,25 +206,31 @@ function createEndBlock(){
 // fixa resten av textens positionering!
 function createIfBlock(){
   var ifDiv = createBuildningBlock("images/ifBlock.png");
-  var topText = createTextDiv("Om");  // fixa positionering!
+  var topText = createTextDiv("Om");
+  topText.style.right = "70%";
+  topText.style.bottom = "60.8%";
   var topDropdown = createDropDownDiv(["ljussensorn", "ljudsensorn", "trycksensorn"], "ifSensorValues");
+  topDropdown.setAttribute('class', 'sensorSelect');
+  topDropdown.style.right = "1%";
+  topDropdown.style.bottom = "55%";
+  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
+  middleText.style.right = "45%";
+  middleText.style.bottom = "41%";
+  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
+  middleDropdown.setAttribute('class', 'lampSelect');
+  middleDropdown.style.right = "5%";
+  middleDropdown.style.bottom = "35%";
+  var bottomText = createTextDiv("är");
+  bottomText.style.right = "65%";
+  bottomText.style.bottom = "21%";
+  var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
+  bottomDropdown.setAttribute('class', 'onOfOffSelect');
+  bottomDropdown.style.right = "5%";
+  bottomDropdown.style.bottom = "15%";
   var ifInfoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle ifBlockInfoModal');   // specifik för ifBlocket
   infoModal.style.right = "9%";
   infoModal.style.bottom = "13%";
-  ifInfoDiv.setAttribute('id', 'test123');
-  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
-  middleText.style.right = "70%";
-  middleText.style.bottom = "45%";
-  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
-  middleDropdown.style.right = "5%";
-  middleDropdown.style.bottom = "40%";
-  var bottomText = createTextDiv("är");  // fixa positionering!
-  bottomText.style.right = "70%";
-  bottomText.style.bottom = "30%";
-  var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
-  bottomDropdown.style.right = "5%";
-  bottomDropdown.style.bottom = "25%"
   ifDiv.appendChild(topText);
   ifDiv.appendChild(topDropdown);
   ifDiv.appendChild(middleText);
@@ -244,22 +251,26 @@ function createIfBlock(){
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
   var topText = createTextDiv("så ska lampan");  // fixa positionering!
+  topText.style.right = "30%";
+  topText.style.bottom = "60%";
+  var middleText = createTextDiv("i lyktstople");
+  middleText.style.right = "45%";
+  middleText.style.bottom = "41.5%";
+  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
+  middleDropdown.setAttribute('class', 'lampSelect');
+  middleDropdown.style.right = "5%";
+  middleDropdown.style.bottom = "35%";
+  var bottomText = createTextDiv("lysa");
+  bottomText.style.right = "65%";
+  bottomText.style.bottom = "21.5%";
+  var bottomDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
+  bottomDropdown.setAttribute('class', 'lightColorSelect');
+  bottomDropdown.style.right = "5%";
+  bottomDropdown.style.bottom = "15%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal');   // specifik för thenBlocket
   infoModal.style.right = "9%";
-  infoModal.style.bottom = "13%"
-  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
-  middleText.style.right = "70%";
-  middleText.style.bottom = "45%";
-  var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "thenLampNumbers");
-  middleDropdown.style.right = "5%";
-  middleDropdown.style.bottom = "40%"
-  var bottomText = createTextDiv("lysa");
-  bottomText.style.right = "70%";
-  bottomText.style.bottom = "30%";
-  var bottomDropdown = createDropDownDiv(["blått", "rött", "grönt"], "thenLampColors");
-  bottomDropdown.style.right = "5%";
-  bottomDropdown.style.bottom = "25%"
+  infoModal.style.bottom = "15%";
   thenDiv.appendChild(topText);
   thenDiv.appendChild(middleText);
   thenDiv.appendChild(middleDropdown);
@@ -277,25 +288,23 @@ function createThenBlock(){
 //funktion som generera en generell variant av 3 olika dropdowns i ett block
 function createDropDownDiv(blockOptions, name) {
   let content = document.createElement("div");
-  // content.setAttribute('class', 'input-field col m12 l12 s12 inline');     //alterntiv kod
-  // content.setAttribute('id', name);
-  content.id = name;
-  content.className = "input-field col m12 l12 s12 inline";
+  content.setAttribute('class', 'input-field col m12 l12 s12 inline');     //alterntiv kod
+  content.setAttribute('id', name);
+  // content.id = name;
+  // content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
-  content.style.right = "10%";
-  content.style.bottom = "55%";
   content.style.padding = "0px";
   content.style.margin = "0px";
 
   let select = document.createElement('select');
   select.setAttribute("id", "select" +i); //line för testning i inspektorn
-  select.className = "dropdownSelect";
+  select.className = "dropdownSelect";    //standard dropdown beteende
   select.style.padding = "0px";
   select.style.margin = "0px";
   content.appendChild(select);
 
 
-  let defaultOption = addOption("");
+  let defaultOption = addOption("<välj>");
   defaultOption.setAttribute('selected','selected');
   blockOptions.forEach(addOption);
 

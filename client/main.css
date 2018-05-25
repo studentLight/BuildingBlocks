@@ -193,28 +193,46 @@ body {
   margin-left: 2%;
   margin-top: 3%;
 }
- /* används  */
+ /* DROPDOWN PLACEMENT som används  */
 .dropdownSelect{
   width: 50%;
   /* float: right;
   margin: 0; */
 }
 .sensorSelect{
-  width: 70%;
-  /* float: right;
-  margin: 0; */
+  width: 65%;
+  /* font-family: "Lucida Console", Monaco, monospace; */
+  color:white;
+  font-size: 2px;
+  text-align: center;
 }
 .lampSelect{
-  width: 10%;
+  width: 35%;
+  color:white;
+  font-size: 6px;
+  text-align: right;
   /* float: right;
   margin: 0; */
 }
 
-.tOrFSelect{
-  width: 30%;
+.onOfOffSelect{
+  width: 55%;
+  color:white;
+  font-size: 6px;
+  text-align: left;
   /* float: right;
   margin: 0; */
 }
+
+.lightColorSelect{
+  width: 55%;
+  color:white;
+  font-size: 6px;
+  text-align: left;
+  /* float: right;
+  margin: 0; */
+}
+
 .sensorP{
   display: inline;
   clear: both;
@@ -231,6 +249,8 @@ body {
   clear: both;
   float: none;
 }
+/* SLUT PÅ DROPDOWN PLACEMENT  */
+
 .prevNext{
   margin-left: 4%;
   float: left;
@@ -337,8 +357,7 @@ body {
 .helpButton{
   font-size:2em;
   color:white;
-  /* right : 1%;
-  bottom : 1%; */
+
 }
 
 /* block-text properties  */
