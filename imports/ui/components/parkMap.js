@@ -32,26 +32,34 @@ Template.parkMap.helpers({
 
 var activeInfoWindow;
 
+
+
 Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
 
     var coords = Session.get('parkCoordinates');
 
     if( coords == undefined){
-      window.location.href = "mapPage";
+      FlowRouter.go('mapPage');
     }
 
 
     lights_objects = [];
-
     var lights = LightPosts.find().fetch();
+
+    var pinColor = "0000FF";
+    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + "%E2%80%A2|" + pinColor,
+      new google.maps.Size(21, 34),
+      new google.maps.Point(0,0),
+      new google.maps.Point(10, 34));
 
     lights = lights[0].lamps;
     for (var i = 0; i < lights.length ;i++){
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(lights[i][1], lights[i][2]),
       map: parkMap.instance,
-      title:""+lights[i][0]
+      title:""+lights[i][0],
+      icon: pinImage
     });
 
     let infowindow = new google.maps.InfoWindow({
