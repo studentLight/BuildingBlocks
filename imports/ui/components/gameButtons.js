@@ -74,13 +74,50 @@ function deleteBlock(){
   setClickable();
 }
 
+//albin
 function createBuildningBlock(src){
-  var div = document.createElement("div");
-  div.className ="container";
-  div.style.position = "relative";
-  div.style.width = "100%";
-  div.style.padding = "10px";
-  div.style.margin = "0px";
+  var lastBlock = blocks[blocks.length-1];
+  var i;
+  if(blocks.length == 0){
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = "25px";
+  }else if(lastBlock.name == "end"){
+    var i = (blocks.length*-40)+25;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else if(lastBlock.name == "start"){
+    var i = (blocks.length*-40)+22;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else if(lastBlock.name == "then"){
+    var i = (blocks.length*-40)+8;
+    var div = document.createElement("div");
+    div.className ="container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i+"px";
+  }else{
+      var div = document.createElement("div");
+      div.className ="container";
+      div.style.position = "relative";
+      div.style.width = "100%";
+      div.style.padding = "10px";
+      var i = (blocks.length*-40)+15;
+      div.style.top = i+"px";
+}
 
   var img = document.createElement("img");
   img.setAttribute("src", src);
@@ -89,6 +126,7 @@ function createBuildningBlock(src){
   div.appendChild(img);
   return div;
 }
+
 
 function createTextDiv(text){
   var content = document.createElement("div");
@@ -135,8 +173,8 @@ function createStartBlock(){
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal');  // specifik för startBlocket
   // infoDiv.setAttribute('id', 'tes456');   //test kod-rad
   // console.log(infoDiv);                   //test kod-rad
-  infoModal.style.right = "6%";
-  infoModal.style.bottom = "18%";
+  infoModal.style.right = "9%";
+  infoModal.style.bottom = "23%";
   div.appendChild(infoDiv);
   div.appendChild(textDiv);
   document.getElementById("placeBlock").appendChild(div);
@@ -153,7 +191,7 @@ function createEndBlock(){
   textDiv.style.bottom = "25%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal');    // specifik för stoppBlocket
-  infoModal.style.right = "6%";
+  infoModal.style.right = "9%";
   infoModal.style.bottom = "18%";
   div.appendChild(textDiv);
   div.appendChild(infoDiv);
@@ -171,8 +209,8 @@ function createIfBlock(){
   var topDropdown = createDropDownDiv(["ljussensorn", "ljudsensorn", "trycksensorn"], "ifSensorValues");
   var ifInfoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle ifBlockInfoModal');   // specifik för ifBlocket
-  infoModal.style.right = "6%";
-  infoModal.style.bottom = "10%";
+  infoModal.style.right = "9%";
+  infoModal.style.bottom = "13%";
   ifInfoDiv.setAttribute('id', 'test123');
   var middleText = createTextDiv("i lyktstople");  // fixa positionering!
   middleText.style.right = "70%";
@@ -208,8 +246,8 @@ function createThenBlock(){
   var topText = createTextDiv("så ska lampan");  // fixa positionering!
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle thenBlockInfoModal');   // specifik för thenBlocket
-  infoModal.style.right = "6%";
-  infoModal.style.bottom = "10%";
+  infoModal.style.right = "9%";
+  infoModal.style.bottom = "13%"
   var middleText = createTextDiv("i lyktstople");  // fixa positionering!
   middleText.style.right = "70%";
   middleText.style.bottom = "45%";
