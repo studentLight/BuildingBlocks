@@ -47,8 +47,11 @@ Template.parkMap.onCreated(function () {
     lights_objects = [];
     var lights = LightPosts.find().fetch();
 
+
     var pinColor = "0000FF";
-    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + "%E2%80%A2|" + pinColor,
+    var origin = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
+
+    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + "glyphish_lightbulb|" + pinColor,
       new google.maps.Size(21, 34),
       new google.maps.Point(0,0),
       new google.maps.Point(10, 34));
@@ -59,7 +62,7 @@ Template.parkMap.onCreated(function () {
       position: new google.maps.LatLng(lights[i][1], lights[i][2]),
       map: parkMap.instance,
       title:""+lights[i][0],
-      icon: pinImage
+      icon: origin
     });
 
     let infowindow = new google.maps.InfoWindow({
