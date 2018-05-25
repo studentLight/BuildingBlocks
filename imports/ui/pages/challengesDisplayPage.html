@@ -1,5 +1,6 @@
 <template name="challengesDisplayPage">
   <body>
+
     <div class="backgroundMain" style="height: 100vh;">
     {{> header}}
 
@@ -64,6 +65,8 @@
     {{> ifBlockModal}}
     {{> thenBlockModal}}
     {{> stopBlockModal}} -->
+
+
   <div class="challengeFooter">
     {{#if isEasy}}
     <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #1565c0 blue darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
@@ -82,6 +85,7 @@
   {{> challengeModal}}
   </body>
   </template>
+
 
   <template name="sensorSelectTemp">
     <div class="input-field col m12 l12 s12 inline">

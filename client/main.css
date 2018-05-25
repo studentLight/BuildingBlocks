@@ -157,11 +157,16 @@ body {
   float: right;
   margin-right: 2%;
   margin-top: 1%;
-  /* background-color: grey; */
+
+}
+.fbDiv{
+  /* margin-bottom: 0;
+  float: left; */
+  background: red;
+
 }
 
 .challengeContainer{
-  height: 100%;
   width: 88%;
   margin: auto;
   color: white;
@@ -171,6 +176,7 @@ body {
   position: fixed;
   display:inline-block;
   width: inherit;
+  left: 6%;
   bottom: 10%;
 }
 .sCModalButton{
