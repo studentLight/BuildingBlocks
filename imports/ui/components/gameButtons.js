@@ -63,7 +63,6 @@ Template.gameButtons.events({
 
   // TRIGGERS startBlockInfoModal = modal-knapp id /Bengt
   // #sBModal template class ID
-  // skriva om in i blocken
   // classnanm,ttriggern har samma klassnamn
   //aref = en ikon
 
