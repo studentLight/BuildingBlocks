@@ -376,17 +376,18 @@ body {
   text-align: left;
 }
 
+/* loginScreen postioning */
 .loginPosition {
     position:absolute;
     left: 8%;
-    top: 10%;
+    top: 22%;
     text-align: center;
 }
 
 .userIconPosition {
     position:absolute;
     left: 80%;
-    top: 27%;
+    top: 39%;
     /* left: 8.5%;
     top: 24%; */
     text-align: center;
@@ -396,9 +397,25 @@ body {
 .passiconPosition {
     position:absolute;
     left: 80%;
-    top: 38%;
+    top: 49.7%;
     /* left: 8.5%;
     top: 35%; */
+    text-align: center;
+    color:white;
+}
+
+.loginTitle {
+    position:absolute;
+    left: 8%;
+    top: 1%;
+    text-align: center;
+    color:white;
+}
+
+.blockIconPosition {
+    position:absolute;
+    left: 42%;
+    top: 11%;
     text-align: center;
     color:white;
 }
