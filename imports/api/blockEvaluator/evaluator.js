@@ -2,6 +2,7 @@ import { changeColor } from '../collections/lightPosts.js';
 import { LightPosts } from '../collections/lightPosts.js';
 import { changeStatusForLightposts } from '../collections/lightPosts.js';
 
+
 var codeSequenceIsOkey = false;
 var blockStatus = [];
 var lights;

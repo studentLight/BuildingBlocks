@@ -3,6 +3,28 @@ import '../components/parkMap.html';
 import { LightPosts } from '../../api/collections/lightPosts.js';
 import { changeColor } from '../../api/collections/lightPosts.js';
 import { mapStylingForSmallMap } from '../../api/googleMapStyle.js';
+import { getColor } from '../../api/collections/lightPosts.js';
+
+
+function setMarkersColorString(rgbColor){
+  var whitePinColor = "F0FFF0";
+  var redPinColor = "FF0000";
+  var greenPinColor = "008000";
+  var bluePinColor = "0000FF";
+
+  if(rgbColor[0]==1){
+    return redPinColor;
+
+  }else if(rgbColor[1]==1){
+    return greenPinColor;
+
+  }else if(rgbColor[2]==1){
+    return bluePinColor;
+  }else{
+    return whitePinColor;
+  }
+}
+
 
 //konstiga merge conflicts
 Meteor.startup(function () {
@@ -13,11 +35,7 @@ Meteor.startup(function () {
 Template.parkMap.helpers({
 
   parkMapOptions: function () {
-
-
     var coords = Session.get('parkCoordinates');
-
-
     if( coords == undefined){
       FlowRouter.go('mapPage');
     }
@@ -25,15 +43,11 @@ Template.parkMap.helpers({
     if (GoogleMaps.loaded()) {
       return mapStylingForSmallMap(coords);
     }
-
   }
 });
 
 
 var activeInfoWindow;
-
-
-
 Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
 
@@ -48,21 +62,24 @@ Template.parkMap.onCreated(function () {
     var lights = LightPosts.find().fetch();
 
 
-    var pinColor = "0000FF";
-    var origin = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
 
-    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + "glyphish_lightbulb|" + pinColor,
-      new google.maps.Size(21, 34),
-      new google.maps.Point(0,0),
-      new google.maps.Point(10, 34));
 
     lights = lights[0].lamps;
     for (var i = 0; i < lights.length ;i++){
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(lights[i][1], lights[i][2]),
-      map: parkMap.instance,
-      title:""+lights[i][0],
-      icon: origin
+
+      var rgbColor = getColor(i+1);
+
+      var pinColor = setMarkersColorString(rgbColor);
+      var pinImage = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
+
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lights[i][1], lights[i][2]),
+        map: parkMap.instance,
+        title:""+lights[i][0],
+        icon: {
+          url: pinImage,
+          scaledSize: new google.maps.Size(70, 70),
+        }
     });
 
     let infowindow = new google.maps.InfoWindow({
@@ -99,6 +116,7 @@ Template.parkMap.onCreated(function () {
       activeInfoWindow = infowindow;
 
       }
+
     })(marker));
     lights_objects.push(marker);
     }
