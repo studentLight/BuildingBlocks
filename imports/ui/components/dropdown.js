@@ -1,5 +1,7 @@
 import './dropdown.html';
 
+// DENNA FIL ANVÄNDS INTE, KAN TAS BORT!  -->
+
 
 function cPageInit() {
   $(document).ready(function() {

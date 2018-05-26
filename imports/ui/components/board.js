@@ -5,12 +5,9 @@ import '../components/modals/thenBlockModal.js';
 import '../components/modals/stopBlockModal.js';
 
 
-/* TRIGGERS startBlockInfoModal = modal-knapp id /Bengt
-    #sBModal template class ID
-    classnanm,ttriggern har samma klassnamn
-    a-taggen = en ikon som referear till html filen
-    trigger namn samma som referens
-    tycker på trigger, en knapp, trigger ikonen i blocket */
+/* Event som sker av TRIGGERS hos t.ex: startBlockInfoModal = modal-knapp id /Bengt
+   tycker på trigger, en knapp, trigger ikonen i blocket
+   #sBModal template class ID */
 
 Template.board.events ({
 

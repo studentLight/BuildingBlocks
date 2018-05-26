@@ -52,8 +52,7 @@ Template.gameButtons.events({
       blockInit(i-3);
       blockInit(i-2);
       blockInit(i-1);
-      // till blockinit lägga till "Prevent default browser form submit"?
-      //event.preventDefault();
+      // lägga till event.preventDefault(); ?
   },
 
   "click #thenButton": function(event){
@@ -76,49 +75,49 @@ function deleteBlock(){
 
 //albin
 // Noterar att om och avslut blocket går lite över vid borders varandra när de läggs till intill varandra.
-function createBuildningBlock(src){
-  var lastBlock = blocks[blocks.length-1];
-  var i;
-  if(blocks.length == 0){
+function createBuildningBlock(src) {
+  var lastBlock = blocks[blocks.length - 1];
+  var i; 
+  if (blocks.length == 0) {
     var div = document.createElement("div");
-    div.className ="container";
+    div.className = "container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
     div.style.top = "25px";
-  }else if(lastBlock.name == "end"){
-    var i = (blocks.length*-40)+25;
+  } else if (lastBlock.name == "end") {
+    var i = (blocks.length * -40) + 25;
     var div = document.createElement("div");
-    div.className ="container";
+    div.className = "container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
-    div.style.top = i+"px";
-  }else if(lastBlock.name == "start"){
-    var i = (blocks.length*-40)+22;
+    div.style.top = i + "px";
+  } else if (lastBlock.name == "start") {
+    var i = (blocks.length * -40) + 22;
     var div = document.createElement("div");
-    div.className ="container";
+    div.className = "container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
-    div.style.top = i+"px";
-  }else if(lastBlock.name == "then"){
-    var i = (blocks.length*-40)+8;
+    div.style.top = i + "px";
+  } else if (lastBlock.name == "then") {
+    var i = (blocks.length * -40) + 8;
     var div = document.createElement("div");
-    div.className ="container";
+    div.className = "container";
     div.style.position = "relative";
     div.style.width = "100%";
     div.style.padding = "10px";
-    div.style.top = i+"px";
-  }else{
-      var div = document.createElement("div");
-      div.className ="container";
-      div.style.position = "relative";
-      div.style.width = "100%";
-      div.style.padding = "10px";
-      var i = (blocks.length*-40)+15;
-      div.style.top = i+"px";
-}
+    div.style.top = i + "px";
+  } else {
+    var div = document.createElement("div");
+    div.className = "container";
+    div.style.position = "relative";
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    var i = (blocks.length * -40) + 15;
+    div.style.top = i + "px";
+  }
 
   var img = document.createElement("img");
   img.setAttribute("src", src);
@@ -135,7 +134,6 @@ function createTextDiv(text){
   content.style.position = "absolute";
   var paragraph = document.createElement("P");
   paragraph.innerText = text;
-  //var newLine = document.createElement("B");
   content.appendChild(paragraph);
 
   return content;
@@ -172,8 +170,8 @@ function createStartBlock(){
   textDiv.style.bottom = "35%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal');  // specifik för startBlocket
-  // infoDiv.setAttribute('id', 'tes456');   //test kod-rad
-  // console.log(infoDiv);                   //test kod-rad
+  // infoDiv.setAttribute('id', 'tes456');   //line för testning i inspektorn
+  // console.log(infoDiv);                   //line för testning i inspektorn
   infoModal.style.right = "9%";
   infoModal.style.bottom = "23%";
   div.appendChild(infoDiv);
@@ -203,8 +201,7 @@ function createEndBlock(){
   return div;
 }
 
-// fixa resten av textens positionering!
-function createIfBlock(){
+function createIfBlock() {
   var ifDiv = createBuildningBlock("images/ifBlock.png");
   var topText = createTextDiv("Om");
   topText.style.right = "70%";
@@ -213,7 +210,7 @@ function createIfBlock(){
   topDropdown.setAttribute('class', 'sensorSelect');
   topDropdown.style.right = "1%";
   topDropdown.style.bottom = "55%";
-  var middleText = createTextDiv("i lyktstople");  // fixa positionering!
+  var middleText = createTextDiv("i lyktstople");
   middleText.style.right = "45%";
   middleText.style.bottom = "41%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
@@ -228,7 +225,7 @@ function createIfBlock(){
   bottomDropdown.style.right = "5%";
   bottomDropdown.style.bottom = "15%";
   var ifInfoDiv = createInfoModal();
-  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle ifBlockInfoModal');   // specifik för ifBlocket
+  infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle ifBlockInfoModal'); // specifik för ifBlocket
   infoModal.style.right = "9%";
   infoModal.style.bottom = "13%";
   ifDiv.appendChild(topText);
@@ -238,19 +235,16 @@ function createIfBlock(){
   ifDiv.appendChild(bottomText);
   ifDiv.appendChild(bottomDropdown);
   ifDiv.appendChild(ifInfoDiv);
-  //div.appendChild(infoDiv);             // info-modal till "bottom" positionerad på höger sida /B
   document.getElementById("placeBlock").appendChild(ifDiv);
   ifDiv.name = "if";
 
   return ifDiv;
 }
 
-// fixa positionering!
-// all text hamnar på samma plats pga samma positionering i generella metoden
 // sätter alla delar separat i varje block som en lösning (fult men funkar) /Bengt
 function createThenBlock(){
   var thenDiv = createBuildningBlock("images/thenBlock.png");
-  var topText = createTextDiv("så ska lampan");  // fixa positionering!
+  var topText = createTextDiv("så ska lampan");
   topText.style.right = "30%";
   topText.style.bottom = "60%";
   var middleText = createTextDiv("i lyktstople");
@@ -288,16 +282,14 @@ function createThenBlock(){
 //funktion som generera en generell variant av 3 olika dropdowns i ett block
 function createDropDownDiv(blockOptions, name) {
   let content = document.createElement("div");
-  content.setAttribute('class', 'input-field col m12 l12 s12 inline');     //alterntiv kod
+  content.setAttribute('class', 'input-field col m12 l12 s12 inline');
   content.setAttribute('id', name);
-  // content.id = name;
-  // content.className = "input-field col m12 l12 s12 inline";
   content.style.position = "absolute";
   content.style.padding = "0px";
   content.style.margin = "0px";
 
   let select = document.createElement('select');
-  select.setAttribute("id", "select" +i); //line för testning i inspektorn
+  select.setAttribute("id", "select" +i);
   select.className = "dropdownSelect";    //standard dropdown beteende
   select.style.padding = "0px";
   select.style.margin = "0px";
@@ -312,8 +304,8 @@ function createDropDownDiv(blockOptions, name) {
 
   function addOption(textContent) {
     let option = document.createElement('option');
-    option.setAttribute('class','selectText');      //försöker ändra option-text till white
-    // console.log(option);
+    // option.setAttribute('id', 'tes456');   //line för testning i inspektorn
+    // console.log(option);                   //line för testning i inspektorn
     select.appendChild(option);
     option.textContent = textContent;
 
@@ -324,11 +316,6 @@ function createDropDownDiv(blockOptions, name) {
 
 }
 
-function dropdownStyle() {
-  //olika dropdown beteenden och styles på blocken
-  //för tillfället löst via en generell ".dropdownSelect" i main.css
-}
-
   //initierar select dropdown komponenterna
 function blockInit(id) {
   $(document).ready(function() {
@@ -336,18 +323,6 @@ function blockInit(id) {
     $('#select'+id).material_select();
   });
 }
-  content.rendered = function(){
-    blockInit();
-  };
-
-  //använda grid-system
-  // en div för text, en div för dropdown, en div för modal (i)
-  // rad 1 "text"  dropdown  info-modal-ikon  -- om ljus/ljud/tryck  -- i en och samma div-container
-  // rad 2 "text"  dropdown  info-modal-ikon  -- i lyktstople 1-6    -- i en och samma div-container
-  // rad 2 "text"  dropdown  info-modal-ikon  -- är aktiverad/inaktiverad -- i en och samma div-container
-  // selekt-button event-listener på knappen, behöver en variabel (array)
-  // bygg dropdown-innehåll funktion från en array-content
-  // returnerar ett DOM-element,
 
 function setClickable(){
   if(blocks.length == 0){
