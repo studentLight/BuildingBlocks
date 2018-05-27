@@ -16,4 +16,5 @@ Template.homePage.events({
     $('#modal2').openModal();
   },
 
+
 });
