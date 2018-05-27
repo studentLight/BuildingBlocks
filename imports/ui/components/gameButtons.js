@@ -120,21 +120,6 @@ function recreateBlocks(){
     document.getElementById("placeBlock").appendChild(blocks[i]);
 
     if(blocks[i].name == "if"){
-      /*
-      var sensorId = blocks[i].children[2].childNodes[0].childNodes[3].attributes.id;
-      var postId = blocks[i].children[4].childNodes[0].childNodes[3].attributes.id;
-      var activeId = blocks[i].children[6].childNodes[0].childNodes[3].attributes.id;
-      */
-
-      /*
-      var number = document.getElementById(postId.value).value;
-      var sensor = document.getElementById(sensorId.value).value;
-      var active = document.getElementById(activeId.value).value;
-
-      console.log(number);
-      console.log(sensor);
-      console.log(active);
-      */
 
       var div = createIfBlock();
       document.getElementById("placeBlock").replaceChild(div, blocks[i]);
@@ -147,11 +132,29 @@ function recreateBlocks(){
       blockInitFullId(id2);
       blockInitFullId(id3);
 
+
+
+      //$('#'+id1).val(1);
+
       blocks[i] = div;
       setClickable();
 
     }else if(blocks[i].name == "then"){
-      console.log("then");
+
+      var div = createThenBlock();
+      document.getElementById("placeBlock").replaceChild(div, blocks[i]);
+
+      var id1 = div.children[3].childNodes[0].id;
+      var id2 = div.children[5].childNodes[0].id;
+
+      blockInitFullId(id1);
+      blockInitFullId(id2);
+
+
+
+      blocks[i] = div;
+      setClickable();
+
     }
   }
 }
