@@ -19,9 +19,6 @@ function extractTimeStamp(response){
   sunrise = addTwoHouersForUnixTimeStamp(sunrise);
   sunset = addTwoHouersForUnixTimeStamp(sunset);
   realTime = addTwoHouersForUnixTimeStamp(realTime);
-  console.log("sunrise", sunrise);
-  console.log("sunset", sunset);
-  console.log("realTime", realTime);
 
   var boolean = ( (sunrise < realTime) || (realTime < sunset) );
   Session.set("itIsDayTime", boolean);

@@ -6,7 +6,7 @@ import '../components/board.js';
 import '../components/lightPostSensorForm.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
-
+import { getColor } from '../../api/collections/lightPosts.js';
 import { Challenges } from '../../api/collections/challenges.js';
 
 import {pageInitialize} from '../../api/pageInit.js'
@@ -26,7 +26,9 @@ Template.codePage.events({
 
 
   "click #sumbitSensorState": function(event){
-     $('#modal2').openModal();
+    var rgb = getColor(2);
+
+    $('#modal2').openModal();
    },
    //the one that is really needed
   "click .selectedCM": function(event){

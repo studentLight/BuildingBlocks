@@ -30,6 +30,18 @@ export function changeColor(lampID, r, g, b){
 }
 
 
+export function getColor(lampID){
+  var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
+  lights = lights[0].lamps;
+
+  var r = lights[(lampID-1)][6];
+  var g = lights[(lampID-1)][7];
+  var b = lights[(lampID-1)][8];
+  var rgb = [r,g,b];
+  return rgb;
+}
+
+
 //sensorIndex --> 3=light, 4=sound, 5=push
 export function changeStatusForLightposts(lampID, sensor, isOn){
   var sensorIndex;
