@@ -57,7 +57,7 @@ function insertChallenges(){
   difficulty: "Easy", createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 2",
-  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om dess trycksensor är aktiverad.<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.",
+  content: "<b>1)</b> Få lyktstolpe <b>1</b> att lysa <font color=red>rött</font> om dess ljussensor är aktiverad.<br><br> <b>2)</b> Få lyktstolpe <b>2</b> att lysa <font color=blue>blått</font> om dess trycksensor är aktiverad.", //<br><br> <b>3)</b> Få lyktstolpe <b>3</b> att lysa <font color=red>rött</font> om dess ljudsensor är aktiverad.
   difficulty: "Easy",createdAt: new Date()} );
 
   Challenges.insert({ text: "Utmaning 3",
