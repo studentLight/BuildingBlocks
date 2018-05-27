@@ -169,7 +169,8 @@ function recreateBlocks(){
     if(blocks[i].name == "if"){
 
       var div = createIfBlock();
-      document.getElementById("placeBlock").replaceChild(div, blocks[i]);
+      document.getElementById("placeBlock").removeChild(blocks[i]);
+      document.getElementById("placeBlock").appendChild(div);
 
       var id1 = div.children[2].childNodes[0].id;
       var id2 = div.children[4].childNodes[0].id;
@@ -179,9 +180,7 @@ function recreateBlocks(){
       blockInitFullId(id2);
       blockInitFullId(id3);
 
-
-
-      //$('#'+id1).val(1);
+      
 
       blocks[i] = div;
       setClickable();
@@ -189,7 +188,8 @@ function recreateBlocks(){
     }else if(blocks[i].name == "then"){
 
       var div = createThenBlock();
-      document.getElementById("placeBlock").replaceChild(div, blocks[i]);
+      document.getElementById("placeBlock").removeChild(blocks[i]);
+      document.getElementById("placeBlock").appendChild(div);
 
       var id1 = div.children[3].childNodes[0].id;
       var id2 = div.children[5].childNodes[0].id;
