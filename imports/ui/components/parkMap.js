@@ -65,10 +65,9 @@ Template.parkMap.onCreated(function () {
 
 
     lights = lights[0].lamps;
-    for (var i = 0; i < lights.length ;i++){
+    for (var i = 0; i < lights.length; i++){
 
       var rgbColor = getColor(i+1);
-
       var pinColor = setMarkersColorString(rgbColor);
       var pinImage = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
 
