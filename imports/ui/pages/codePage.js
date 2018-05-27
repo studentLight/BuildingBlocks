@@ -24,21 +24,40 @@ Template.codePage.helpers({
 
 Template.codePage.events({
 
+  /* Event som sker av TRIGGERS hos t.ex: startBlockInfoModal = modal-knapp id /Bengt
+     tycker på trigger, en knapp, trigger ikonen i blocket
+     #sBModal template class ID */
+
+  "click .startBlockInfoModal": function(event){
+     $('#sBModal').openModal();
+   },
+
+   "click .thenBlockInfoModal": function(event){
+      $('#tBModal').openModal();
+    },
+
+    "click .stopBlockInfoModal": function(event){
+       $('#stBModal').openModal();
+     },
+
+   "click .ifBlockInfoModal": function(event){
+      $('#iBModal').openModal();
+    },
 
   "click #sumbitSensorState": function(event){
     var rgb = getColor(2);
 
     $('#modal2').openModal();
    },
+
    //the one that is really needed
   "click .selectedCM": function(event){
      $('#sCModal').openModal();
    },
-
+   // select test-button, ska removas i final test-version
    "click .selectedCMNext": function(event){
 
      var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
-
      var next = Challenges.findOne({createdAt: {$gt: currentSC.createdAt}}, {sort: {createdAt: 1}, limit:1});
      var id = next._id;
      var text = next.text;
@@ -48,10 +67,10 @@ Template.codePage.events({
      Session.set('selectedChallenge', sC);
     },
 
+    // select test-button, ska removas i final test-version
     "click .selectedCMPrev": function(event){
 
       var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
-
       var next = Challenges.findOne({createdAt: {$lt: currentSC.createdAt}}, {sort: {createdAt: -1}, limit:1});
       var id = next._id;
       var text = next.text;
