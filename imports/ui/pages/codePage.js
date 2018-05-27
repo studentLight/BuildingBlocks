@@ -6,11 +6,12 @@ import '../components/board.js';
 import '../components/lightPostSensorForm.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
-//B importer inte behövs? 
+//B importer inte behövs?
 // import '../components/modals/startBlockModal.js';
 // import '../components/modals/ifBlockModal.js';
 // import '../components/modals/thenBlockModal.js';
 // import '../components/modals/stopBlockModal.js';
+//få in modals här, template måste hittas, mallar ska hittas
 
 import { Challenges } from '../../api/collections/challenges.js';
 
@@ -29,14 +30,35 @@ Template.codePage.helpers({
 
 Template.codePage.events({
 
+  /* Event som sker av TRIGGERS hos t.ex: startBlockInfoModal = modal-knapp id /Bengt
+     tycker på trigger, en knapp, trigger ikonen i blocket
+     #sBModal template class ID */
+
+  "click .startBlockInfoModal": function(event){
+     $('#sBModal').openModal();
+   },
+
+   "click .thenBlockInfoModal": function(event){
+      $('#tBModal').openModal();
+    },
+
+    "click .stopBlockInfoModal": function(event){
+       $('#stBModal').openModal();
+     },
+
+   "click .ifBlockInfoModal": function(event){
+      $('#iBModal').openModal();
+    },
+
   "click #sumbitSensorState": function(event){
      $('#modal2').openModal();
    },
+
    //the one that is really needed
   "click .selectedCM": function(event){
      $('#sCModal').openModal();
    },
-
+   // select test-button, ska removas i final test-version
    "click .selectedCMNext": function(event){
 
      var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});
@@ -49,6 +71,7 @@ Template.codePage.events({
      Session.set('selectedChallenge', sC);
     },
 
+    // select test-button, ska removas i final test-version
     "click .selectedCMPrev": function(event){
 
       var currentSC = Challenges.findOne({text: Session.get('selectedChallenge')[1]});

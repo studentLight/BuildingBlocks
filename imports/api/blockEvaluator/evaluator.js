@@ -83,15 +83,15 @@ function evaluateIfBlock(block){
     active = 0;
   }
 
-  if(sensor == "ljus sensorn"){
+  if(sensor == "ljussensorn"){
     if(lights[(number-1)][3] == active){
       return true;
     }
-  }else if(sensor == "ljud sensorn"){
+  }else if(sensor == "ljudsensorn"){
     if(lights[number-1][4] == active){
       return true;
     }
-  }else if(sensor == "tryck sensorn"){
+  }else if(sensor == "trycksensorn"){
     if(lights[number-1][5] == active){
       return true;
     }

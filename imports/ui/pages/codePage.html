@@ -13,23 +13,20 @@
       </div>
       <div class="middle">
         {{> board}}
+        <!-- initierar modals från codPage //Bengt -->
+        {{> startBlockModal}}
+        {{> ifBlockModal}}
+        {{> thenBlockModal}}
+        {{> stopBlockModal}}
 
         <div class=" col m6 l6 s6 "><a href="" id="backButton" class="waves-effect waves-light"><i class="material-icons undo">undo</i>Backa</a></div>
         <div class=" col m6 l6 s6 "><a href="" id="runButton" class="waves-effect waves-light">Kör<i class="material-icons playArrow">play_arrow</i></a></div>
 
-
-
       </div>
-
 
     </div>
     {{> selectedChallengeModal}}
     {{> sensorActivationForm}}
-    <!-- initiera modals OM de ska vara i codPage //Bengt -->
-    <!-- {{> startBlockModal}}
-    {{> ifBlockModal}}
-    {{> thenBlockModal}}
-    {{> stopBlockModal}} -->
 
 
   </body>

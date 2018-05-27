@@ -65,7 +65,7 @@ Template.gameButtons.events({
 
 });
 
-
+//hantera bakåt-knappen när det inte finns nåpgra block-element kvar = error
 function deleteBlock(){
   console.log("make it burn");
   document.getElementById("placeBlock").removeChild(blocks[(blocks.length-1)]);
@@ -77,7 +77,7 @@ function deleteBlock(){
 // Noterar att om och avslut blocket går lite över vid borders varandra när de läggs till intill varandra.
 function createBuildningBlock(src) {
   var lastBlock = blocks[blocks.length - 1];
-  var i; 
+  var i;
   if (blocks.length == 0) {
     var div = document.createElement("div");
     div.className = "container";
@@ -218,7 +218,7 @@ function createIfBlock() {
   middleDropdown.style.right = "5%";
   middleDropdown.style.bottom = "35%";
   var bottomText = createTextDiv("är");
-  bottomText.style.right = "65%";
+  bottomText.style.right = "69%";
   bottomText.style.bottom = "21%";
   var bottomDropdown = createDropDownDiv(["aktiverad", "inaktiverad"], "ifOnOffStatus");
   bottomDropdown.setAttribute('class', 'onOfOffSelect');
@@ -357,7 +357,7 @@ function setClickable(){
 }
 function setButtonTrue(button){
   button.disabled = true;
-  button.style.opacity = 0.5;
+  button.style.opacity = 0.65;
 }
 function setButtonFalse(button){
   button.disabled = false;

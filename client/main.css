@@ -152,7 +152,7 @@ body {
 .top{
   position: fixed;
   width: 100%;
-  /* z-index:10; */
+  z-index:10;
 }
 .modal-header{
   position: relative;
@@ -216,7 +216,7 @@ body {
 }
 
 .onOfOffSelect{
-  width: 55%;
+  width: 62.5%;
   color:white;
   font-size: 6px;
   text-align: left;
@@ -269,6 +269,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 2;
 }
 
 #endButton {
@@ -276,6 +277,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #ifButton {
@@ -283,6 +285,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #thenButton {
@@ -290,6 +293,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #parkButton {
@@ -357,6 +361,7 @@ body {
 .helpButton{
   font-size:2em;
   color:white;
+  /* ändra pos här?  */
 
 }
 
