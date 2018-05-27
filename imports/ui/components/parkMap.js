@@ -5,7 +5,6 @@ import { changeColor } from '../../api/collections/lightPosts.js';
 import { mapStylingForSmallMap } from '../../api/googleMapStyle.js';
 import { getColor } from '../../api/collections/lightPosts.js';
 
-
 function setMarkersColorString(rgbColor){
   var whitePinColor = "F0FFF0";
   var redPinColor = "FF0000";
@@ -24,7 +23,12 @@ function setMarkersColorString(rgbColor){
     return whitePinColor;
   }
 }
-
+function createPinImage(i){
+  var rgbColor = getColor(i+1);
+  var pinColor = setMarkersColorString(rgbColor);
+  var pinImage = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
+  return pinImage;
+}
 
 //konstiga merge conflicts
 Meteor.startup(function () {
@@ -52,7 +56,6 @@ Template.parkMap.onCreated(function () {
   GoogleMaps.ready('parkMap', function (parkMap) {
 
     var coords = Session.get('parkCoordinates');
-
     if( coords == undefined){
       FlowRouter.go('mapPage');
     }
@@ -60,16 +63,10 @@ Template.parkMap.onCreated(function () {
 
     lights_objects = [];
     var lights = LightPosts.find().fetch();
-
-
-
-
     lights = lights[0].lamps;
     for (var i = 0; i < lights.length; i++){
 
-      var rgbColor = getColor(i+1);
-      var pinColor = setMarkersColorString(rgbColor);
-      var pinImage = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
+      pinImage = createPinImage(i);
 
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(lights[i][1], lights[i][2]),
@@ -77,7 +74,7 @@ Template.parkMap.onCreated(function () {
         title:""+lights[i][0],
         icon: {
           url: pinImage,
-          scaledSize: new google.maps.Size(70, 70),
+          scaledSize: new google.maps.Size(55, 55),
         }
     });
 
