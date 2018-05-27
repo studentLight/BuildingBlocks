@@ -97,7 +97,7 @@ Template.parkMap.onCreated(function () {
           '<div id="bodyContent">' +
             '<p id="light">' + "Ljussensor: " + lights[(this.title -1)][3] + '</p>'+
             '<p id="touch">' + "Trycksensor: " + lights[(this.title -1)][4] + ' </p>'+
-            '<p id="sound">' + "Ljudsenspr: " + lights[(this.title -1)][5] + ' </p>'+
+            '<p id="sound">' + "Ljudsensor: " + lights[(this.title -1)][5] + ' </p>'+
             '<p id="red">' + "Röd: " + lights[(this.title -1)][6] + ' </p>'+
             '<p id="green">' + "Grön: " + lights[(this.title -1)][7] + ' </p>'+
             '<p id="blue">' + "Blå: " + lights[(this.title -1)][8] + ' </p>'+
