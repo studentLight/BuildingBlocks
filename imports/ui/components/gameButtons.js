@@ -24,6 +24,8 @@ Template.gameButtons.rendered = function(){
     document.getElementById("backButton").addEventListener("click", function(){
        deleteBlock()
      });
+
+     console.log(blocks);
   }
 
 
@@ -111,10 +113,49 @@ function addBlockToCurrent(block){
 
 
 function recreateBlocks(){
+
+
   for(var i = 0; i < blocks.length; i++){
-      document.getElementById("placeBlock").appendChild(blocks[i]);
+
+    document.getElementById("placeBlock").appendChild(blocks[i]);
+
+    if(blocks[i].name == "if"){
+      /*
+      var sensorId = blocks[i].children[2].childNodes[0].childNodes[3].attributes.id;
+      var postId = blocks[i].children[4].childNodes[0].childNodes[3].attributes.id;
+      var activeId = blocks[i].children[6].childNodes[0].childNodes[3].attributes.id;
+      */
+
+      /*
+      var number = document.getElementById(postId.value).value;
+      var sensor = document.getElementById(sensorId.value).value;
+      var active = document.getElementById(activeId.value).value;
+
+      console.log(number);
+      console.log(sensor);
+      console.log(active);
+      */
+
+      var div = createIfBlock();
+      document.getElementById("placeBlock").replaceChild(div, blocks[i]);
+
+      var id1 = div.children[2].childNodes[0].id;
+      var id2 = div.children[4].childNodes[0].id;
+      var id3 = div.children[6].childNodes[0].id;
+
+      blockInitFullId(id1);
+      blockInitFullId(id2);
+      blockInitFullId(id3);
+
+      blocks[i] = div;
+      setClickable();
+
+    }else if(blocks[i].name == "then"){
+      console.log("then");
+    }
   }
 }
+
 
 function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
@@ -271,6 +312,12 @@ function blockInit(id) {
   $(document).ready(function() {
     //$('select').material_select('destroy');
     $('#select'+id).material_select();
+  });
+}
+function blockInitFullId(id) {
+  $(document).ready(function() {
+    //$('select').material_select('destroy');
+    $('#'+id).material_select();
   });
 }
 
