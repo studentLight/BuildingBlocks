@@ -1,5 +1,7 @@
 <template name="challengesDisplayPage">
   <body>
+
+    <div class="backgroundMain" style="height: 100vh;">
     {{> header}}
 
     <div class="challengeContainer">
@@ -20,47 +22,30 @@
       {{#each challengehelper}}
         <div class ="listItem">
         <li>
+          {{#if isEasy}}
+            <a class="challengeItem waves-effect waves-light light-blue darken-2 openContact white-text" href="">{{text}}</a>
+          {{/if}}
+          {{#if isMedium}}
+           <a class="challengeItem waves-effect waves-light blue darken-3 openContact white-text" href="">{{text}}</a>
+          {{/if}}
+          {{#if isHard}}
+             <a class="challengeItem waves-effect waves-light blue darken-4 openContact white-text" href="">{{text}}</a>
+          {{/if}}
           <!-- make a template for this -->
-          <a class="challengeItem waves-effect waves-light #1565c0 blue darken-3 openContact white-text" href="">{{text}}</a>
+          <!-- <a class="challengeItem waves-effect waves-light openContact white-text" href="">{{text}}</a> -->
         </li>
         </div>
       {{/each}}
 
     </ul>
 
-    <!-- Modal Trigger -->
-      <!-- <a class="waves-effect waves-light btn sBM" href="">Modaltest</a>     -->
-
-  <!-- Move these when game blocks are almost done -->
-<!-- <div style="font-size:3em; color:green">
-  <a class=" waves-effect waves-light fa fa-question-circle sBM"></a>
-
-</div>
-<div style="font-size:3em; color:blue">
-  <a class=" waves-effect waves-light fa fa-question-circle iBM"></a>
-</div>
-
-<div style="font-size:3em; color:green">
-  <a class=" waves-effect waves-light fa fa-question-circle tBM"></a>
-</div>
-
-<div style="font-size:3em; color:green">
-  <a class=" waves-effect waves-light fa fa-question-circle stBM"></a>
-</div> -->
-
-    {{> challengeModal}}
-    <!-- Move these when game blocks are almost done -->
-    <!-- {{> startBlockModal}}
-    {{> ifBlockModal}}
-    {{> thenBlockModal}}
-    {{> stopBlockModal}} -->
   <div class="challengeFooter">
     {{#if isEasy}}
     <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #1565c0 blue darken-3 mediumSelect">Medium<i class="fa fa-angle-right"></i></a>
     {{/if}}
     {{#if isMedium}}
     <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large #0288d1 light-blue darken-2 easySelect"><i class="fa fa-angle-left leftArrow"></i>Lätta</a>
-    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #311b92 deep-purple darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
+    <a href="challengesDisplayPage" id="nextChallengeButton" class="waves-effect waves-light btn-large #1565c0 blue darken-4 hardSelect">Svåra<i class="fa fa-angle-right rightArrow"></i></a>
     {{/if}}
     {{#if isHard}}
       <a href="challengesDisplayPage" id="previousChallengeButton" class="waves-effect waves-light btn-large #311b92 #1565c0 blue darken-3 mediumSelect"><i class="fa fa-angle-left leftArrow"></i>Medium</a>
@@ -68,9 +53,11 @@
 
   </div>
   </div>
-
+  </div>
+  {{> challengeModal}}
   </body>
   </template>
+
 
   <template name="sensorSelectTemp">
     <div class="input-field col m12 l12 s12 inline">

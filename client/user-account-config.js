@@ -77,6 +77,17 @@ AccountsTemplates.configure({
 
       },
 
+      title: {
+        signUp: "Skapa konto",
+        signIn: "Inloggning",
+        changePwd: "",
+        enrollAccount: "",
+        forgotPwd: "",
+        resetPwd: "",
+        verifyEmail: "",
+
+      },
+
       errors: {
         cannotRemoveService: "Du kan inte inaktivera din enda aktiva tjänst!",
         captchaVerification: "Captcha verifering misslyckades",
@@ -114,6 +125,12 @@ AccountsTemplates.configure({
       socialIcons: {
           facebook: "fab fa-facebook-f",
           google: "fab fa-google",
+      },
+
+      inputIcons: {
+          isValidating: "fa fa-spinner fa-spin",
+          hasSuccess: "fa fa-check",
+          hasError: "fa fa-times",
       },
     }
 });

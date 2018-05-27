@@ -18,7 +18,7 @@ body {
 }
 
 .grey-gradient {
-  background: radial-gradient(#424242  , #212121 );
+  background: radial-gradient(#1565c0   , #212121 );
 }
 
 .noPadding{
@@ -84,13 +84,13 @@ body {
 }
 
 .listItem {
-  padding: 0px;
+  padding: 0;
   height: auto;
-  border: 2px solid #bbb;
-  margin: 0px;
+  border: 2px solid #000000;
+  margin: 3px;
   line-height: 40px;
   width: auto;
-  background: #512da8;
+  background: #292233;
   vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
@@ -99,6 +99,8 @@ body {
 .challengeItem{
   height: 50px;
   width: 100%;
+
+
 }
 
 .boardDiv{
@@ -114,6 +116,16 @@ body {
   /* background: #494251;
   width: 80%; */
 
+}
+.tutorialPageDiv{
+  height: 80%;
+  overflow-y: scroll;
+  /* background: #292233; */
+  color: white;
+  /* font-size: 60px; */
+  background-color: #292233;
+  width: 80%;
+  margin: auto;
 }
 
 .middle{
@@ -142,7 +154,7 @@ body {
 .top{
   position: fixed;
   width: 100%;
-  /* z-index:10; */
+  z-index:10;
 }
 .modal-header{
   position: relative;
@@ -159,18 +171,26 @@ body {
   float: right;
   margin-right: 2%;
   margin-top: 1%;
-  /* background-color: grey; */
+
+}
+.fbDiv{
+  /* margin-bottom: 0;
+  float: left; */
+  background: red;
+
 }
 
 .challengeContainer{
-  height: 100%;
   width: 88%;
   margin: auto;
+  color: white;
+  background-color: inherit;
 }
 .challengeFooter{
   position: fixed;
   display:inline-block;
   width: inherit;
+  left: 6%;
   bottom: 10%;
 }
 .sCModalButton{
@@ -183,27 +203,46 @@ body {
   margin-left: 2%;
   margin-top: 3%;
 }
+ /* DROPDOWN PLACEMENT som används  */
 .dropdownSelect{
   width: 50%;
   /* float: right;
   margin: 0; */
 }
 .sensorSelect{
-  width: 70%;
-  /* float: right;
-  margin: 0; */
+  width: 65%;
+  /* font-family: "Lucida Console", Monaco, monospace; */
+  color:white;
+  font-size: 2px;
+  text-align: center;
 }
 .lampSelect{
-  width: 10%;
+  width: 35%;
+  color:white;
+  font-size: 6px;
+  text-align: right;
   /* float: right;
   margin: 0; */
 }
 
-.tOrFSelect{
-  width: 30%;
+.onOfOffSelect{
+  width: 62.5%;
+  color:white;
+  font-size: 6px;
+  text-align: left;
   /* float: right;
   margin: 0; */
 }
+
+.lightColorSelect{
+  width: 55%;
+  color:white;
+  font-size: 6px;
+  text-align: left;
+  /* float: right;
+  margin: 0; */
+}
+
 .sensorP{
   display: inline;
   clear: both;
@@ -220,6 +259,8 @@ body {
   clear: both;
   float: none;
 }
+/* SLUT PÅ DROPDOWN PLACEMENT  */
+
 .prevNext{
   margin-left: 4%;
   float: left;
@@ -238,6 +279,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 2;
 }
 
 #endButton {
@@ -245,6 +287,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #ifButton {
@@ -252,6 +295,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #thenButton {
@@ -259,6 +303,7 @@ body {
   float:left;
   width: 50%;
   font-family: "Lucida Console", Monaco, monospace;
+  z-index: 10;
 }
 
 #parkButton {
@@ -321,4 +366,71 @@ body {
   float: right;
   width: 50%;
 
+}
+/* css för help-modals  */
+.helpButton{
+  font-size:2em;
+  color:white;
+  /* ändra pos här?  */
+
+}
+
+/* block-text properties  */
+.blockText {
+  font-family: "Lucida Console", Monaco, monospace;
+  color:white;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* selct-text properties  */
+.selectText {
+  font-family: "Lucida Console", Monaco, monospace;
+  color:white;
+  font-size: 8px;
+  text-align: left;
+}
+
+/* loginScreen postioning */
+.loginPosition {
+    position:absolute;
+    left: 8%;
+    top: 22%;
+    text-align: center;
+}
+
+.userIconPosition {
+    position:absolute;
+    left: 80%;
+    top: 39%;
+    /* left: 8.5%;
+    top: 24%; */
+    text-align: center;
+    color:white;
+}
+
+.passiconPosition {
+    position:absolute;
+    left: 80%;
+    top: 49.7%;
+    /* left: 8.5%;
+    top: 35%; */
+    text-align: center;
+    color:white;
+}
+
+.loginTitle {
+    position:absolute;
+    left: 8%;
+    top: 1%;
+    text-align: center;
+    color:white;
+}
+
+.blockIconPosition {
+    position:absolute;
+    left: 42%;
+    top: 11%;
+    text-align: center;
+    color:white;
 }

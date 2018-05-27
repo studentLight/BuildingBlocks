@@ -8,7 +8,8 @@ Template.sensorActivationForm.events({
     const target = event.target;
     const lampID = target.lightpost.value;
     const sensor = target.sensor.value;
-    const isOn = true;
+    const isAktive = target.aktivator.value
+    const isOn = (isAktive==1);
     changeStatusForLightposts(lampID, sensor, isOn);
   },
 });
