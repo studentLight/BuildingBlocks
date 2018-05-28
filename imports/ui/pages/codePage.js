@@ -8,7 +8,7 @@ import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
 import { getColor } from '../../api/collections/lightPosts.js';
 import { Challenges } from '../../api/collections/challenges.js';
-
+import {resetSensors} from '../../api/collections/lightPosts.js';
 import {pageInitialize} from '../../api/pageInit.js'
 
 Template.codePage.helpers({
@@ -27,6 +27,9 @@ Template.codePage.events({
   /* Event som sker av TRIGGERS hos t.ex: startBlockInfoModal = modal-knapp id /Bengt
      tycker på trigger, en knapp, trigger ikonen i blocket
      #sBModal template class ID */
+  "click #resetSensors": function(event){
+       resetSensors();
+  },
 
   "click .startBlockInfoModal": function(event){
      $('#sBModal').openModal();

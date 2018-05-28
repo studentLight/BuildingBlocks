@@ -12,6 +12,11 @@ body {
   /* https://atom.io/packages/fonts */
 }
 
+#resetSensors {
+    
+    float: left;
+}
+
 .halfHeight {
   height: 50%;
   overflow-y:auto;
