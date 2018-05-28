@@ -129,6 +129,36 @@ function createBuildningBlock(src) {
   return div;
 }
 
+function setBlockPossition(blockNr, div){
+  console.log("in set size: " + blockNr);
+  console.log(blocks[blockNr-1].name);
+  if (blocks[(blockNr-1)].name == "end") {
+    console.log("end: " + blocks[(blockNr-1)].name == "end");
+    var i = ((blockNr-1) * -40) + 25;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else if (blocks[(blockNr-1)].name == "start") {
+    console.log("start: " + blocks[(blockNr-1)].name == "start");
+    var i = ((blockNr) * -40) + 22;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else if (blocks[(blockNr-1)].name == "then") {
+    console.log("then: " + blocks[(blockNr-1)].name == "then");
+    var i = ((blockNr-1) * -40) + 8;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else {
+    console.log("if: " + blocks[(blockNr-1)].name == "if");
+    var i = ((blockNr) * -40) + 15;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  }
+}
+
 
 function createTextDiv(text){
   var content = document.createElement("div");
@@ -180,7 +210,7 @@ function recreateBlocks(){
       blockInitFullId(id2);
       blockInitFullId(id3);
 
-      
+      setBlockPossition(i, div);
 
       blocks[i] = div;
       setClickable();
@@ -197,7 +227,7 @@ function recreateBlocks(){
       blockInitFullId(id1);
       blockInitFullId(id2);
 
-
+      setBlockPossition(i, div);
 
       blocks[i] = div;
       setClickable();
