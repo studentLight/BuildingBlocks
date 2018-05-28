@@ -12,20 +12,30 @@
           <a href="" class="sCModalButton btn waves-effect waves-light selectedCM">Vald</a>
           {{/if}}
           <a class="btn-floating btn-small waves-effect waves-light red sensorActorBtn" id="sumbitSensorState"><i class="material-icons">add</i></a>
+
+
+
+          <button style="margin-top:11.25px; margin-left:7px;" id="resetSensors" class="btn-floating btn-small waves-effect waves-light red">Rensa</button>
         </div>
 
-        <div class="row">
+<!--
+        <div class="col m2 l2 s2">
           <button style="margin-left:8px;" id="resetSensors" class="btn-floating btn-small waves-effect waves-light red">Rensa</button>
         </div>
+      -->
+
+
 
       </div>
       <div class="middle">
+
         {{> board}}
         <!-- initierar modals från codPage //Bengt -->
         {{> startBlockModal}}
         {{> ifBlockModal}}
         {{> thenBlockModal}}
         {{> stopBlockModal}}
+
 
         <div class=" col m6 l6 s6 "><a href="" id="backButton" class="waves-effect waves-light"><i class="material-icons undo">undo</i>Ångra</a></div>
         <div class=" col m6 l6 s6 "><a href="" id="runButton" class="waves-effect waves-light">Kör<i class="material-icons playArrow">play_arrow</i></a></div>
