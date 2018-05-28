@@ -66,8 +66,6 @@ function handleBlock(block){
 
 function evaluateIfBlock(block){
 
-  //console.log( block.getElementsByClassName("dropdownSelect") );
-  console.log($('div[id^="select"]'));
 
   var sensorId = block.children[2].childNodes[0].childNodes[3].attributes.id;
   var postId = block.children[4].childNodes[0].childNodes[3].attributes.id;

@@ -82,7 +82,7 @@ export function mapStylingForBigMap(){
           "elementType": "geometry",
           "stylers": [
             {
-              "color": "#263c3f"
+              "color": "#487731"
             }
           ]
         },
