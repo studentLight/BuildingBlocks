@@ -13,7 +13,7 @@ body {
 }
 
 #resetSensors {
-    
+
     float: left;
 }
 
@@ -219,6 +219,7 @@ body {
   /* font-family: "Lucida Console", Monaco, monospace; */
   color:white;
   font-size: 2px;
+  /* text-shadow: 2px 2px black; */
   text-align: center;
 }
 .lampSelect{
@@ -385,6 +386,7 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
   color:white;
   font-size: 14px;
+  text-shadow: 2px 2px black;
   text-align: center;
 }
 

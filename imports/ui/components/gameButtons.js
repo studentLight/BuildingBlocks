@@ -167,7 +167,10 @@ function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
   var textDiv = createTextDiv("INLEDNING");
   textDiv.style.right = "37%";
-  textDiv.style.bottom = "35%";
+  textDiv.style.bottom = "41%";
+  var textDivTwo = createTextDiv("av en kodsekvens");
+  textDivTwo.style.right = "25%";
+  textDivTwo.style.bottom = "24%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle startBlockInfoModal');  // specifik för startBlocket
   // infoDiv.setAttribute('id', 'tes456');   //line för testning i inspektorn
@@ -176,6 +179,7 @@ function createStartBlock(){
   infoModal.style.bottom = "23%";
   div.appendChild(infoDiv);
   div.appendChild(textDiv);
+  div.appendChild(textDivTwo);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "start";
 
@@ -187,12 +191,16 @@ function createEndBlock(){
   var div = createBuildningBlock("images/endBlock.png");
   var textDiv = createTextDiv("AVSLUT");
   textDiv.style.right = "42%";
-  textDiv.style.bottom = "35%";
+  textDiv.style.bottom = "37%";
+  var textDivTwo = createTextDiv("av en kodsekvens");
+  textDivTwo.style.right = "25%";
+  textDivTwo.style.bottom = "24%";
   var infoDiv = createInfoModal();
   infoModal.setAttribute('class', 'helpButton waves-effect waves-light fa fa-question-circle stopBlockInfoModal');    // specifik för stoppBlocket
   infoModal.style.right = "9%";
   infoModal.style.bottom = "18%";
   div.appendChild(textDiv);
+  div.appendChild(textDivTwo);
   div.appendChild(infoDiv);
   document.getElementById("placeBlock").appendChild(div);
   div.name = "end";
@@ -210,7 +218,7 @@ function createIfBlock() {
   topDropdown.setAttribute('class', 'sensorSelect');
   topDropdown.style.right = "1%";
   topDropdown.style.bottom = "55%";
-  var middleText = createTextDiv("i lyktstople");
+  var middleText = createTextDiv("i lyktstolpe");
   middleText.style.right = "45%";
   middleText.style.bottom = "41%";
   var middleDropdown = createDropDownDiv(["1", "2", "3", "4", "5", "6"], "ifLampNumbers");
@@ -298,6 +306,7 @@ function createDropDownDiv(blockOptions, name) {
 
   let defaultOption = addOption("<välj>");
   defaultOption.setAttribute('selected','selected');
+  //If-sats
   blockOptions.forEach(addOption);
 
   i++;
