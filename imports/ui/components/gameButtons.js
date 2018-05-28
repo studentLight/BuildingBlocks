@@ -205,6 +205,8 @@ function recreateBlocks(){
       blocks[i] = div;
       setClickable();
 
+      console.log(div.children[2].childNodes);
+
     }else if(blocks[i].name == "then"){
 
       var div = createThenBlock();
@@ -221,6 +223,8 @@ function recreateBlocks(){
 
       blocks[i] = div;
       setClickable();
+
+      console.log(div.children[3].childNodes);
 
     }
   }
