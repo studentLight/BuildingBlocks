@@ -67,7 +67,6 @@ Template.gameButtons.events({
 
 //hantera bakåt-knappen när det inte finns nåpgra block-element kvar = error
 function deleteBlock(){
-  console.log("make it burn");
   document.getElementById("placeBlock").removeChild(blocks[(blocks.length-1)]);
   blocks.pop();
   setClickable();
@@ -127,6 +126,30 @@ function createBuildningBlock(src) {
   return div;
 }
 
+function setBlockPossition(blockNr, div){
+  if (blocks[(blockNr-1)].name == "end") {
+    var i = ((blockNr-1) * -40) + 25;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else if (blocks[(blockNr-1)].name == "start") {
+    var i = ((blockNr) * -40) + 22;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else if (blocks[(blockNr-1)].name == "then") {
+    var i = ((blockNr-1) * -40) + 8;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  } else {
+    var i = ((blockNr) * -40) + 15;
+    div.style.width = "100%";
+    div.style.padding = "10px";
+    div.style.top = i + "px";
+  }
+}
+
 
 function createTextDiv(text){
   var content = document.createElement("div");
@@ -158,10 +181,55 @@ function addBlockToCurrent(block){
 }
 
 function recreateBlocks(){
+
   for(var i = 0; i < blocks.length; i++){
-      document.getElementById("placeBlock").appendChild(blocks[i]);
+
+    document.getElementById("placeBlock").appendChild(blocks[i]);
+
+    if(blocks[i].name == "if"){
+
+      var div = createIfBlock();
+      document.getElementById("placeBlock").removeChild(blocks[i]);
+      document.getElementById("placeBlock").appendChild(div);
+
+      var id1 = div.children[2].childNodes[0].id;
+      var id2 = div.children[4].childNodes[0].id;
+      var id3 = div.children[6].childNodes[0].id;
+
+      blockInitFullId(id1);
+      blockInitFullId(id2);
+      blockInitFullId(id3);
+
+      setBlockPossition(i, div);
+
+      blocks[i] = div;
+      setClickable();
+
+      console.log(div.children[2].childNodes);
+
+    }else if(blocks[i].name == "then"){
+
+      var div = createThenBlock();
+      document.getElementById("placeBlock").removeChild(blocks[i]);
+      document.getElementById("placeBlock").appendChild(div);
+
+      var id1 = div.children[3].childNodes[0].id;
+      var id2 = div.children[5].childNodes[0].id;
+
+      blockInitFullId(id1);
+      blockInitFullId(id2);
+
+      setBlockPossition(i, div);
+
+      blocks[i] = div;
+      setClickable();
+
+      console.log(div.children[3].childNodes);
+
+    }
   }
 }
+
 
 function createStartBlock(){
   var div = createBuildningBlock("images/startBlock.png");
@@ -321,6 +389,12 @@ function blockInit(id) {
   $(document).ready(function() {
     //$('select').material_select('destroy');
     $('#select'+id).material_select();
+  });
+}
+function blockInitFullId(id) {
+  $(document).ready(function() {
+    //$('select').material_select('destroy');
+    $('#'+id).material_select();
   });
 }
 

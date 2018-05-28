@@ -68,10 +68,21 @@ Template.parkMap.onCreated(function () {
 
       pinImage = createPinImage(i);
 
+      console.log(lights[i][0]);
+
+      var lightName = ""+lights[i][0];
+
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(lights[i][1], lights[i][2]),
         map: parkMap.instance,
         title:""+lights[i][0],
+        label: {
+          text: lightName,
+          color: "#eb3a44",
+          fontSize: "24px",
+          fontWeight: "bold",
+          top: "50px",
+        },
         icon: {
           url: pinImage,
           scaledSize: new google.maps.Size(55, 55),
