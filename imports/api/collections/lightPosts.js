@@ -42,6 +42,28 @@ export function getColor(lampID){
 }
 
 
+export function resetSensors(){
+  console.log("RESET");
+  var lights = LightPosts.find({parkName: "Tegnerlunden"}).fetch();
+  var tmpID = lights[0]._id;
+  lights = lights[0].lamps;
+
+  for(var i = 0; i < lights.length; i++){
+    lights[i][3] = 0;
+    lights[i][4] = 0;
+    lights[i][5] = 0;
+    lights[i][6] = 0;
+    lights[i][7] = 0;
+    lights[i][8] = 0;
+  }
+
+  LightPosts.update(
+    {_id: tmpID},
+    { $set: {lamps: lights} }
+  );
+}
+
+
 //sensorIndex --> 3=light, 4=sound, 5=push
 export function changeStatusForLightposts(lampID, sensor, isOn){
   var sensorIndex;

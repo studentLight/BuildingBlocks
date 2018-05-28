@@ -6,10 +6,18 @@
       <div class="top">
         {{> codeViewSelector}}
         {{> gameButtons}}
-        {{#if notUndefinded}}
-        <a href="" class="sCModalButton btn-floating btn waves-effect waves-light green selectedCM"><i class="material-icons">done</i></a>
-        {{/if}}
-        <a class="btn-floating btn-small waves-effect waves-light red sensorActorBtn" id="sumbitSensorState"><i class="material-icons">add</i></a>
+
+        <div class="row">
+          {{#if notUndefinded}}
+          <a href="" class="sCModalButton btn-floating btn waves-effect waves-light green selectedCM"><i class="material-icons">done</i></a>
+          {{/if}}
+          <a class="btn-floating btn-small waves-effect waves-light red sensorActorBtn" id="sumbitSensorState"><i class="material-icons">add</i></a>
+        </div>
+
+        <div class="row">
+          <button style="margin-left:8px;" id="resetSensors" class="btn-floating btn-small waves-effect waves-light red">Rensa</button>
+        </div>
+
       </div>
       <div class="middle">
         {{> board}}
@@ -18,17 +26,11 @@
         {{> ifBlockModal}}
         {{> thenBlockModal}}
         {{> stopBlockModal}}
-
         <div class=" col m6 l6 s6 "><a href="" id="backButton" class="waves-effect waves-light"><i class="material-icons undo">undo</i>Backa</a></div>
         <div class=" col m6 l6 s6 "><a href="" id="runButton" class="waves-effect waves-light">Kör<i class="material-icons playArrow">play_arrow</i></a></div>
-
       </div>
-
     </div>
     {{> selectedChallengeModal}}
     {{> sensorActivationForm}}
-
-
-
   </body>
 </template>

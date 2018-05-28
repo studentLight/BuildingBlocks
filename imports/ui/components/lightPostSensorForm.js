@@ -1,6 +1,7 @@
 import './lightPostSensorForm.html';
 import {changeStatusForLightposts} from '../../api/collections/lightPosts.js';
 
+
 Template.sensorActivationForm.events({
   'submit #sensorForm'(event) {
     // Prevent default browser form submit
@@ -12,4 +13,5 @@ Template.sensorActivationForm.events({
     const isOn = (isAktive==1);
     changeStatusForLightposts(lampID, sensor, isOn);
   },
+
 });
