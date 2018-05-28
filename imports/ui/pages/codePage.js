@@ -6,10 +6,13 @@ import '../components/board.js';
 import '../components/lightPostSensorForm.js';
 import '../components/modals/selectedChallengeModal.js';
 import '../components/dropdown.js';
+import '../components/modals/alertNightTime.js';
 import { getColor } from '../../api/collections/lightPosts.js';
 import { Challenges } from '../../api/collections/challenges.js';
 import {resetSensors} from '../../api/collections/lightPosts.js';
 import {pageInitialize} from '../../api/pageInit.js'
+
+
 
 Template.codePage.helpers({
 
@@ -31,12 +34,18 @@ Template.codePage.events({
        resetSensors();
   },
 
+  "click #runButton": function(event){
+    if(true){
+      $('#nightTimeModal').openModal();
+    }
+  },
+
   "click .startBlockInfoModal": function(event){
-     $('#sBModal').openModal();
+
    },
 
    "click .thenBlockInfoModal": function(event){
-      $('#tBModal').openModal();
+
     },
 
     "click .stopBlockInfoModal": function(event){

@@ -8,6 +8,7 @@ import '../components/modals/thenBlockModal.js';
 import '../components/modals/stopBlockModal.js';
 import '../../ui/pages/codePage.js';
 
+
 import {runCode} from '../../api/blockEvaluator/evaluator.js';
 
 var blocks = [];
@@ -20,7 +21,7 @@ Template.gameButtons.rendered = function(){
       if(Session.get('itIsDayTime')){
         runCode(blocks)
       }else{
-        alert("Det är inte tillåtet att koda på kvällen");
+        // $('#nightTimeModal').openModal();
       }
 
      });
