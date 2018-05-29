@@ -426,17 +426,17 @@ body {
 } */
 
 .userIconPosition {
-    position:absolute;
-    left: 2%;
-    top: 44.2%;
+    position:fixed;
+    left: 1.6%;
+    top: 40.7%;
     text-align: center;
     color:white;
 }
 
 .passiconPosition {
-    position:absolute;
+    position:fixed;
     left: 2%;
-    top: 55.3%;
+    top: 51.7%;
     text-align: center;
     color:white;
 }
