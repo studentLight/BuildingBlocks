@@ -24,10 +24,12 @@ function setMarkersColorString(rgbColor){
   }
 }
 function createPinImage(i){
-  var rgbColor = getColor(i+1);
+  var id = i+1;
+  var rgbColor = getColor(id);
   var pinColor = setMarkersColorString(rgbColor);
   var pinImage = "https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_lightbulb|"+ pinColor;
-  return pinImage;
+  var pinImage2 = "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + id + "|" + pinColor + "|" + "F0F8FF";
+  return pinImage2;
 }
 
 //konstiga merge conflicts
