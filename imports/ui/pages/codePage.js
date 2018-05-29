@@ -35,7 +35,7 @@ Template.codePage.events({
   },
 
   "click #runButton": function(event){
-    if(true){
+    if(Session.get("itIsDayTime")){
       $('#nightTimeModal').openModal();
     }
   },
