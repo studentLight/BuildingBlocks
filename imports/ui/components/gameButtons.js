@@ -189,6 +189,14 @@ function recreateBlocks(){
 
     if(blocks[i].name == "if"){
 
+      var sensorId = blocks[i].children[2].childNodes[0].childNodes[3].attributes.id;
+      var postId = blocks[i].children[4].childNodes[0].childNodes[3].attributes.id;
+      var activeId = blocks[i].children[6].childNodes[0].childNodes[3].attributes.id;
+
+      var oldPost = document.getElementById(postId.value).value;
+      var oldSensor = document.getElementById(sensorId.value).value;
+      var oldActive = document.getElementById(activeId.value).value;
+
       var div = createIfBlock();
       document.getElementById("placeBlock").removeChild(blocks[i]);
       document.getElementById("placeBlock").appendChild(div);
@@ -206,9 +214,27 @@ function recreateBlocks(){
       blocks[i] = div;
       setClickable();
 
-      console.log(div.children[2].childNodes);
+
+      div.children[2].childNodes[0].children[1].value = oldSensor;
+      div.children[4].childNodes[0].children[1].value = oldPost;
+      div.children[6].childNodes[0].children[1].value = oldActive;
+
+
+      var newSensorId = div.children[2].childNodes[0].childNodes[3].attributes.id;
+      document.getElementById(newSensorId.value).value = oldSensor;
+      var newPostId = div.children[4].childNodes[0].childNodes[3].attributes.id;
+      document.getElementById(newPostId.value).value = oldPost;
+      var newActiveId = div.children[6].childNodes[0].childNodes[3].attributes.id;
+      document.getElementById(newActiveId.value).value = oldActive;
+
 
     }else if(blocks[i].name == "then"){
+
+      var postId = blocks[i].children[3].childNodes[0].childNodes[3].attributes.id;
+      var colorId = blocks[i].children[5].childNodes[0].childNodes[3].attributes.id;
+
+      var oldPost = document.getElementById(postId.value).value;
+      var oldColor = document.getElementById(colorId.value).value;
 
       var div = createThenBlock();
       document.getElementById("placeBlock").removeChild(blocks[i]);
@@ -225,7 +251,14 @@ function recreateBlocks(){
       blocks[i] = div;
       setClickable();
 
-      console.log(div.children[3].childNodes);
+      div.children[3].childNodes[0].children[1].value = oldPost;
+      div.children[5].childNodes[0].children[1].value = oldColor;
+
+
+      var newPostId = div.children[3].childNodes[0].childNodes[3].attributes.id;
+      document.getElementById(newPostId.value).value = oldPost;
+      var newColorId = div.children[5].childNodes[0].childNodes[3].attributes.id;
+      document.getElementById(newColorId.value).value = oldColor;
 
     }
   }

@@ -16,20 +16,24 @@ Template.challengeModal.helpers({
 
   buttonColourHelper(){
     if(Session.get('selectedChallenge') == undefined){
-       $('.unselectedChallenge').css({
+       $('#unselectedChallenge').css({
          "background-color": "grey",
        });
+       $('#unselectedChallenge').text("Välj");
+
      }
      else{
           if(Session.get('selectedChallenge')[1] == arrayOfValuesForChallanges()[1]){
-            $('.unselectedChallenge').css({
+            $('#unselectedChallenge').css({
               "background-color": "green",
               });
+              $('#unselectedChallenge').text("Vald");
             }
             else {
-                $('.unselectedChallenge').css({
+                $('#unselectedChallenge').css({
                   "background-color": "grey",
                 });
+                 $('#unselectedChallenge').text("Välj");
               }
     }
   },
@@ -52,31 +56,42 @@ Template.challengeModal.helpers({
 
 Template.challengeModal.events({
 
-    "click .unselectedChallenge": function(event){
+    // "click #unselectedChallenge": function(event){
+    //   $("#unselectedChallenge").click(function() {
+    //       if ($(this).text() == "Välj") {
+    //           $(this).text("Vald");
+    //         } else {
+    //             $(this).text("Välj");
+    //           };
+    //   });
+    // },
+
+    "click #unselectedChallenge": function(event){
         // this works
           if(Session.get('selectedChallenge') != undefined){
 
               if(Session.get('selectedChallenge')[1] == arrayOfValuesForChallanges()[1]){
 
-                  $('.unselectedChallenge').css({
+                  $('#unselectedChallenge').css({
                     "background-color": "grey",
                   });
-
+                   $('#unselectedChallenge').text("Välj");
                   Session.set('selectedChallenge', undefined);
                 }
                 else{
-                  $('.unselectedChallenge').css({
+                  $('#unselectedChallenge').css({
                  "background-color": "green",
                   });
+                  $('#unselectedChallenge').text("Vald");
 
                   Session.set('selectedChallenge', arrayOfValuesForChallanges());
                 }
             }
             else {
-                $('.unselectedChallenge').css({
+                $('#unselectedChallenge').css({
                   "background-color": "green",
                 });
-
+                $('#unselectedChallenge').text("Vald");
                 Session.set('selectedChallenge', arrayOfValuesForChallanges());
               }
    }
@@ -85,9 +100,10 @@ Template.challengeModal.events({
 function challengeModalInit() {
     if(Session.get('selectedChallenge') == undefined){
 
-       $('.unselectedChallenge').css({
+       $('#unselectedChallenge').css({
          "background-color": "grey",
        });
+        $('#unselectedChallenge').text("Välj");
      }
 }
 

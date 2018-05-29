@@ -6,7 +6,7 @@ import { mapStylingForSmallMap } from '../../api/googleMapStyle.js';
 import { getColor } from '../../api/collections/lightPosts.js';
 
 function setMarkersColorString(rgbColor){
-  var whitePinColor = "F0FFF0";
+  var grayPinColor = "4F4F4F";
   var redPinColor = "FF0000";
   var greenPinColor = "008000";
   var bluePinColor = "0000FF";
@@ -20,7 +20,7 @@ function setMarkersColorString(rgbColor){
   }else if(rgbColor[2]==1){
     return bluePinColor;
   }else{
-    return whitePinColor;
+    return grayPinColor;
   }
 }
 function createPinImage(i){
@@ -76,18 +76,21 @@ Template.parkMap.onCreated(function () {
         position: new google.maps.LatLng(lights[i][1], lights[i][2]),
         map: parkMap.instance,
         title:""+lights[i][0],
+
         label: {
           text: lightName,
-          color: "#eb3a44",
-          fontSize: "24px",
+          color: "#FFFFFF",
+          fontSize: "30px",
           fontWeight: "bold",
-          top: "50px",
         },
         icon: {
           url: pinImage,
           scaledSize: new google.maps.Size(55, 55),
         }
     });
+
+
+
 
     let infowindow = new google.maps.InfoWindow({
       maxWidth: 250,
