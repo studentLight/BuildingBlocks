@@ -421,15 +421,15 @@ body {
 /* loginScreen postioning */
 .loginPosition {
     position:absolute;
-    left: 8%;
+    left: 10.5%;
     top: 22%;
     text-align: center;
 }
 
 .userIconPosition {
     position:absolute;
-    left: 80%;
-    top: 39%;
+    left: 4%;
+    top: 41.2%;
     /* left: 8.5%;
     top: 24%; */
     text-align: center;
@@ -438,8 +438,8 @@ body {
 
 .passiconPosition {
     position:absolute;
-    left: 80%;
-    top: 49.7%;
+    left: 4%;
+    top: 52.3%;
     /* left: 8.5%;
     top: 35%; */
     text-align: center;

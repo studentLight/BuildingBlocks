@@ -14,10 +14,26 @@
 <template name="override-atSocial">
 
     <div class="col l6 m 12 s12">
-      <button class="at-social-btn btn {{disabled}}" id="at-{{name}}" name="{{name}}">
-        Logga in med
-        <i class="{{iconClass}}"></i>
+      <button class="at-social-btn btn white {{disabled}}" id="at-{{name}}" name="{{name}}">
+             <a href="/users/google-oauth/">
+                 <div class="right">
+                     <img width="35px" alt="Google &quot;G&quot; Logo" src="images/googlelogin.png"/>
+                 </div>
+                 Loggga in med
+             </a>
+        <!-- Logga in med
+        <i class="{{iconClass}}"></i> -->
       </button>
     </div>
 
 </template>
+
+
+<!-- <div class="btn white darken-4 col s10 m4">
+     <a href="/users/google-oauth/">
+         <div class="left">
+             <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+         </div>
+         Login with Google
+     </a>
+</div>  -->

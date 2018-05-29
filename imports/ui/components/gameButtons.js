@@ -73,8 +73,6 @@ function deleteBlock(){
   setClickable();
 }
 
-//albin
-// Noterar att om och avslut blocket går lite över vid borders varandra när de läggs till intill varandra.
 function createBuildningBlock(src) {
   var lastBlock = blocks[blocks.length - 1];
   var i;
