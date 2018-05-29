@@ -41,11 +41,11 @@ Template.codePage.events({
   },
 
   "click .startBlockInfoModal": function(event){
-
+      $('#sBModal').openModal();
    },
 
    "click .thenBlockInfoModal": function(event){
-
+      $('#tBModal').openModal();
     },
 
     "click .stopBlockInfoModal": function(event){
