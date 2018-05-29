@@ -5,6 +5,13 @@ import '../components/map.html';
 
 var arrayOfParks = [];
 var activeInfoWindow;
+
+export function filterPlayEnabled() {
+  addMarkers(null);
+  marker[222].setMap(map);
+  console.log('marker :', marker[222]); 
+}
+
 function addMarkers() {
     GoogleMaps.ready('map', function (map) {
       parks_objects = [];
@@ -46,7 +53,7 @@ function addMarkers() {
         gridSize: 80,
         maxZoom: 14,
       };
-    
+  
       markerClusterer = new MarkerClusterer(map.instance, parks_objects,  mcOptions);
     });
   }
