@@ -79,12 +79,7 @@ Template.parkMap.onCreated(function () {
         map: parkMap.instance,
         title:""+lights[i][0],
 
-        label: {
-          text: lightName,
-          color: "#FFFFFF",
-          fontSize: "30px",
-          fontWeight: "bold",
-        },
+        
         icon: {
           url: pinImage,
           scaledSize: new google.maps.Size(55, 55),
