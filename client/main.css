@@ -418,46 +418,41 @@ body {
   text-align: left;
 }
 
-/* loginScreen postioning */
-.loginPosition {
-    position:absolute;
-    left: 10.5%;
+/* loginScreen postioning REDUNDANT */
+/* .loginPosition {
+    position:relative;
     top: 22%;
     text-align: center;
-}
+} */
 
 .userIconPosition {
     position:absolute;
-    left: 4%;
-    top: 41.2%;
-    /* left: 8.5%;
-    top: 24%; */
+    left: 2%;
+    top: 44.2%;
     text-align: center;
     color:white;
 }
 
 .passiconPosition {
     position:absolute;
-    left: 4%;
-    top: 52.3%;
-    /* left: 8.5%;
-    top: 35%; */
+    left: 2%;
+    top: 55.3%;
     text-align: center;
     color:white;
 }
 
-.loginTitle {
+/* .loginTitle {
     position:absolute;
     left: 8%;
     top: 1%;
     text-align: center;
     color:white;
-}
+} */
 
-.blockIconPosition {
+/* .blockIconPosition {
     position:absolute;
     left: 42%;
     top: 11%;
     text-align: center;
     color:white;
-}
+} */
