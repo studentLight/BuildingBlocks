@@ -23,7 +23,7 @@ body {
 }
 
 .grey-gradient {
-  background: radial-gradient(#1565c0   , #212121 );
+  background: radial-gradient(#1565c0, #212121 );
 }
 
 .noPadding{
@@ -45,9 +45,6 @@ body {
 
 .navbar-gradient {
   background: linear-gradient(to right, #2d31a8  , #2d7aa8 );
-/*  background: linear-gradient(to right, #2d83a8   , #1a8c91 ); : blågrön
-  /* background: linear-gradient(to right, #512da8   , #311b92 );
-  /* background: linear-gradient(to right, #303f9f  , #1a237e ); */
 }
 
 .homePage-buttons{
@@ -109,9 +106,6 @@ body {
 }
 
 .boardDiv{
-  /* margin: auto;
-  position: static; */
-  /* background: #FFFFFF; */
   height: 100%;
   width: 68%;
   overflow-y: scroll;
@@ -406,7 +400,7 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
   color:white;
   font-size: 14px;
-  text-shadow: 2px 2px black;
+  /* text-shadow: 2px 2px black; */
   text-align: center;
 }
 
